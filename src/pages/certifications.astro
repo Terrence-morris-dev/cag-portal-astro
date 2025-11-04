@@ -135,11 +135,10 @@ import Footer from '../components/Footer.astro';
 }
 
 .active-cert-card {
-    background: rgba(255, 255, 255, 0.1);
-    border: 2px solid rgba(212, 175, 55, 0.3);
+    background: var(--white);
     border-radius: 12px;
     padding: 2rem;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     border-left: 4px solid;
 }
 
@@ -185,7 +184,7 @@ import Footer from '../components/Footer.astro';
 .active-cert-name {
     font-size: 1.25rem;
     font-weight: 700;
-    color: var(--white);
+    color: var(--navy);
     margin: 0 0 0.5rem 0;
 }
 
@@ -224,13 +223,13 @@ import Footer from '../components/Footer.astro';
 }
 
 .cert-detail-label {
-    color: rgba(255, 255, 255, 0.7);
+    color: #6b7280;
     font-size: 0.9rem;
 }
 
 .cert-detail-value {
     font-weight: 600;
-    color: var(--white);
+    color: var(--navy);
     font-size: 0.9rem;
 }
 
@@ -248,7 +247,7 @@ import Footer from '../components/Footer.astro';
 
 .cert-progress-bar-wrapper {
     height: 8px;
-    background: rgba(255, 255, 255, 0.2);
+    background: #e5e7eb;
     border-radius: 4px;
     overflow: hidden;
     margin-bottom: 0.5rem;
@@ -270,7 +269,7 @@ import Footer from '../components/Footer.astro';
 
 .cert-progress-text {
     font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.7);
+    color: #6b7280;
 }
 
 .cert-alert {
@@ -312,25 +311,23 @@ import Footer from '../components/Footer.astro';
 }
 
 .btn-cert-action.secondary {
-    background: rgba(255, 255, 255, 0.1);
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    color: var(--white);
+    background: var(--white);
+    border: 2px solid #e5e7eb;
+    color: var(--navy);
 }
 
 .btn-cert-action.secondary:hover {
-    background: rgba(255, 255, 255, 0.2);
-    border-color: var(--gold);
+    border-color: var(--navy);
 }
 
 .btn-cert-action.primary {
-    background: rgba(212, 175, 55, 0.2);
-    border: 2px solid var(--gold);
+    background: var(--navy);
+    border: 2px solid var(--navy);
     color: var(--white);
 }
 
 .btn-cert-action.primary:hover {
-    background: var(--gold);
-    color: var(--navy);
+    background: #1e2a3f;
 }
 
 .btn-cert-action.primary.urgent {
