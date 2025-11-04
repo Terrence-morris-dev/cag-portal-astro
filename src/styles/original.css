@@ -1654,7 +1654,7 @@
         }
 
         /* Jobs Satellite Background Section */
-        .section-gray.jobs-satellite-background {
+        .jobs-satellite-background {
             position: relative;
             background-image: url('/images/satellites-communication.jpg');
             background-size: cover;
@@ -1662,7 +1662,7 @@
             background-attachment: scroll;
         }
 
-        .section-gray.jobs-satellite-background::before {
+        .jobs-satellite-background::before {
             content: '';
             position: absolute;
             top: 0;
@@ -1673,13 +1673,13 @@
             z-index: 1;
         }
 
-        .section-gray.jobs-satellite-background .container {
+        .jobs-satellite-background .container {
             position: relative;
             z-index: 2;
         }
 
         /* Certifications Satellite Background Section */
-        .section-navy.certifications-satellite-background {
+        .certifications-satellite-background {
             position: relative;
             background-image: url('/images/satellites-communication.jpg');
             background-size: cover;
@@ -1687,7 +1687,7 @@
             background-attachment: scroll;
         }
 
-        .section-navy.certifications-satellite-background::before {
+        .certifications-satellite-background::before {
             content: '';
             position: absolute;
             top: 0;
@@ -1698,7 +1698,7 @@
             z-index: 1;
         }
 
-        .section-navy.certifications-satellite-background .container {
+        .certifications-satellite-background .container {
             position: relative;
             z-index: 2;
         }
