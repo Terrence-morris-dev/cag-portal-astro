@@ -1,31 +1,28 @@
----
-// Navbar component for CAG
----
-
-<nav class="bg-navy sticky top-0 z-50 shadow-lg">
-  <div class="max-w-7xl mx-auto px-8 py-3">
-    <div class="flex items-center justify-between">
-      <!-- Logo & Brand -->
-      <a href="/" class="flex items-center gap-3">
-        <div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center">
-          <svg class="w-8 h-8 text-navy" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
-          </svg>
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="navbar-container">
+        <div class="navbar-brand">
+            <svg style="height: 64px; width: auto;" viewBox="0 0 280 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Shield -->
+                <path d="M140 10 L185 22 L185 70 Q185 100 140 125 Q95 100 95 70 L95 22 Z" stroke="white" stroke-width="6" fill="none"/>
+                <!-- CAG Text -->
+                <text x="140" y="75" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="bold" fill="white" text-anchor="middle">CAG</text>
+                <!-- Cleared Advisory Group -->
+                <text x="140" y="108" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="600" fill="#D4AF37" text-anchor="middle" letter-spacing="2">CLEARED ADVISORY</text>
+                <text x="140" y="118" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="600" fill="#D4AF37" text-anchor="middle" letter-spacing="2">GROUP</text>
+            </svg>
         </div>
-      </a>
 
-      <!-- Navigation Links -->
-      <ul class="hidden lg:flex items-center gap-6 text-sm">
-        <li><a href="/dashboard" class="text-gray-300 hover:text-white transition-colors duration-200">Dashboard</a></li>
-        <li><a href="/jobs" class="text-gray-300 hover:text-white transition-colors duration-200">Jobs</a></li>
-        <li><a href="/certifications" class="text-gray-300 hover:text-white transition-colors duration-200">Certifications</a></li>
-        <li><a href="/interviews" class="text-gray-300 hover:text-white transition-colors duration-200">Interviews</a></li>
-        <li><a href="/messaging" class="text-gray-300 hover:text-white transition-colors duration-200">Messaging</a></li>
-        <li><a href="/analytics" class="text-gray-300 hover:text-white transition-colors duration-200">Analytics</a></li>
-        <li><a href="/consulting" class="text-gray-300 hover:text-white transition-colors duration-200">Consulting</a></li>
-        <li><a href="/settings" class="text-gray-300 hover:text-white transition-colors duration-200">Settings</a></li>
-        <li><a href="/login" class="bg-gold text-navy px-6 py-2 rounded-md font-semibold hover:bg-gold-light transition-colors duration-200">Login</a></li>
-      </ul>
+        <ul class="navbar-nav">
+            <li><a href="#dashboard" class="nav-link">Dashboard</a></li>
+            <li><a href="#jobs" class="nav-link">Jobs</a></li>
+            <li><a href="#certifications" class="nav-link">Certifications</a></li>
+            <li><a href="#interviews" class="nav-link">Interviews</a></li>
+            <li><a href="#messaging" class="nav-link">Messaging</a></li>
+            <li><a href="#analytics" class="nav-link">Analytics</a></li>
+            <li><a href="#consulting" class="nav-link">Consulting</a></li>
+            <li><a href="#settings" class="nav-link">Settings</a></li>
+            <li><a href="#login" class="btn-login">Login</a></li>
+        </ul>
     </div>
-  </div>
 </nav>
