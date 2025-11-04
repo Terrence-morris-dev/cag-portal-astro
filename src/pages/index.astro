@@ -3,6 +3,11 @@ import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Hero from '../components/Hero.astro';
 import Features from '../components/Features.astro';
+import Benefits from '../components/Benefits.astro';
+import Services from '../components/Services.astro';
+import HowItWorks from '../components/HowItWorks.astro';
+import Testimonials from '../components/Testimonials.astro';
+import Newsletter from '../components/Newsletter.astro';
 import Footer from '../components/Footer.astro';
 ---
 
@@ -10,26 +15,10 @@ import Footer from '../components/Footer.astro';
   <Navbar />
   <Hero />
   <Features />
-
-  <!-- CTA Section -->
-  <section class="bg-navy py-20">
-    <div class="max-w-4xl mx-auto px-8 text-center">
-      <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
-        Ready to Unlock Your Career Potential?
-      </h2>
-      <p class="text-xl text-gray-300 mb-8">
-        Join 1,200+ cleared professionals who have found their dream opportunities with CAG.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="/jobs" class="bg-gold text-navy px-8 py-4 rounded-lg font-bold hover:bg-gold-light transition-all duration-300 transform hover:scale-105">
-          Browse Job Board
-        </a>
-        <a href="/contact" class="border-2 border-white text-white px-8 py-4 rounded-lg font-bold hover:bg-white hover:text-navy transition-all duration-300">
-          Schedule Consultation
-        </a>
-      </div>
-    </div>
-  </section>
-
+  <Benefits />
+  <Services />
+  <HowItWorks />
+  <Testimonials />
+  <Newsletter />
   <Footer />
 </Layout>

@@ -1,0 +1,24 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import JobsHeader from '../components/jobs/JobsHeader.astro';
+import JobFilters from '../components/jobs/JobFilters.astro';
+import JobListings from '../components/jobs/JobListings.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Jobs - Cleared Advisory Group">
+  <Navbar />
+  <JobsHeader />
+
+  <section class="section section-gray jobs-satellite-background">
+    <div class="container">
+      <div class="jobs-content-wrapper">
+        <JobFilters />
+        <JobListings />
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
