@@ -1005,18 +1005,15 @@
         }
 
         .job-card {
-            background: rgba(255, 255, 255, 0.1);
-            border: 2px solid rgba(212, 175, 55, 0.3);
+            background: var(--white);
             border-radius: 12px;
             padding: 2rem;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             transition: all 0.3s;
         }
 
         .job-card:hover {
-            background: rgba(255, 255, 255, 0.15);
-            border-color: rgba(212, 175, 55, 0.5);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
             transform: translateY(-5px);
         }
 
@@ -1031,7 +1028,7 @@
         .job-title {
             font-size: 1.25rem;
             font-weight: 700;
-            color: var(--white);
+            color: var(--navy);
             margin: 0;
         }
 
@@ -1056,12 +1053,12 @@
 
         .job-company {
             font-weight: 600;
-            color: var(--white);
+            color: var(--navy);
             margin: 0.5rem 0;
         }
 
         .job-location {
-            color: rgba(255, 255, 255, 0.7);
+            color: #6b7280;
             font-size: 0.95rem;
             margin: 0.5rem 0;
         }
@@ -1071,12 +1068,12 @@
             justify-content: space-between;
             margin: 1.5rem 0;
             padding-top: 1rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            border-top: 1px solid #e5e7eb;
         }
 
         .job-salary {
             font-weight: 600;
-            color: var(--white);
+            color: var(--navy);
         }
 
         .job-match {
@@ -1087,9 +1084,9 @@
         .btn-secondary-small {
             display: inline-block;
             padding: 0.75rem 1.5rem;
-            background: rgba(212, 175, 55, 0.2);
-            border: 2px solid var(--gold);
-            color: var(--white);
+            background: var(--white);
+            border: 2px solid var(--navy);
+            color: var(--navy);
             border-radius: 8px;
             font-weight: 600;
             text-decoration: none;
@@ -1097,8 +1094,8 @@
         }
 
         .btn-secondary-small:hover {
-            background: var(--gold);
-            color: var(--navy);
+            background: var(--navy);
+            color: var(--white);
         }
 
         /* Certification Tracker */
