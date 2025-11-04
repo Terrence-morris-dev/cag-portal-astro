@@ -3,24 +3,28 @@
 ---
 
 <nav class="bg-navy sticky top-0 z-50 shadow-lg">
-  <div class="max-w-7xl mx-auto px-8 py-5">
+  <div class="max-w-7xl mx-auto px-8 py-3">
     <div class="flex items-center justify-between">
       <!-- Logo & Brand -->
-      <a href="/" class="flex items-center gap-4">
-        <img src="/images/cag-logo.png" alt="CAG Logo" class="w-12 h-12 bg-white rounded-lg p-1" />
-        <div class="flex flex-col">
-          <span class="text-white text-2xl font-bold tracking-tight">Cleared Advisory Group</span>
-          <span class="text-gold text-xs font-normal">Your Gateway to Opportunities</span>
+      <a href="/" class="flex items-center gap-3">
+        <div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center">
+          <svg class="w-8 h-8 text-navy" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+          </svg>
         </div>
       </a>
 
       <!-- Navigation Links -->
-      <ul class="hidden md:flex items-center gap-8">
-        <li><a href="/about" class="text-white hover:text-gold transition-colors duration-300 font-medium">About</a></li>
-        <li><a href="/services" class="text-white hover:text-gold transition-colors duration-300 font-medium">Services</a></li>
-        <li><a href="/jobs" class="text-white hover:text-gold transition-colors duration-300 font-medium">Job Board</a></li>
-        <li><a href="/resources" class="text-white hover:text-gold transition-colors duration-300 font-medium">Resources</a></li>
-        <li><a href="/contact" class="bg-gold text-navy px-6 py-2.5 rounded-lg font-bold hover:bg-gold-light transition-colors duration-300">Get Started</a></li>
+      <ul class="hidden lg:flex items-center gap-6 text-sm">
+        <li><a href="/dashboard" class="text-gray-300 hover:text-white transition-colors duration-200">Dashboard</a></li>
+        <li><a href="/jobs" class="text-gray-300 hover:text-white transition-colors duration-200">Jobs</a></li>
+        <li><a href="/certifications" class="text-gray-300 hover:text-white transition-colors duration-200">Certifications</a></li>
+        <li><a href="/interviews" class="text-gray-300 hover:text-white transition-colors duration-200">Interviews</a></li>
+        <li><a href="/messaging" class="text-gray-300 hover:text-white transition-colors duration-200">Messaging</a></li>
+        <li><a href="/analytics" class="text-gray-300 hover:text-white transition-colors duration-200">Analytics</a></li>
+        <li><a href="/consulting" class="text-gray-300 hover:text-white transition-colors duration-200">Consulting</a></li>
+        <li><a href="/settings" class="text-gray-300 hover:text-white transition-colors duration-200">Settings</a></li>
+        <li><a href="/login" class="bg-gold text-navy px-6 py-2 rounded-md font-semibold hover:bg-gold-light transition-colors duration-200">Login</a></li>
       </ul>
     </div>
   </div>
