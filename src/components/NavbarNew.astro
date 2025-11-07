@@ -1,0 +1,288 @@
+<!-- Consolidated Navigation -->
+<nav class="navbar-consolidated">
+    <div class="navbar-container">
+        <!-- Logo -->
+        <a href="/" class="navbar-brand">
+            <img src="/images/logo/cag-logo.png" alt="CAG Logo" class="navbar-logo" />
+        </a>
+
+        <!-- Primary Navigation (Desktop) -->
+        <ul class="navbar-primary" id="navbarPrimary">
+            <li><a href="/dashboard" class="nav-link">Dashboard</a></li>
+            <li><a href="/jobs" class="nav-link">Jobs</a></li>
+            <li><a href="/consulting" class="nav-link">Consulting</a></li>
+            <li><a href="/interviews" class="nav-link">Interviews</a></li>
+            <li><a href="/messaging" class="nav-link">Messaging</a></li>
+        </ul>
+
+        <!-- Hamburger Menu Button -->
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+        </button>
+
+        <!-- Dropdown Menu (Secondary Items) -->
+        <div class="dropdown-menu" id="dropdownMenu">
+            <div class="dropdown-content">
+                <a href="/" class="dropdown-link">
+                    <span>🏠</span> Home
+                </a>
+                <a href="/certifications" class="dropdown-link">
+                    <span>📜</span> Certifications
+                </a>
+                <a href="/analytics" class="dropdown-link">
+                    <span>📊</span> Analytics
+                </a>
+                <a href="/settings" class="dropdown-link">
+                    <span>⚙️</span> Settings
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="/login" class="dropdown-link dropdown-link-login">
+                    <span>👤</span> Login / Profile
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<script is:inline>
+    document.addEventListener('DOMContentLoaded', function() {
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const dropdownMenu = document.getElementById('dropdownMenu');
+
+        if (hamburgerBtn && dropdownMenu) {
+            // Toggle dropdown menu
+            hamburgerBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                dropdownMenu.classList.toggle('active');
+                hamburgerBtn.classList.toggle('active');
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!hamburgerBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
+                    dropdownMenu.classList.remove('active');
+                    hamburgerBtn.classList.remove('active');
+                }
+            });
+
+            // Close menu when clicking a link
+            const dropdownLinks = dropdownMenu.querySelectorAll('.dropdown-link');
+            dropdownLinks.forEach(function(link) {
+                link.addEventListener('click', function() {
+                    dropdownMenu.classList.remove('active');
+                    hamburgerBtn.classList.remove('active');
+                });
+            });
+        }
+
+        // Highlight active page
+        const currentPath = window.location.pathname;
+        const navLinks = document.querySelectorAll('.nav-link, .dropdown-link');
+        navLinks.forEach(function(link) {
+            if (link.getAttribute('href') === currentPath) {
+                link.classList.add('active');
+            }
+        });
+    });
+</script>
+
+<style>
+    .navbar-consolidated {
+        background-color: #141C2B;
+        padding: 0;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 80px;
+        position: relative;
+    }
+
+    /* Logo */
+    .navbar-logo {
+        height: 60px;
+        width: auto;
+        display: block;
+    }
+
+    .navbar-brand {
+        display: flex;
+        align-items: center;
+    }
+
+    /* Primary Navigation (Desktop) */
+    .navbar-primary {
+        display: none;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        gap: 2.5rem;
+        align-items: center;
+    }
+
+    .nav-link {
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 15px;
+        font-weight: 500;
+        padding: 0.5rem 0;
+        transition: color 0.3s ease;
+        position: relative;
+    }
+
+    .nav-link:hover {
+        color: #D4AF37;
+    }
+
+    .nav-link.active {
+        color: #D4AF37;
+    }
+
+    .nav-link.active::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background-color: #D4AF37;
+    }
+
+    /* Hamburger Button */
+    .hamburger-btn {
+        background: none;
+        border: none;
+        color: #ffffff;
+        cursor: pointer;
+        padding: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: color 0.3s ease;
+        border-radius: 6px;
+    }
+
+    .hamburger-btn:hover {
+        color: #D4AF37;
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .hamburger-btn.active {
+        color: #D4AF37;
+    }
+
+    /* Dropdown Menu */
+    .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        right: 2rem;
+        background-color: #1a2332;
+        border-radius: 12px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        min-width: 240px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+        margin-top: 0.5rem;
+    }
+
+    .dropdown-menu.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .dropdown-content {
+        padding: 0.75rem;
+    }
+
+    .dropdown-link {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.875rem 1rem;
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 15px;
+        font-weight: 500;
+        border-radius: 8px;
+        transition: all 0.2s ease;
+    }
+
+    .dropdown-link span {
+        font-size: 18px;
+    }
+
+    .dropdown-link:hover {
+        background-color: rgba(212, 175, 55, 0.1);
+        color: #D4AF37;
+    }
+
+    .dropdown-link.active {
+        background-color: rgba(212, 175, 55, 0.15);
+        color: #D4AF37;
+    }
+
+    .dropdown-divider {
+        height: 1px;
+        background-color: rgba(255, 255, 255, 0.1);
+        margin: 0.5rem 0;
+    }
+
+    .dropdown-link-login {
+        color: #D4AF37;
+        font-weight: 600;
+    }
+
+    .dropdown-link-login:hover {
+        background-color: rgba(212, 175, 55, 0.2);
+    }
+
+    /* Desktop (1024px+) */
+    @media (min-width: 1024px) {
+        .navbar-primary {
+            display: flex;
+        }
+    }
+
+    /* Mobile */
+    @media (max-width: 1023px) {
+        .navbar-container {
+            padding: 0 1.5rem;
+        }
+
+        .navbar-primary {
+            display: none;
+        }
+
+        .dropdown-menu {
+            left: 1.5rem;
+            right: 1.5rem;
+            min-width: auto;
+        }
+
+        .dropdown-content {
+            max-height: calc(100vh - 120px);
+            overflow-y: auto;
+        }
+
+        /* Add all primary items to mobile menu */
+        .dropdown-menu .mobile-primary {
+            display: block;
+        }
+    }
+</style>
