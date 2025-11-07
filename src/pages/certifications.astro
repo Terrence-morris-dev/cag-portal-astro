@@ -721,4 +721,54 @@ import Footer from '../components/Footer.astro';
         grid-template-columns: 1fr;
     }
 }
+
+@media (max-width: 768px) {
+    /* Ensure no horizontal overflow on mobile */
+    * {
+        max-width: 100%;
+        word-wrap: break-word;
+    }
+
+    .certifications-header {
+        padding: 3rem 1rem 2rem;
+    }
+
+    .certifications-header-title {
+        font-size: 2rem;
+    }
+
+    .certifications-header-subtitle {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+
+    .cert-overview-stats {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 0 1rem;
+    }
+
+    .cert-overview-card {
+        padding: 1.5rem;
+    }
+
+    .active-certs-grid,
+    .cert-catalog-grid {
+        padding: 0 1rem;
+    }
+
+    .cert-catalog-card,
+    .active-cert-card {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .renewal-resources-wrapper {
+        padding: 0 1rem;
+    }
+
+    .section {
+        overflow-x: hidden;
+    }
+}
 </style>
