@@ -11,14 +11,58 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
-
+*.log
 
 # environment variables
 .env
+.env.*
+.env.local
 .env.production
+.env.development
+*.env
+
+# AWS credentials and config
+.aws/
+aws-exports.js
+amplifyconfiguration.json
+amplify/
+.amplify/
+
+# API keys and secrets
+**/secrets.json
+**/config.json
+**/*credentials*
+**/*secret*
+**/*.key
+**/*.pem
+**/*.p12
 
 # macOS-specific files
 .DS_Store
+.AppleDouble
+.LSOverride
 
-# jetbrains setting folder
+# IDE folders
 .idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# Personal notes and docs
+NOTES.md
+TODO.md
+**/personal/
+
+# Local deployment files
+.vercel
+.netlify
