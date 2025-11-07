@@ -1,0 +1,76 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import AnalyticsHeader from '../components/analytics/AnalyticsHeader.astro';
+import KeyMetrics from '../components/analytics/KeyMetrics.astro';
+import ClearanceInsights from '../components/analytics/ClearanceInsights.astro';
+import SkillsImpact from '../components/analytics/SkillsImpact.astro';
+import ActivityTimeline from '../components/analytics/ActivityTimeline.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Analytics - Cleared Advisory Group">
+  <Navbar />
+  <AnalyticsHeader />
+  <KeyMetrics />
+  <ClearanceInsights />
+  <SkillsImpact />
+  <ActivityTimeline />
+  <Footer />
+</Layout>
+
+<script>
+  // Filter button interaction
+  const filterButtons = document.querySelectorAll('.filter-btn');
+
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+
+      // In a real app, this would filter the data
+      console.log('Filter changed to:', button.textContent);
+    });
+  });
+
+  // Animate progress ring on load
+  window.addEventListener('load', () => {
+    const progressRing = document.querySelector('.progress-ring-fill');
+    if (progressRing) {
+      // Calculate stroke dashoffset for 87% (565 is the circumference)
+      const percentage = 87;
+      const circumference = 565;
+      const offset = circumference - (percentage / 100 * circumference);
+      progressRing.style.strokeDashoffset = offset.toString();
+    }
+  });
+
+  // Animate bar charts on scroll
+  const observerOptions = {
+    threshold: 0.3,
+    rootMargin: '0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const bars = entry.target.querySelectorAll('.bar-fill');
+        bars.forEach(bar => {
+          const width = bar.style.width;
+          bar.style.width = '0%';
+          setTimeout(() => {
+            bar.style.width = width;
+          }, 100);
+        });
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  const barCharts = document.querySelectorAll('.bar-chart');
+  barCharts.forEach(chart => observer.observe(chart));
+</script>
+
+<style>
+/* Additional page-specific styles if needed */
+</style>

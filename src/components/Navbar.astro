@@ -1,24 +1,24 @@
 <!-- Navbar -->
 <nav class="navbar">
     <div class="navbar-container">
-        <div class="navbar-brand">
-            <svg style="height: 64px; width: auto;" viewBox="0 0 280 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Shield -->
-                <path d="M140 10 L185 22 L185 70 Q185 100 140 125 Q95 100 95 70 L95 22 Z" stroke="white" stroke-width="6" fill="none"/>
-                <!-- CAG Text -->
-                <text x="140" y="75" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="bold" fill="white" text-anchor="middle">CAG</text>
-                <!-- Cleared Advisory Group -->
-                <text x="140" y="108" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="600" fill="#D4AF37" text-anchor="middle" letter-spacing="2">CLEARED ADVISORY</text>
-                <text x="140" y="118" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="600" fill="#D4AF37" text-anchor="middle" letter-spacing="2">GROUP</text>
-            </svg>
-        </div>
+        <a href="/" class="navbar-brand">
+            <img src="/images/logo/cag-logo.png" alt="CAG Logo" style="height: 50px; width: auto; filter: brightness(0) invert(1);" />
+        </a>
 
-        <ul class="navbar-nav">
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+
+        <ul class="navbar-nav" id="navbarNav">
+            <li><a href="/" class="nav-link">Home</a></li>
             <li><a href="/dashboard" class="nav-link">Dashboard</a></li>
             <li><a href="/jobs" class="nav-link">Jobs</a></li>
             <li><a href="/certifications" class="nav-link">Certifications</a></li>
-            <li><a href="#interviews" class="nav-link">Interviews</a></li>
-            <li><a href="#messaging" class="nav-link">Messaging</a></li>
+            <li><a href="/interviews" class="nav-link">Interviews</a></li>
+            <li><a href="/messaging" class="nav-link">Messaging</a></li>
             <li><a href="#analytics" class="nav-link">Analytics</a></li>
             <li><a href="#consulting" class="nav-link">Consulting</a></li>
             <li><a href="#settings" class="nav-link">Settings</a></li>
@@ -26,3 +26,32 @@
         </ul>
     </div>
 </nav>
+
+<script>
+    // Mobile menu toggle
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const navbarNav = document.getElementById('navbarNav');
+
+    if (mobileMenuToggle && navbarNav) {
+        mobileMenuToggle.addEventListener('click', () => {
+            navbarNav.classList.toggle('active');
+            mobileMenuToggle.classList.toggle('active');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenuToggle.contains(e.target) && !navbarNav.contains(e.target)) {
+                navbarNav.classList.remove('active');
+                mobileMenuToggle.classList.remove('active');
+            }
+        });
+
+        // Close menu when clicking a link
+        navbarNav.querySelectorAll('.nav-link, .btn-login').forEach(link => {
+            link.addEventListener('click', () => {
+                navbarNav.classList.remove('active');
+                mobileMenuToggle.classList.remove('active');
+            });
+        });
+    }
+</script>

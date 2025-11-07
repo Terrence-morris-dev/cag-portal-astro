@@ -1,0 +1,847 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="AI Mock Interview - Cleared Advisory Group">
+  <Navbar />
+
+  <!-- Header Section -->
+  <section class="mock-interview-header">
+    <div class="container">
+      <div class="header-content">
+        <div class="ai-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+            <path d="M2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
+          </svg>
+          <span>AI-Powered</span>
+        </div>
+        <h1 class="mock-interview-title">AI Mock Interview</h1>
+        <p class="mock-interview-subtitle">Get real-time feedback on your interview answers with our AI-powered scoring system</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Configuration Section -->
+  <section class="configuration-section">
+    <div class="container">
+      <div class="config-wrapper">
+
+        <!-- Main Configuration Card -->
+        <div class="config-card">
+          <div class="config-header">
+            <h2>Setup Your Mock Interview</h2>
+            <p>Customize your practice session to match your preparation needs</p>
+          </div>
+
+          <form id="mockInterviewForm" class="config-form">
+
+            <!-- Step 1: Category Selection -->
+            <div class="config-step">
+              <div class="step-header">
+                <span class="step-number">1</span>
+                <h3>Select Interview Category</h3>
+              </div>
+              <div class="category-grid">
+                <label class="category-option">
+                  <input type="radio" name="category" value="helpdesk" checked>
+                  <div class="category-content">
+                    <div class="category-icon" style="background: linear-gradient(135deg, #3b82f6, #2563eb);">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                        <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                      </svg>
+                    </div>
+                    <span class="category-name">Helpdesk</span>
+                    <span class="category-count">84 questions</span>
+                  </div>
+                </label>
+
+                <label class="category-option">
+                  <input type="radio" name="category" value="network">
+                  <div class="category-content">
+                    <div class="category-icon" style="background: linear-gradient(135deg, #10b981, #059669);">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="16" y="16" width="6" height="6" rx="1"/>
+                        <rect x="2" y="16" width="6" height="6" rx="1"/>
+                        <rect x="9" y="2" width="6" height="6" rx="1"/>
+                      </svg>
+                    </div>
+                    <span class="category-name">Network</span>
+                    <span class="category-count">50 questions</span>
+                  </div>
+                </label>
+
+                <label class="category-option">
+                  <input type="radio" name="category" value="systems">
+                  <div class="category-content">
+                    <div class="category-icon" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed);">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="2" width="20" height="8" rx="2"/>
+                        <rect x="2" y="14" width="20" height="8" rx="2"/>
+                      </svg>
+                    </div>
+                    <span class="category-name">Systems</span>
+                    <span class="category-count">50 questions</span>
+                  </div>
+                </label>
+
+                <label class="category-option">
+                  <input type="radio" name="category" value="fiber">
+                  <div class="category-content">
+                    <div class="category-icon" style="background: linear-gradient(135deg, #f59e0b, #d97706);">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8"/>
+                      </svg>
+                    </div>
+                    <span class="category-name">Fiber Optics</span>
+                    <span class="category-count">50 questions</span>
+                  </div>
+                </label>
+
+                <label class="category-option">
+                  <input type="radio" name="category" value="isp">
+                  <div class="category-content">
+                    <div class="category-icon" style="background: linear-gradient(135deg, #14b8a6, #0d9488);">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="2" y1="12" x2="22" y2="12"/>
+                      </svg>
+                    </div>
+                    <span class="category-name">ISP</span>
+                    <span class="category-count">50 questions</span>
+                  </div>
+                </label>
+
+                <label class="category-option">
+                  <input type="radio" name="category" value="osp">
+                  <div class="category-content">
+                    <div class="category-icon" style="background: linear-gradient(135deg, #dc2626, #991b1b);">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                        <circle cx="12" cy="10" r="3"/>
+                      </svg>
+                    </div>
+                    <span class="category-name">OSP</span>
+                    <span class="category-count">50 questions</span>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <!-- Step 2: Difficulty Level -->
+            <div class="config-step">
+              <div class="step-header">
+                <span class="step-number">2</span>
+                <h3>Choose Difficulty Level</h3>
+              </div>
+              <div class="difficulty-options">
+                <label class="difficulty-option">
+                  <input type="radio" name="difficulty" value="easy">
+                  <div class="difficulty-content">
+                    <span class="difficulty-badge easy">Easy</span>
+                    <p>Foundation level questions</p>
+                  </div>
+                </label>
+                <label class="difficulty-option">
+                  <input type="radio" name="difficulty" value="medium">
+                  <div class="difficulty-content">
+                    <span class="difficulty-badge medium">Medium</span>
+                    <p>Intermediate concepts</p>
+                  </div>
+                </label>
+                <label class="difficulty-option">
+                  <input type="radio" name="difficulty" value="hard">
+                  <div class="difficulty-content">
+                    <span class="difficulty-badge hard">Hard</span>
+                    <p>Advanced scenarios</p>
+                  </div>
+                </label>
+                <label class="difficulty-option">
+                  <input type="radio" name="difficulty" value="mixed" checked>
+                  <div class="difficulty-content">
+                    <span class="difficulty-badge mixed">Mixed</span>
+                    <p>All difficulty levels</p>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <!-- Step 3: Number of Questions -->
+            <div class="config-step">
+              <div class="step-header">
+                <span class="step-number">3</span>
+                <h3>Number of Questions</h3>
+              </div>
+              <div class="question-count-options">
+                <label class="count-option">
+                  <input type="radio" name="questionCount" value="5">
+                  <div class="count-content">
+                    <span class="count-number">5</span>
+                    <span class="count-label">Questions</span>
+                    <span class="count-time">~10 minutes</span>
+                  </div>
+                </label>
+                <label class="count-option">
+                  <input type="radio" name="questionCount" value="10" checked>
+                  <div class="count-content">
+                    <span class="count-number">10</span>
+                    <span class="count-label">Questions</span>
+                    <span class="count-time">~20 minutes</span>
+                  </div>
+                </label>
+                <label class="count-option">
+                  <input type="radio" name="questionCount" value="15">
+                  <div class="count-content">
+                    <span class="count-number">15</span>
+                    <span class="count-label">Questions</span>
+                    <span class="count-time">~30 minutes</span>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <!-- Step 4: Interview Mode -->
+            <div class="config-step">
+              <div class="step-header">
+                <span class="step-number">4</span>
+                <h3>Interview Mode</h3>
+              </div>
+              <div class="mode-options">
+                <label class="mode-option">
+                  <input type="radio" name="mode" value="timed">
+                  <div class="mode-content">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <circle cx="12" cy="12" r="10"/>
+                      <polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                    <div class="mode-info">
+                      <span class="mode-name">Timed</span>
+                      <p>2 minutes per question</p>
+                    </div>
+                  </div>
+                </label>
+                <label class="mode-option">
+                  <input type="radio" name="mode" value="untimed" checked>
+                  <div class="mode-content">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                    </svg>
+                    <div class="mode-info">
+                      <span class="mode-name">Untimed</span>
+                      <p>Take your time to answer</p>
+                    </div>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn-start-interview">
+              <span>Start Mock Interview</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"/>
+                <polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </button>
+          </form>
+        </div>
+
+        <!-- Summary Sidebar -->
+        <div class="config-summary">
+          <h3>Session Summary</h3>
+          <div class="summary-items">
+            <div class="summary-item">
+              <span class="summary-label">Category</span>
+              <span class="summary-value" id="summaryCategory">Helpdesk</span>
+            </div>
+            <div class="summary-item">
+              <span class="summary-label">Difficulty</span>
+              <span class="summary-value" id="summaryDifficulty">Mixed</span>
+            </div>
+            <div class="summary-item">
+              <span class="summary-label">Questions</span>
+              <span class="summary-value" id="summaryCount">10</span>
+            </div>
+            <div class="summary-item">
+              <span class="summary-label">Mode</span>
+              <span class="summary-value" id="summaryMode">Untimed</span>
+            </div>
+            <div class="summary-item">
+              <span class="summary-label">Est. Time</span>
+              <span class="summary-value" id="summaryTime">~20 min</span>
+            </div>
+          </div>
+
+          <div class="summary-features">
+            <h4>What You'll Get:</h4>
+            <ul>
+              <li>✓ AI-powered feedback</li>
+              <li>✓ 5-point scoring system</li>
+              <li>✓ Performance breakdown</li>
+              <li>✓ Improvement suggestions</li>
+              <li>✓ Model answers</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<script>
+  // Update summary sidebar when selections change
+  const form = document.getElementById('mockInterviewForm');
+
+  if (form) {
+    form.addEventListener('change', (e) => {
+      const target = e.target as HTMLInputElement;
+
+      if (target.name === 'category') {
+        const categoryName = target.nextElementSibling?.querySelector('.category-name')?.textContent || '';
+        document.getElementById('summaryCategory')!.textContent = categoryName;
+      }
+
+      if (target.name === 'difficulty') {
+        document.getElementById('summaryDifficulty')!.textContent =
+          target.value.charAt(0).toUpperCase() + target.value.slice(1);
+      }
+
+      if (target.name === 'questionCount') {
+        const count = target.value;
+        document.getElementById('summaryCount')!.textContent = count;
+        const timeMap: { [key: string]: string } = { '5': '~10 min', '10': '~20 min', '15': '~30 min' };
+        document.getElementById('summaryTime')!.textContent = timeMap[count] || '';
+      }
+
+      if (target.name === 'mode') {
+        document.getElementById('summaryMode')!.textContent =
+          target.value.charAt(0).toUpperCase() + target.value.slice(1);
+      }
+    });
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      // Store configuration in sessionStorage
+      const formData = new FormData(form as HTMLFormElement);
+      const config = {
+        category: formData.get('category'),
+        difficulty: formData.get('difficulty'),
+        questionCount: formData.get('questionCount'),
+        mode: formData.get('mode')
+      };
+
+      sessionStorage.setItem('mockInterviewConfig', JSON.stringify(config));
+
+      // Navigate to active interview page
+      window.location.href = '/mock-interview/active';
+    });
+  }
+</script>
+
+<style>
+/* Header Section */
+.mock-interview-header {
+  position: relative;
+  background-image: url('/images/ai-interview.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: scroll;
+  padding: 4rem 0 3rem;
+  text-align: center;
+}
+
+.mock-interview-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(20, 28, 43, 0.85);
+  z-index: 1;
+}
+
+.header-content {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.ai-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(212, 175, 55, 0.2);
+  border: 2px solid var(--gold);
+  padding: 0.5rem 1.5rem;
+  border-radius: 50px;
+  margin-bottom: 1.5rem;
+  color: var(--gold);
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.ai-badge svg {
+  width: 20px;
+  height: 20px;
+}
+
+.mock-interview-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.mock-interview-subtitle {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+}
+
+/* Configuration Section */
+.configuration-section {
+  padding: 4rem 0;
+  background: #f8f9fb;
+}
+
+.config-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 3rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.config-card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 3rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.config-header {
+  margin-bottom: 3rem;
+}
+
+.config-header h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 0.75rem;
+}
+
+.config-header p {
+  color: #6b7280;
+  font-size: 1.1rem;
+}
+
+.config-step {
+  margin-bottom: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 2px solid #f3f4f6;
+}
+
+.config-step:last-of-type {
+  border-bottom: none;
+  margin-bottom: 2rem;
+}
+
+.step-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.step-number {
+  width: 40px;
+  height: 40px;
+  background: var(--gold);
+  color: var(--navy);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.step-header h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 0;
+}
+
+/* Category Grid */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.category-option {
+  cursor: pointer;
+}
+
+.category-option input[type="radio"] {
+  display: none;
+}
+
+.category-content {
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.category-option input[type="radio"]:checked + .category-content {
+  border-color: var(--gold);
+  background: rgba(212, 175, 55, 0.05);
+}
+
+.category-content:hover {
+  border-color: var(--gold);
+  transform: translateY(-2px);
+}
+
+.category-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.category-icon svg {
+  width: 28px;
+  height: 28px;
+  color: var(--white);
+}
+
+.category-name {
+  font-weight: 700;
+  color: var(--navy);
+  font-size: 1rem;
+}
+
+.category-count {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+/* Difficulty Options */
+.difficulty-options {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.difficulty-option {
+  cursor: pointer;
+}
+
+.difficulty-option input[type="radio"] {
+  display: none;
+}
+
+.difficulty-content {
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.difficulty-option input[type="radio"]:checked + .difficulty-content {
+  border-color: var(--gold);
+  background: rgba(212, 175, 55, 0.05);
+}
+
+.difficulty-badge {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.difficulty-badge.easy {
+  background: rgba(16, 185, 129, 0.1);
+  color: #059669;
+}
+
+.difficulty-badge.medium {
+  background: rgba(245, 158, 11, 0.1);
+  color: #d97706;
+}
+
+.difficulty-badge.hard {
+  background: rgba(220, 38, 38, 0.1);
+  color: #dc2626;
+}
+
+.difficulty-badge.mixed {
+  background: rgba(139, 92, 246, 0.1);
+  color: #7c3aed;
+}
+
+.difficulty-content p {
+  color: #6b7280;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* Question Count Options */
+.question-count-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.count-option {
+  cursor: pointer;
+}
+
+.count-option input[type="radio"] {
+  display: none;
+}
+
+.count-content {
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 2rem 1rem;
+  text-align: center;
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.count-option input[type="radio"]:checked + .count-content {
+  border-color: var(--gold);
+  background: rgba(212, 175, 55, 0.05);
+}
+
+.count-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.count-label {
+  font-size: 1rem;
+  color: #6b7280;
+}
+
+.count-time {
+  font-size: 0.85rem;
+  color: #9ca3af;
+}
+
+/* Mode Options */
+.mode-options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.mode-option {
+  cursor: pointer;
+}
+
+.mode-option input[type="radio"] {
+  display: none;
+}
+
+.mode-content {
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.mode-option input[type="radio"]:checked + .mode-content {
+  border-color: var(--gold);
+  background: rgba(212, 175, 55, 0.05);
+}
+
+.mode-content svg {
+  width: 40px;
+  height: 40px;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+
+.mode-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.mode-name {
+  font-weight: 700;
+  color: var(--navy);
+  font-size: 1.1rem;
+}
+
+.mode-info p {
+  color: #6b7280;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* Start Button */
+.btn-start-interview {
+  width: 100%;
+  padding: 1.25rem 2rem;
+  background: linear-gradient(135deg, var(--gold) 0%, #f4c542 100%);
+  color: var(--navy);
+  border: none;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+}
+
+.btn-start-interview:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+}
+
+.btn-start-interview svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Summary Sidebar */
+.config-summary {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  height: fit-content;
+  position: sticky;
+  top: 100px;
+}
+
+.config-summary h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 1.5rem;
+}
+
+.summary-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid #f3f4f6;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.summary-label {
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+.summary-value {
+  font-weight: 700;
+  color: var(--navy);
+  font-size: 1rem;
+}
+
+.summary-features h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 1rem;
+}
+
+.summary-features ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.summary-features li {
+  padding: 0.5rem 0;
+  color: #4b5563;
+  font-size: 0.95rem;
+}
+
+/* Mobile Responsive */
+@media (max-width: 1023px) {
+  .config-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .config-summary {
+    position: relative;
+    top: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .mock-interview-title {
+    font-size: 2rem;
+  }
+
+  .category-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .difficulty-options {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .question-count-options {
+    grid-template-columns: 1fr;
+  }
+
+  .mode-options {
+    grid-template-columns: 1fr;
+  }
+
+  .config-card {
+    padding: 2rem 1.5rem;
+  }
+}
+</style>

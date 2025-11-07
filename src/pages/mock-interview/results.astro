@@ -1,0 +1,883 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="Interview Results - Cleared Advisory Group">
+  <Navbar />
+
+  <!-- Results Header -->
+  <section class="results-header">
+    <div class="container">
+      <div class="results-hero">
+        <div class="celebration-icon">🎉</div>
+        <h1 class="results-title">Interview Complete!</h1>
+        <p class="results-subtitle">Here's how you performed</p>
+
+        <div class="overall-score">
+          <div class="stars">
+            <span class="star filled">⭐</span>
+            <span class="star filled">⭐</span>
+            <span class="star filled">⭐</span>
+            <span class="star filled">⭐</span>
+            <span class="star half">⭐</span>
+          </div>
+          <div class="score-value">4.2 / 5.0</div>
+          <div class="score-label">Overall Performance Score</div>
+        </div>
+
+        <div class="results-summary-stats">
+          <div class="summary-stat">
+            <span class="stat-value">10</span>
+            <span class="stat-label">Questions Answered</span>
+          </div>
+          <div class="summary-stat">
+            <span class="stat-value">22</span>
+            <span class="stat-label">Minutes</span>
+          </div>
+          <div class="summary-stat">
+            <span class="stat-value">Network</span>
+            <span class="stat-label">Category</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Score Breakdown -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Performance Breakdown</h2>
+        <p class="section-description">AI analysis of your interview responses across key areas</p>
+      </div>
+
+      <div class="score-breakdown-grid">
+        <!-- Length Score -->
+        <div class="breakdown-card">
+          <div class="breakdown-icon" style="background: linear-gradient(135deg, #3b82f6, #2563eb);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+              <polyline points="10 9 9 9 8 9"/>
+            </svg>
+          </div>
+          <div class="breakdown-content">
+            <h3 class="breakdown-title">Answer Length</h3>
+            <div class="breakdown-score">
+              <span class="score-number">4.5</span>
+              <span class="score-total">/5</span>
+            </div>
+            <div class="score-bar">
+              <div class="score-fill" style="width: 90%; background: #3b82f6;"></div>
+            </div>
+            <p class="breakdown-description">Excellent detail and depth in your responses</p>
+          </div>
+        </div>
+
+        <!-- Keyword Score -->
+        <div class="breakdown-card">
+          <div class="breakdown-icon" style="background: linear-gradient(135deg, #10b981, #059669);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/>
+              <path d="m21 21-4.35-4.35"/>
+              <path d="M11 8h.01M8 11h6"/>
+            </svg>
+          </div>
+          <div class="breakdown-content">
+            <h3 class="breakdown-title">Technical Keywords</h3>
+            <div class="breakdown-score">
+              <span class="score-number">4.0</span>
+              <span class="score-total">/5</span>
+            </div>
+            <div class="score-bar">
+              <div class="score-fill" style="width: 80%; background: #10b981;"></div>
+            </div>
+            <p class="breakdown-description">Good use of industry terminology</p>
+          </div>
+        </div>
+
+        <!-- Structure Score -->
+        <div class="breakdown-card">
+          <div class="breakdown-icon" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="8" y1="6" x2="21" y2="6"/>
+              <line x1="8" y1="12" x2="21" y2="12"/>
+              <line x1="8" y1="18" x2="21" y2="18"/>
+              <line x1="3" y1="6" x2="3.01" y2="6"/>
+              <line x1="3" y1="12" x2="3.01" y2="12"/>
+              <line x1="3" y1="18" x2="3.01" y2="18"/>
+            </svg>
+          </div>
+          <div class="breakdown-content">
+            <h3 class="breakdown-title">Answer Structure</h3>
+            <div class="breakdown-score">
+              <span class="score-number">4.2</span>
+              <span class="score-total">/5</span>
+            </div>
+            <div class="score-bar">
+              <div class="score-fill" style="width: 84%; background: #8b5cf6;"></div>
+            </div>
+            <p class="breakdown-description">Well-organized and clear responses</p>
+          </div>
+        </div>
+
+        <!-- Technical Depth -->
+        <div class="breakdown-card">
+          <div class="breakdown-icon" style="background: linear-gradient(135deg, #f59e0b, #d97706);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+              <path d="M2 17l10 5 10-5"/>
+              <path d="M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <div class="breakdown-content">
+            <h3 class="breakdown-title">Technical Depth</h3>
+            <div class="breakdown-score">
+              <span class="score-number">4.1</span>
+              <span class="score-total">/5</span>
+            </div>
+            <div class="score-bar">
+              <div class="score-fill" style="width: 82%; background: #f59e0b;"></div>
+            </div>
+            <p class="breakdown-description">Strong technical knowledge demonstrated</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI Feedback -->
+  <section class="section section-gray">
+    <div class="container">
+      <div class="feedback-wrapper">
+
+        <!-- Strengths -->
+        <div class="feedback-card strengths">
+          <div class="feedback-header">
+            <div class="feedback-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+            </div>
+            <h3>Strengths</h3>
+          </div>
+          <ul class="feedback-list">
+            <li>Clear and concise technical explanations</li>
+            <li>Good use of industry-standard terminology</li>
+            <li>Well-structured answers with logical flow</li>
+            <li>Provided practical examples when relevant</li>
+            <li>Demonstrated strong understanding of core concepts</li>
+          </ul>
+        </div>
+
+        <!-- Areas to Improve -->
+        <div class="feedback-card improvements">
+          <div class="feedback-header">
+            <div class="feedback-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="20" x2="18" y2="10"/>
+                <line x1="12" y1="20" x2="12" y2="4"/>
+                <line x1="6" y1="20" x2="6" y2="14"/>
+              </svg>
+            </div>
+            <h3>Areas to Improve</h3>
+          </div>
+          <ul class="feedback-list">
+            <li>Add more real-world scenarios and use cases</li>
+            <li>Include security considerations when relevant</li>
+            <li>Provide more detailed step-by-step processes</li>
+            <li>Mention troubleshooting approaches</li>
+            <li>Consider scalability and performance factors</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Question Review -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Question-by-Question Review</h2>
+        <p class="section-description">Detailed feedback on each answer</p>
+      </div>
+
+      <div class="question-review-list">
+
+        <!-- Question 1 -->
+        <div class="review-card">
+          <div class="review-header">
+            <div class="review-question-info">
+              <span class="review-question-number">Question 1</span>
+              <h3 class="review-question-title">Explain the difference between a switch and a router...</h3>
+            </div>
+            <div class="review-score">
+              <span class="review-stars">⭐⭐⭐⭐⭐</span>
+              <span class="review-score-value">4.5/5</span>
+            </div>
+          </div>
+
+          <div class="review-badges">
+            <span class="badge badge-easy">Easy</span>
+            <span class="badge badge-network">Network</span>
+          </div>
+
+          <div class="review-content">
+            <div class="review-section">
+              <h4>Your Answer:</h4>
+              <div class="answer-preview">
+                A switch operates at Layer 2 (Data Link Layer) and uses MAC addresses to forward frames within a local network. It creates a collision domain for each port. A router operates at Layer 3 (Network Layer) and uses IP addresses to route packets between different networks. Routers are used to connect networks and make routing decisions...
+              </div>
+            </div>
+
+            <div class="review-section">
+              <h4>AI Feedback:</h4>
+              <div class="feedback-points">
+                <div class="feedback-point positive">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                    <polyline points="22 4 12 14.01 9 11.01"/>
+                  </svg>
+                  <span><strong>Great:</strong> Clear explanation of OSI layer differences and addressing methods</span>
+                </div>
+                <div class="feedback-point positive">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                    <polyline points="22 4 12 14.01 9 11.01"/>
+                  </svg>
+                  <span><strong>Good:</strong> Mentioned collision domains - shows deeper understanding</span>
+                </div>
+                <div class="feedback-point suggestion">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M12 16v-4M12 8h.01"/>
+                  </svg>
+                  <span><strong>Consider:</strong> Add performance comparison and typical deployment scenarios</span>
+                </div>
+              </div>
+            </div>
+
+            <button class="btn-model-answer">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+              </svg>
+              View Model Answer
+            </button>
+          </div>
+        </div>
+
+        <!-- Question 2 (Collapsed) -->
+        <div class="review-card collapsed">
+          <div class="review-header">
+            <div class="review-question-info">
+              <span class="review-question-number">Question 2</span>
+              <h3 class="review-question-title">How would you configure a VLAN on a managed switch?</h3>
+            </div>
+            <div class="review-score">
+              <span class="review-stars">⭐⭐⭐⭐☆</span>
+              <span class="review-score-value">4.0/5</span>
+            </div>
+          </div>
+          <div class="review-badges">
+            <span class="badge badge-medium">Medium</span>
+            <span class="badge badge-network">Network</span>
+          </div>
+        </div>
+
+        <!-- Question 3 (Collapsed) -->
+        <div class="review-card collapsed">
+          <div class="review-header">
+            <div class="review-question-info">
+              <span class="review-question-number">Question 3</span>
+              <h3 class="review-question-title">Explain subnetting and calculate subnet mask...</h3>
+            </div>
+            <div class="review-score">
+              <span class="review-stars">⭐⭐⭐⭐☆</span>
+              <span class="review-score-value">3.8/5</span>
+            </div>
+          </div>
+          <div class="review-badges">
+            <span class="badge badge-hard">Hard</span>
+            <span class="badge badge-network">Network</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Action Buttons -->
+  <section class="section section-gray">
+    <div class="container">
+      <div class="results-actions">
+        <button class="action-btn action-btn-secondary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          Download PDF Report
+        </button>
+
+        <button class="action-btn action-btn-secondary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+          </svg>
+          Review All Model Answers
+        </button>
+
+        <button class="action-btn action-btn-primary" onclick="window.location.href='/mock-interview'">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/>
+            <path d="M21 3v5h-5"/>
+          </svg>
+          Try Another Interview
+        </button>
+
+        <button class="action-btn action-btn-secondary" onclick="window.location.href='/interviews'">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+          Back to Interviews
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<script>
+  // Expand/collapse review cards
+  document.querySelectorAll('.review-card.collapsed').forEach(card => {
+    card.addEventListener('click', () => {
+      card.classList.toggle('collapsed');
+    });
+  });
+</script>
+
+<style>
+/* Results Header */
+.results-header {
+  background: linear-gradient(135deg, var(--navy) 0%, #1e3a5f 100%);
+  padding: 5rem 0 4rem;
+  text-align: center;
+}
+
+.results-hero {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.celebration-icon {
+  font-size: 5rem;
+  margin-bottom: 1.5rem;
+  animation: bounce 1s ease;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+.results-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.results-subtitle {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 3rem;
+}
+
+.overall-score {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(212, 175, 55, 0.3);
+  border-radius: 16px;
+  padding: 3rem 2rem;
+  margin-bottom: 3rem;
+}
+
+.stars {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  letter-spacing: 0.5rem;
+}
+
+.star.filled {
+  color: var(--gold);
+}
+
+.star.half {
+  color: var(--gold);
+  opacity: 0.5;
+}
+
+.score-value {
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.score-label {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.1rem;
+}
+
+.results-summary-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.summary-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.stat-label {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+}
+
+/* Score Breakdown */
+.score-breakdown-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.breakdown-card {
+  background: var(--white);
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 2.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  display: flex;
+  gap: 2rem;
+}
+
+.breakdown-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.breakdown-icon svg {
+  width: 40px;
+  height: 40px;
+  color: var(--white);
+}
+
+.breakdown-content {
+  flex: 1;
+}
+
+.breakdown-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 1rem;
+}
+
+.breakdown-score {
+  margin-bottom: 1rem;
+}
+
+.score-number {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.score-total {
+  font-size: 1.5rem;
+  color: #6b7280;
+}
+
+.score-bar {
+  width: 100%;
+  height: 12px;
+  background: #e5e7eb;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.score-fill {
+  height: 100%;
+  border-radius: 6px;
+  transition: width 1s ease;
+}
+
+.breakdown-description {
+  color: #6b7280;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* Feedback */
+.feedback-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.feedback-card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 2.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.feedback-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid #f3f4f6;
+}
+
+.feedback-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.strengths .feedback-icon {
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.strengths .feedback-icon svg {
+  width: 28px;
+  height: 28px;
+  color: #10b981;
+}
+
+.improvements .feedback-icon {
+  background: rgba(59, 130, 246, 0.1);
+}
+
+.improvements .feedback-icon svg {
+  width: 28px;
+  height: 28px;
+  color: #3b82f6;
+}
+
+.feedback-header h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 0;
+}
+
+.feedback-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.feedback-list li {
+  padding-left: 2rem;
+  position: relative;
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+.strengths .feedback-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #10b981;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.improvements .feedback-list li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: #3b82f6;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+/* Question Review */
+.question-review-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.review-card {
+  background: var(--white);
+  border: 2px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 2.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s;
+}
+
+.review-card.collapsed {
+  cursor: pointer;
+}
+
+.review-card.collapsed:hover {
+  border-color: var(--gold);
+}
+
+.review-card.collapsed .review-content {
+  display: none;
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  gap: 2rem;
+}
+
+.review-question-number {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.review-question-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 0.5rem 0 0 0;
+}
+
+.review-score {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.review-stars {
+  font-size: 1.25rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.review-score-value {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.review-badges {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.review-section {
+  margin-bottom: 2rem;
+}
+
+.review-section h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 1rem;
+}
+
+.answer-preview {
+  background: #f8f9fb;
+  padding: 1.5rem;
+  border-radius: 12px;
+  color: #4b5563;
+  line-height: 1.8;
+  font-style: italic;
+}
+
+.feedback-points {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.feedback-point {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.feedback-point.positive {
+  background: rgba(16, 185, 129, 0.05);
+}
+
+.feedback-point.suggestion {
+  background: rgba(59, 130, 246, 0.05);
+}
+
+.feedback-point svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+}
+
+.feedback-point.positive svg {
+  color: #10b981;
+}
+
+.feedback-point.suggestion svg {
+  color: #3b82f6;
+}
+
+.feedback-point span {
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+.btn-model-answer {
+  padding: 0.875rem 1.5rem;
+  background: var(--white);
+  border: 2px solid var(--navy);
+  color: var(--navy);
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: all 0.3s;
+}
+
+.btn-model-answer:hover {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.btn-model-answer svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Actions */
+.results-actions {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.action-btn {
+  padding: 1.25rem 2rem;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  transition: all 0.3s;
+  border: 2px solid;
+}
+
+.action-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.action-btn-primary {
+  background: linear-gradient(135deg, var(--gold) 0%, #f4c542 100%);
+  border-color: var(--gold);
+  color: var(--navy);
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+}
+
+.action-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+}
+
+.action-btn-secondary {
+  background: var(--white);
+  border-color: #e5e7eb;
+  color: var(--navy);
+}
+
+.action-btn-secondary:hover {
+  border-color: var(--navy);
+}
+
+/* Mobile Responsive */
+@media (max-width: 767px) {
+  .results-title {
+    font-size: 2rem;
+  }
+
+  .score-value {
+    font-size: 3rem;
+  }
+
+  .results-summary-stats {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .score-breakdown-grid,
+  .feedback-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .breakdown-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .results-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .review-header {
+    flex-direction: column;
+  }
+}
+</style>

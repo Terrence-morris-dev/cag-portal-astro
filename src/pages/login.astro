@@ -1,0 +1,1160 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Login - Cleared Advisory Group">
+  <div class="login-page">
+
+    <!-- Left Side - Forms -->
+    <div class="login-left">
+      <div class="login-container">
+
+        <!-- Back to Home -->
+        <a href="/" class="back-to-home">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="19" y1="12" x2="5" y2="12"/>
+            <polyline points="12 19 5 12 12 5"/>
+          </svg>
+          Back to Home
+        </a>
+
+        <!-- Logo -->
+        <a href="/" class="login-logo">
+          <img src="/images/logo/cag-logo.png" alt="CAG Logo" style="height: 60px; width: auto;" />
+        </a>
+
+        <!-- Tab Navigation -->
+        <div class="login-tabs">
+          <button class="tab-btn active" data-tab="login">Sign In</button>
+          <button class="tab-btn" data-tab="register">Create Account</button>
+        </div>
+
+        <!-- Login Form -->
+        <div id="login-form" class="auth-form active">
+          <h2 class="form-title">Welcome Back</h2>
+          <p class="form-subtitle">Sign in to access your account</p>
+
+          <form class="form">
+            <div class="form-group">
+              <label for="login-email">Email Address</label>
+              <div class="input-wrapper">
+                <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                  <polyline points="22,6 12,13 2,6"/>
+                </svg>
+                <input type="email" id="login-email" class="form-input" placeholder="you@example.com" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="login-password">Password</label>
+              <div class="input-wrapper">
+                <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                </svg>
+                <input type="password" id="login-password" class="form-input" placeholder="Enter your password" required>
+                <button type="button" class="toggle-password" data-target="login-password">
+                  <svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                    <circle cx="12" cy="12" r="3"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <div class="form-options">
+              <label class="checkbox-label">
+                <input type="checkbox" id="remember-me">
+                <span>Remember me</span>
+              </label>
+              <a href="#forgot-password" class="link-text">Forgot password?</a>
+            </div>
+
+            <button type="submit" class="btn-submit">Sign In</button>
+          </form>
+
+          <div class="divider">
+            <span>Or sign in with</span>
+          </div>
+
+          <div class="social-buttons">
+            <button class="btn-social linkedin">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+              LinkedIn
+            </button>
+            <button class="btn-social google">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+              </svg>
+              Google
+            </button>
+          </div>
+
+          <p class="form-footer">
+            Don't have an account? <a href="#register" class="link-text" data-switch-tab="register">Sign Up</a>
+          </p>
+        </div>
+
+        <!-- Register Form -->
+        <div id="register-form" class="auth-form">
+          <h2 class="form-title">Create Your Account</h2>
+          <p class="form-subtitle">Join the premier network for cleared professionals</p>
+
+          <form class="form">
+            <div class="form-group">
+              <label for="register-name">Full Name</label>
+              <div class="input-wrapper">
+                <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                  <circle cx="12" cy="7" r="4"/>
+                </svg>
+                <input type="text" id="register-name" class="form-input" placeholder="John Doe" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="register-email">Email Address</label>
+              <div class="input-wrapper">
+                <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                  <polyline points="22,6 12,13 2,6"/>
+                </svg>
+                <input type="email" id="register-email" class="form-input" placeholder="you@example.com" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="register-phone">Phone Number</label>
+              <div class="input-wrapper">
+                <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+                <input type="tel" id="register-phone" class="form-input" placeholder="+1 (555) 123-4567">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="clearance-level">Clearance Level (Optional)</label>
+              <div class="input-wrapper">
+                <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+                <select id="clearance-level" class="form-input">
+                  <option value="">Select clearance level</option>
+                  <option value="ts-sci">TS/SCI</option>
+                  <option value="ts">Top Secret</option>
+                  <option value="secret">Secret</option>
+                  <option value="public-trust">Public Trust</option>
+                  <option value="none">None / In Process</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="register-password">Password</label>
+              <div class="input-wrapper">
+                <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                </svg>
+                <input type="password" id="register-password" class="form-input" placeholder="Create a strong password" required>
+                <button type="button" class="toggle-password" data-target="register-password">
+                  <svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                    <circle cx="12" cy="12" r="3"/>
+                  </svg>
+                </button>
+              </div>
+              <div class="password-strength" id="password-strength">
+                <div class="strength-bar">
+                  <div class="strength-fill"></div>
+                </div>
+                <span class="strength-text">Password strength</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="register-confirm">Confirm Password</label>
+              <div class="input-wrapper">
+                <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                </svg>
+                <input type="password" id="register-confirm" class="form-input" placeholder="Confirm your password" required>
+              </div>
+            </div>
+
+            <div class="password-requirements">
+              <p class="requirements-title">Password must contain:</p>
+              <ul class="requirements-list">
+                <li id="req-length">At least 8 characters</li>
+                <li id="req-uppercase">One uppercase letter</li>
+                <li id="req-number">One number</li>
+                <li id="req-special">One special character</li>
+              </ul>
+            </div>
+
+            <div class="disclaimer-box">
+              <div class="disclaimer-text">
+                <strong>Important Notice:</strong> CAG is a job board platform that connects cleared professionals with employers. We do not verify clearance information or store sensitive documents. Users self-report their clearance level, and employers are responsible for conducting their own verification during the hiring process.
+              </div>
+            </div>
+
+            <label class="checkbox-label terms">
+              <input type="checkbox" id="clearance-disclaimer" required>
+              <span>I certify that my clearance information is accurate and understand that CAG does not verify clearances. Potential employers will conduct their own verification, and CAG is not liable for any inaccuracies.</span>
+            </label>
+
+            <label class="checkbox-label terms">
+              <input type="checkbox" id="terms" required>
+              <span>I agree to the <a href="#" class="link-text">Terms of Service</a> and <a href="#" class="link-text">Privacy Policy</a></span>
+            </label>
+
+            <button type="submit" class="btn-submit">Create Account</button>
+          </form>
+
+          <p class="form-footer">
+            Already have an account? <a href="#login" class="link-text" data-switch-tab="login">Sign In</a>
+          </p>
+        </div>
+
+        <!-- Forgot Password Modal -->
+        <div id="forgot-password-modal" class="modal">
+          <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <h3 class="modal-title">Reset Your Password</h3>
+            <p class="modal-text">Enter your email address and we'll send you a link to reset your password.</p>
+
+            <form class="form">
+              <div class="form-group">
+                <label for="forgot-email">Email Address</label>
+                <input type="email" id="forgot-email" class="form-input" placeholder="you@example.com" required>
+              </div>
+              <button type="submit" class="btn-submit">Send Reset Link</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Security Badge -->
+        <div class="security-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+          <span>Secure Connection</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Right Side - Hero -->
+    <div class="login-right">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <img src="/images/logo/cag-logo.png" alt="CAG Logo" class="hero-logo" />
+        <h1 class="hero-title">Join the Premier Network for Cleared Professionals</h1>
+        <p class="hero-subtitle">Connect with top defense contractors and advance your career in the cleared space</p>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-number">5,000+</span>
+            <span class="stat-label">Active Members</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">1,000+</span>
+            <span class="stat-label">Defense Contractors</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">24/7</span>
+            <span class="stat-label">Platform Access</span>
+          </div>
+        </div>
+
+        <div class="hero-badges">
+          <div class="badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            </svg>
+            <span>Secure Platform</span>
+          </div>
+          <div class="badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+            <span>Professional Network</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</Layout>
+
+<script>
+  // Tab switching
+  const tabButtons = document.querySelectorAll('.tab-btn');
+  const authForms = document.querySelectorAll('.auth-form');
+
+  function switchTab(tabName: string) {
+    tabButtons.forEach(btn => btn.classList.remove('active'));
+    authForms.forEach(form => form.classList.remove('active'));
+
+    const activeTab = document.querySelector(`[data-tab="${tabName}"]`);
+    const activeForm = document.getElementById(`${tabName}-form`);
+
+    if (activeTab && activeForm) {
+      activeTab.classList.add('active');
+      activeForm.classList.add('active');
+    }
+  }
+
+  tabButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const tab = btn.getAttribute('data-tab');
+      if (tab) switchTab(tab);
+    });
+  });
+
+  // Switch tab links
+  document.querySelectorAll('[data-switch-tab]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const tab = (link as HTMLElement).getAttribute('data-switch-tab');
+      if (tab) switchTab(tab);
+    });
+  });
+
+  // Password visibility toggle
+  document.querySelectorAll('.toggle-password').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.getAttribute('data-target');
+      const input = document.getElementById(targetId!) as HTMLInputElement;
+
+      if (input) {
+        input.type = input.type === 'password' ? 'text' : 'password';
+      }
+    });
+  });
+
+  // Password strength checker
+  const registerPassword = document.getElementById('register-password') as HTMLInputElement;
+  const strengthFill = document.querySelector('.strength-fill') as HTMLElement;
+  const strengthText = document.querySelector('.strength-text') as HTMLElement;
+
+  const requirements = {
+    length: document.getElementById('req-length'),
+    uppercase: document.getElementById('req-uppercase'),
+    number: document.getElementById('req-number'),
+    special: document.getElementById('req-special')
+  };
+
+  if (registerPassword) {
+    registerPassword.addEventListener('input', () => {
+      const password = registerPassword.value;
+      let strength = 0;
+
+      // Check requirements
+      const hasLength = password.length >= 8;
+      const hasUppercase = /[A-Z]/.test(password);
+      const hasNumber = /[0-9]/.test(password);
+      const hasSpecial = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+
+      // Update requirement indicators
+      if (requirements.length) {
+        requirements.length.classList.toggle('met', hasLength);
+        if (hasLength) strength++;
+      }
+      if (requirements.uppercase) {
+        requirements.uppercase.classList.toggle('met', hasUppercase);
+        if (hasUppercase) strength++;
+      }
+      if (requirements.number) {
+        requirements.number.classList.toggle('met', hasNumber);
+        if (hasNumber) strength++;
+      }
+      if (requirements.special) {
+        requirements.special.classList.toggle('met', hasSpecial);
+        if (hasSpecial) strength++;
+      }
+
+      // Update strength bar
+      const percentage = (strength / 4) * 100;
+      if (strengthFill) {
+        strengthFill.style.width = `${percentage}%`;
+
+        if (strength <= 1) {
+          strengthFill.style.background = '#dc2626';
+          if (strengthText) strengthText.textContent = 'Weak';
+        } else if (strength === 2) {
+          strengthFill.style.background = '#f59e0b';
+          if (strengthText) strengthText.textContent = 'Fair';
+        } else if (strength === 3) {
+          strengthFill.style.background = '#10b981';
+          if (strengthText) strengthText.textContent = 'Good';
+        } else {
+          strengthFill.style.background = '#059669';
+          if (strengthText) strengthText.textContent = 'Strong';
+        }
+      }
+    });
+  }
+
+  // Forgot password modal
+  const forgotPasswordLink = document.querySelector('a[href="#forgot-password"]');
+  const forgotPasswordModal = document.getElementById('forgot-password-modal');
+  const modalClose = document.querySelector('.modal-close');
+
+  if (forgotPasswordLink && forgotPasswordModal) {
+    forgotPasswordLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      forgotPasswordModal.classList.add('active');
+    });
+  }
+
+  if (modalClose && forgotPasswordModal) {
+    modalClose.addEventListener('click', () => {
+      forgotPasswordModal.classList.remove('active');
+    });
+  }
+
+  // Close modal on outside click
+  if (forgotPasswordModal) {
+    forgotPasswordModal.addEventListener('click', (e) => {
+      if (e.target === forgotPasswordModal) {
+        forgotPasswordModal.classList.remove('active');
+      }
+    });
+  }
+
+  // Form submissions
+  document.querySelectorAll('.form').forEach(form => {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const isLoginForm = (form.closest('#login-form'));
+      const isRegisterForm = (form.closest('#register-form'));
+      const isForgotForm = (form.closest('#forgot-password-modal'));
+
+      if (isLoginForm) {
+        alert('Login functionality coming soon! This will authenticate your credentials.');
+        // In production: Handle login API call
+      } else if (isRegisterForm) {
+        const termsCheckbox = document.getElementById('terms') as HTMLInputElement;
+        if (!termsCheckbox?.checked) {
+          alert('Please accept the Terms of Service and Privacy Policy');
+          return;
+        }
+        alert('Registration functionality coming soon! Welcome to CAG!');
+        // In production: Handle registration API call
+      } else if (isForgotForm) {
+        alert('Password reset link sent! Check your email.');
+        if (forgotPasswordModal) {
+          forgotPasswordModal.classList.remove('active');
+        }
+      }
+    });
+  });
+
+  // Social login buttons
+  document.querySelectorAll('.btn-social').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const provider = btn.classList.contains('linkedin') ? 'LinkedIn' : 'Google';
+      alert(`${provider} authentication coming soon!`);
+    });
+  });
+</script>
+
+<style>
+/* Login Page Layout */
+.login-page {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+}
+
+/* Left Side - Forms */
+.login-left {
+  background: #f8f9fb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+  overflow-y: auto;
+}
+
+.login-container {
+  width: 100%;
+  max-width: 480px;
+}
+
+.back-to-home {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #6b7280;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s;
+}
+
+.back-to-home:hover {
+  color: var(--navy);
+  transform: translateX(-4px);
+}
+
+.back-to-home svg {
+  width: 20px;
+  height: 20px;
+}
+
+.login-logo {
+  display: block;
+  margin: 0 auto 2rem;
+  text-align: center;
+}
+
+.login-logo img {
+  filter: brightness(0) saturate(100%) invert(13%) sepia(15%) saturate(2578%) hue-rotate(180deg) brightness(95%) contrast(95%);
+}
+
+/* Tabs */
+.login-tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 1rem;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #6b7280;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-bottom: -2px;
+}
+
+.tab-btn:hover {
+  color: var(--navy);
+}
+
+.tab-btn.active {
+  color: var(--navy);
+  border-bottom-color: var(--gold);
+}
+
+/* Auth Forms */
+.auth-form {
+  display: none;
+}
+
+.auth-form.active {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+}
+
+.form-subtitle {
+  color: #6b7280;
+  margin-bottom: 2rem;
+}
+
+/* Form Elements */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: var(--navy);
+  font-size: 0.95rem;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 1rem;
+  width: 20px;
+  height: 20px;
+  color: #9ca3af;
+  pointer-events: none;
+}
+
+.form-input {
+  width: 100%;
+  padding: 1rem 1rem 1rem 3rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.3s;
+  font-family: inherit;
+  background: var(--white);
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.1);
+}
+
+.toggle-password {
+  position: absolute;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  color: #9ca3af;
+  transition: all 0.3s;
+}
+
+.toggle-password:hover {
+  color: var(--navy);
+}
+
+.eye-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Form Options */
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #6b7280;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.checkbox-label.terms {
+  margin: 1rem 0;
+  line-height: 1.5;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.link-text {
+  color: var(--gold);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.link-text:hover {
+  color: var(--navy);
+}
+
+/* Submit Button */
+.btn-submit {
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, var(--gold), #f4c542);
+  color: var(--navy);
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 0.5rem;
+}
+
+.btn-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+}
+
+/* Divider */
+.divider {
+  text-align: center;
+  margin: 2rem 0;
+  position: relative;
+}
+
+.divider::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 1px;
+  background: #e5e7eb;
+}
+
+.divider span {
+  position: relative;
+  background: #f8f9fb;
+  padding: 0 1rem;
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+/* Social Buttons */
+.social-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn-social {
+  flex: 1;
+  padding: 1rem;
+  border-radius: 10px;
+  border: 2px solid #e5e7eb;
+  background: var(--white);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  color: #374151;
+}
+
+.btn-social:hover {
+  border-color: var(--navy);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.btn-social svg {
+  width: 20px;
+  height: 20px;
+}
+
+.btn-social.linkedin {
+  border-color: #0077b5;
+  color: #0077b5;
+}
+
+.btn-social.linkedin:hover {
+  background: #0077b5;
+  color: white;
+}
+
+/* Password Strength */
+.password-strength {
+  margin-top: 0.5rem;
+}
+
+.strength-bar {
+  height: 4px;
+  background: #e5e7eb;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.strength-fill {
+  height: 100%;
+  width: 0;
+  background: #dc2626;
+  transition: all 0.3s;
+}
+
+.strength-text {
+  font-size: 0.85rem;
+  color: #6b7280;
+  font-weight: 600;
+}
+
+/* Password Requirements */
+.password-requirements {
+  background: #f8f9fb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+/* Disclaimer Box */
+.disclaimer-box {
+  background: #fef3c7;
+  border: 2px solid #f59e0b;
+  border-radius: 10px;
+  padding: 1.25rem;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.disclaimer-box svg {
+  width: 24px;
+  height: 24px;
+  color: #d97706;
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+}
+
+.disclaimer-text {
+  flex: 1;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #78350f;
+}
+
+.disclaimer-text strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #92400e;
+}
+
+.requirements-title {
+  font-weight: 600;
+  color: var(--navy);
+  font-size: 0.9rem;
+  margin: 0 0 0.75rem 0;
+}
+
+.requirements-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.requirements-list li {
+  font-size: 0.9rem;
+  color: #6b7280;
+  position: relative;
+  padding-left: 1.75rem;
+}
+
+.requirements-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  border: 2px solid #d1d5db;
+  border-radius: 50%;
+}
+
+.requirements-list li.met {
+  color: #059669;
+}
+
+.requirements-list li.met::before {
+  content: '✓';
+  border-color: #059669;
+  background: #059669;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+/* Form Footer */
+.form-footer {
+  text-align: center;
+  margin-top: 2rem;
+  color: #6b7280;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-content {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 2.5rem;
+  max-width: 450px;
+  width: 90%;
+  position: relative;
+  animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  color: #9ca3af;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+}
+
+.modal-close:hover {
+  color: var(--navy);
+}
+
+.modal-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 1rem;
+}
+
+.modal-text {
+  color: #6b7280;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+/* Security Badge */
+.security-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+  color: #10b981;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.security-badge svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Right Side - Hero */
+.login-right {
+  background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 100%);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  overflow: hidden;
+}
+
+.login-right::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/images/satellites-communication.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.15;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(20, 28, 43, 0.9) 0%, rgba(20, 28, 43, 0.85) 100%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 500px;
+}
+
+.hero-logo {
+  height: 80px;
+  width: auto;
+  margin-bottom: 2rem;
+  filter: brightness(0) invert(1);
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 3rem;
+  line-height: 1.6;
+}
+
+/* Hero Stats */
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* Hero Badges */
+.hero-badges {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.75rem 1.5rem;
+  border-radius: 30px;
+  color: var(--white);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.badge svg {
+  width: 20px;
+  height: 20px;
+  color: var(--gold);
+}
+
+/* Responsive */
+@media (max-width: 1023px) {
+  .login-page {
+    grid-template-columns: 1fr;
+  }
+
+  .login-right {
+    display: none;
+  }
+
+  .login-left {
+    padding: 2rem 1rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .form-title {
+    font-size: 1.75rem;
+  }
+
+  .social-buttons {
+    flex-direction: column;
+  }
+
+  .hero-stats {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .hero-badges {
+    flex-direction: column;
+  }
+
+  .login-tabs {
+    gap: 0.5rem;
+  }
+
+  .tab-btn {
+    font-size: 1rem;
+  }
+}
+</style>

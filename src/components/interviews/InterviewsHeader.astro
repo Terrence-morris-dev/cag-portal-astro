@@ -1,0 +1,162 @@
+<!-- Interviews Header -->
+<section class="interviews-header interviews-satellite-background">
+    <div class="container">
+        <h1 class="interviews-header-title">Master Your Defense Contractor Interview</h1>
+        <p class="interviews-header-subtitle">Practice with 500+ real interview questions across 6 technical categories</p>
+
+        <div class="interviews-search-bar">
+            <div class="search-input-wrapper">
+                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                </svg>
+                <input type="text" placeholder="Search interview questions by keyword or topic..." class="interviews-search-input">
+            </div>
+            <button class="interviews-search-btn">Search Questions</button>
+        </div>
+
+        <div class="interviews-quick-stats">
+            <div class="quick-stat">
+                <span class="quick-stat-number">500+</span>
+                <span class="quick-stat-label">Interview Questions</span>
+            </div>
+            <div class="quick-stat">
+                <span class="quick-stat-number">6</span>
+                <span class="quick-stat-label">Technical Categories</span>
+            </div>
+            <div class="quick-stat">
+                <span class="quick-stat-number">3</span>
+                <span class="quick-stat-label">Difficulty Levels</span>
+            </div>
+            <div class="quick-stat">
+                <span class="quick-stat-number">AI</span>
+                <span class="quick-stat-label">Mock Interviews</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+/* Interviews Header Styles */
+.interviews-header {
+    background: var(--navy);
+    padding: 4rem 0 3rem;
+    border-bottom: 3px solid var(--gold);
+}
+
+.interviews-satellite-background {
+    position: relative;
+    background-image: url('/images/ai-interview.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: scroll;
+}
+
+.interviews-satellite-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(20, 28, 43, 0.85);
+    z-index: 1;
+}
+
+.interviews-satellite-background .container {
+    position: relative;
+    z-index: 2;
+}
+
+.interviews-header-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--white);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.interviews-header-subtitle {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    margin-bottom: 2.5rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.interviews-search-bar {
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.interviews-search-input {
+    flex: 1;
+    padding: 1rem 1rem 1rem 3rem;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--white);
+    transition: all 0.3s;
+}
+
+.interviews-search-input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.interviews-search-input:focus {
+    outline: none;
+    border-color: var(--gold);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.interviews-search-btn {
+    padding: 1rem 2rem;
+    background: var(--gold);
+    color: var(--navy);
+    border: none;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    white-space: nowrap;
+}
+
+.interviews-search-btn:hover {
+    background: #f4c542;
+    transform: translateY(-2px);
+}
+
+.interviews-quick-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+@media (max-width: 767px) {
+    .interviews-header-title {
+        font-size: 1.75rem;
+    }
+
+    .interviews-search-bar {
+        flex-direction: column;
+    }
+
+    .interviews-search-btn {
+        width: 100%;
+    }
+
+    .interviews-quick-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+}
+</style>

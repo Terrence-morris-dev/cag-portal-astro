@@ -1,0 +1,198 @@
+<!-- Key Metrics Dashboard -->
+<section class="section">
+    <div class="container">
+        <div class="key-metrics-grid">
+
+            <!-- Metric 1 -->
+            <div class="metric-card">
+                <div class="metric-icon" style="background: linear-gradient(135deg, #3b82f6, #2563eb);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                        <circle cx="12" cy="12" r="3"/>
+                    </svg>
+                </div>
+                <div class="metric-content">
+                    <span class="metric-label">Profile Views</span>
+                    <span class="metric-value">1,247</span>
+                    <span class="metric-change positive">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+                            <polyline points="17 6 23 6 23 12"/>
+                        </svg>
+                        +18% from last month
+                    </span>
+                </div>
+            </div>
+
+            <!-- Metric 2 -->
+            <div class="metric-card">
+                <div class="metric-icon" style="background: linear-gradient(135deg, #10b981, #059669);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                        <polyline points="22 4 12 14.01 9 11.01"/>
+                    </svg>
+                </div>
+                <div class="metric-content">
+                    <span class="metric-label">Response Rate</span>
+                    <span class="metric-value">73%</span>
+                    <span class="metric-change positive">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+                            <polyline points="17 6 23 6 23 12"/>
+                        </svg>
+                        +5% from last month
+                    </span>
+                </div>
+            </div>
+
+            <!-- Metric 3 -->
+            <div class="metric-card">
+                <div class="metric-icon" style="background: linear-gradient(135deg, #f59e0b, #d97706);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                    </svg>
+                </div>
+                <div class="metric-content">
+                    <span class="metric-label">Interview Success</span>
+                    <span class="metric-value">45%</span>
+                    <span class="metric-change positive">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+                            <polyline points="17 6 23 6 23 12"/>
+                        </svg>
+                        +12% from last month
+                    </span>
+                </div>
+            </div>
+
+            <!-- Metric 4 -->
+            <div class="metric-card">
+                <div class="metric-icon" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                </div>
+                <div class="metric-content">
+                    <span class="metric-label">Avg. Response Time</span>
+                    <span class="metric-value">2.4 days</span>
+                    <span class="metric-change neutral">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                        </svg>
+                        No change
+                    </span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<style>
+.key-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.metric-card {
+    background: var(--white);
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 2rem;
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    transition: all 0.3s;
+}
+
+.metric-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.metric-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.metric-icon svg {
+    width: 32px;
+    height: 32px;
+    color: var(--white);
+}
+
+.metric-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+}
+
+.metric-label {
+    color: #6b7280;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.metric-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1;
+}
+
+.metric-change {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.metric-change.positive {
+    color: #10b981;
+}
+
+.metric-change.negative {
+    color: #dc2626;
+}
+
+.metric-change.neutral {
+    color: #6b7280;
+}
+
+.metric-change svg {
+    width: 16px;
+    height: 16px;
+}
+
+@media (max-width: 1200px) {
+    .key-metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 767px) {
+    .key-metrics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .metric-card {
+        padding: 1.5rem;
+    }
+
+    .metric-value {
+        font-size: 1.75rem;
+    }
+}
+</style>

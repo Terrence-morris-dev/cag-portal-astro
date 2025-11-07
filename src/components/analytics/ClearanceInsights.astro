@@ -1,0 +1,266 @@
+<!-- Clearance Market Insights -->
+<section class="section section-gray">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Clearance Market Insights</h2>
+            <p class="section-description">Current demand trends and salary ranges by clearance level</p>
+        </div>
+
+        <div class="insights-grid">
+
+            <!-- Demand Chart -->
+            <div class="insight-card">
+                <h3 class="insight-title">Job Demand by Clearance Level</h3>
+                <div class="chart-container">
+                    <div class="bar-chart">
+                        <div class="bar-item">
+                            <div class="bar-label">TS/SCI</div>
+                            <div class="bar-wrapper">
+                                <div class="bar-fill" style="width: 85%; background: linear-gradient(135deg, #3b82f6, #2563eb);">
+                                    <span class="bar-value">3,450 positions</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bar-item">
+                            <div class="bar-label">Top Secret</div>
+                            <div class="bar-wrapper">
+                                <div class="bar-fill" style="width: 65%; background: linear-gradient(135deg, #10b981, #059669);">
+                                    <span class="bar-value">2,640 positions</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bar-item">
+                            <div class="bar-label">Secret</div>
+                            <div class="bar-wrapper">
+                                <div class="bar-fill" style="width: 55%; background: linear-gradient(135deg, #f59e0b, #d97706);">
+                                    <span class="bar-value">2,230 positions</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bar-item">
+                            <div class="bar-label">Public Trust</div>
+                            <div class="bar-wrapper">
+                                <div class="bar-fill" style="width: 35%; background: linear-gradient(135deg, #8b5cf6, #7c3aed);">
+                                    <span class="bar-value">1,420 positions</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Salary Ranges -->
+            <div class="insight-card">
+                <h3 class="insight-title">Average Salary Ranges</h3>
+                <div class="salary-list">
+                    <div class="salary-item">
+                        <div class="salary-header">
+                            <span class="salary-clearance">TS/SCI</span>
+                            <span class="salary-badge high">High Demand</span>
+                        </div>
+                        <div class="salary-range">
+                            <span class="salary-amount">$110K - $185K</span>
+                            <span class="salary-avg">Avg: $145K</span>
+                        </div>
+                    </div>
+                    <div class="salary-item">
+                        <div class="salary-header">
+                            <span class="salary-clearance">Top Secret</span>
+                            <span class="salary-badge medium">Medium Demand</span>
+                        </div>
+                        <div class="salary-range">
+                            <span class="salary-amount">$95K - $165K</span>
+                            <span class="salary-avg">Avg: $128K</span>
+                        </div>
+                    </div>
+                    <div class="salary-item">
+                        <div class="salary-header">
+                            <span class="salary-clearance">Secret</span>
+                            <span class="salary-badge medium">Medium Demand</span>
+                        </div>
+                        <div class="salary-range">
+                            <span class="salary-amount">$85K - $145K</span>
+                            <span class="salary-avg">Avg: $112K</span>
+                        </div>
+                    </div>
+                    <div class="salary-item">
+                        <div class="salary-header">
+                            <span class="salary-clearance">Public Trust</span>
+                            <span class="salary-badge low">Standard Demand</span>
+                        </div>
+                        <div class="salary-range">
+                            <span class="salary-amount">$70K - $120K</span>
+                            <span class="salary-avg">Avg: $92K</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<style>
+.insights-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.insight-card {
+    background: var(--white);
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 2rem;
+}
+
+.insight-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 2rem;
+}
+
+/* Bar Chart */
+.bar-chart {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.bar-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.bar-label {
+    font-weight: 600;
+    color: var(--navy);
+    font-size: 0.95rem;
+}
+
+.bar-wrapper {
+    background: #f3f4f6;
+    border-radius: 8px;
+    height: 48px;
+    overflow: hidden;
+}
+
+.bar-fill {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    transition: width 1s ease;
+}
+
+.bar-value {
+    color: var(--white);
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+/* Salary List */
+.salary-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.salary-item {
+    padding: 1.5rem;
+    background: #f8f9fb;
+    border-radius: 8px;
+    border-left: 4px solid var(--gold);
+}
+
+.salary-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.salary-clearance {
+    font-weight: 700;
+    color: var(--navy);
+    font-size: 1.1rem;
+}
+
+.salary-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.salary-badge.high {
+    background: #dcfce7;
+    color: #059669;
+}
+
+.salary-badge.medium {
+    background: #fef3c7;
+    color: #d97706;
+}
+
+.salary-badge.low {
+    background: #e0e7ff;
+    color: #6366f1;
+}
+
+.salary-range {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.salary-amount {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--navy);
+}
+
+.salary-avg {
+    color: #6b7280;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+@media (max-width: 1023px) {
+    .insights-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 767px) {
+    .insight-card {
+        padding: 1.5rem;
+    }
+
+    .bar-wrapper {
+        height: 40px;
+    }
+
+    .bar-value {
+        font-size: 0.8rem;
+    }
+
+    .salary-item {
+        padding: 1rem;
+    }
+
+    .salary-amount {
+        font-size: 1rem;
+    }
+
+    .salary-range {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+}
+</style>

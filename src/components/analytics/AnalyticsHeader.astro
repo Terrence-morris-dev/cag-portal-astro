@@ -1,0 +1,106 @@
+<!-- Analytics Header -->
+<section class="analytics-header analytics-bg">
+    <div class="container">
+        <h1 class="analytics-header-title">Career Analytics & Insights</h1>
+        <p class="analytics-header-subtitle">Track your career progress, market trends, and opportunities in the defense sector</p>
+
+        <div class="analytics-filters">
+            <button class="filter-btn active">Last 30 Days</button>
+            <button class="filter-btn">Last 90 Days</button>
+            <button class="filter-btn">Last Year</button>
+            <button class="filter-btn">All Time</button>
+        </div>
+    </div>
+</section>
+
+<style>
+.analytics-header {
+    background: var(--navy);
+    padding: 4rem 0 3rem;
+    text-align: center;
+    border-bottom: 3px solid var(--gold);
+}
+
+.analytics-bg {
+    position: relative;
+    background-image: url('/images/satellites-communication.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: scroll;
+}
+
+.analytics-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(20, 28, 43, 0.85);
+    z-index: 1;
+}
+
+.analytics-bg .container {
+    position: relative;
+    z-index: 2;
+}
+
+.analytics-header-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 1rem;
+}
+
+.analytics-header-subtitle {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 700px;
+    margin: 0 auto 2rem;
+}
+
+.analytics-filters {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 0.75rem 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--white);
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.filter-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: var(--gold);
+}
+
+.filter-btn.active {
+    background: linear-gradient(135deg, var(--gold) 0%, #f4c542 100%);
+    border-color: var(--gold);
+    color: var(--navy);
+}
+
+@media (max-width: 767px) {
+    .analytics-header-title {
+        font-size: 2rem;
+    }
+
+    .analytics-filters {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .filter-btn {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+</style>

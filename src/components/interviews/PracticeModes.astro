@@ -1,0 +1,220 @@
+<!-- Practice Modes -->
+<section class="section section-gray">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-eyebrow">HOW TO PRACTICE</span>
+            <h2 class="section-title">Choose Your Practice Mode</h2>
+            <p class="section-description">Multiple ways to prepare for your defense contractor interview</p>
+        </div>
+
+        <div class="practice-modes-grid">
+            <!-- Quick Practice -->
+            <div class="practice-mode-card">
+                <div class="mode-icon" style="background: linear-gradient(135deg, #3b82f6, #2563eb);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                </div>
+                <h3 class="mode-title">Quick Practice</h3>
+                <p class="mode-description">Get 15 random questions from any category. Perfect for quick study sessions.</p>
+                <ul class="mode-features">
+                    <li>✓ 15 randomized questions</li>
+                    <li>✓ Instant answers</li>
+                    <li>✓ Timed or untimed</li>
+                    <li>✓ Track your progress</li>
+                </ul>
+                <button class="btn-mode">Start Quick Practice</button>
+            </div>
+
+            <!-- Study Mode -->
+            <div class="practice-mode-card">
+                <div class="mode-icon" style="background: linear-gradient(135deg, #10b981, #059669);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                    </svg>
+                </div>
+                <h3 class="mode-title">Study Mode</h3>
+                <p class="mode-description">Browse all questions at your own pace. Filter by category and difficulty.</p>
+                <ul class="mode-features">
+                    <li>✓ Browse 500+ questions</li>
+                    <li>✓ Filter by category</li>
+                    <li>✓ Save favorites</li>
+                    <li>✓ Study at your pace</li>
+                </ul>
+                <button class="btn-mode">Browse Questions</button>
+            </div>
+
+            <!-- Mock Interview -->
+            <div class="practice-mode-card featured">
+                <div class="featured-badge">Most Popular</div>
+                <div class="mode-icon" style="background: linear-gradient(135deg, var(--gold), #f4c542);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                        <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                        <line x1="12" y1="19" x2="12" y2="23"/>
+                        <line x1="8" y1="23" x2="16" y2="23"/>
+                    </svg>
+                </div>
+                <h3 class="mode-title">AI Mock Interview</h3>
+                <p class="mode-description">Simulate a real interview with AI-powered feedback and scoring.</p>
+                <ul class="mode-features">
+                    <li>✓ AI feedback analysis</li>
+                    <li>✓ 5-point scoring system</li>
+                    <li>✓ Performance insights</li>
+                    <li>✓ Detailed improvement tips</li>
+                </ul>
+                <button class="btn-mode btn-mode-primary" onclick="window.location.href='/mock-interview'">Start Mock Interview</button>
+            </div>
+
+            <!-- Performance Tracking -->
+            <div class="practice-mode-card">
+                <div class="mode-icon" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="20" x2="18" y2="10"/>
+                        <line x1="12" y1="20" x2="12" y2="4"/>
+                        <line x1="6" y1="20" x2="6" y2="14"/>
+                    </svg>
+                </div>
+                <h3 class="mode-title">Performance Tracking</h3>
+                <p class="mode-description">Monitor your progress and identify areas for improvement.</p>
+                <ul class="mode-features">
+                    <li>✓ Track practice history</li>
+                    <li>✓ Score analytics</li>
+                    <li>✓ Weak area identification</li>
+                    <li>✓ Progress charts</li>
+                </ul>
+                <button class="btn-mode">View Performance</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.practice-modes-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.practice-mode-card {
+    background: var(--white);
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 2.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.practice-mode-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.practice-mode-card.featured {
+    border-color: var(--gold);
+    border-width: 3px;
+}
+
+.featured-badge {
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    background: var(--gold);
+    color: var(--navy);
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.mode-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.mode-icon svg {
+    width: 36px;
+    height: 36px;
+    color: var(--white);
+}
+
+.mode-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 1rem;
+}
+
+.mode-description {
+    color: #6b7280;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.mode-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem 0;
+    flex: 1;
+}
+
+.mode-features li {
+    color: #4b5563;
+    font-size: 0.95rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.mode-features li:last-child {
+    border-bottom: none;
+}
+
+.btn-mode {
+    width: 100%;
+    padding: 1rem;
+    background: var(--navy);
+    color: var(--white);
+    border: 2px solid var(--navy);
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-mode:hover {
+    background: var(--white);
+    color: var(--navy);
+}
+
+.btn-mode-primary {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--navy);
+}
+
+.btn-mode-primary:hover {
+    background: #f4c542;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 767px) {
+    .practice-modes-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>

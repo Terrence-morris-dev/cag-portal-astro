@@ -20,7 +20,6 @@ import Footer from '../components/Footer.astro';
 <style is:inline>
 /* Certifications Page Styles */
 .certifications-header {
-    background: var(--navy);
     padding: 4rem 0 3rem;
     border-bottom: 3px solid var(--gold);
 }
@@ -544,7 +543,7 @@ import Footer from '../components/Footer.astro';
 .section-title-white {
     font-size: 2rem;
     font-weight: 700;
-    color: var(--white);
+    color: var(--navy);
     margin-bottom: 2rem;
 }
 
@@ -555,12 +554,14 @@ import Footer from '../components/Footer.astro';
 }
 
 .renewal-timeline-item {
-    background: rgba(255, 255, 255, 0.1);
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
     border-radius: 12px;
     padding: 1.5rem;
     display: flex;
     gap: 1.5rem;
     border-left: 4px solid;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .renewal-timeline-item.urgent {
@@ -578,7 +579,7 @@ import Footer from '../components/Footer.astro';
     align-items: center;
     justify-content: center;
     padding: 1rem;
-    background: rgba(255, 255, 255, 0.1);
+    background: #f3f4f6;
     border-radius: 8px;
     min-width: 80px;
 }
@@ -591,7 +592,7 @@ import Footer from '../components/Footer.astro';
 }
 
 .renewal-day {
-    color: var(--white);
+    color: var(--navy);
     font-size: 2rem;
     font-weight: 700;
     line-height: 1;
@@ -605,20 +606,20 @@ import Footer from '../components/Footer.astro';
 .renewal-cert-name {
     font-size: 1.25rem;
     font-weight: 700;
-    color: var(--white);
+    color: var(--navy);
     margin: 0 0 0.5rem 0;
 }
 
 .renewal-status {
-    color: rgba(255, 255, 255, 0.8);
+    color: #6b7280;
     margin: 0 0 1rem 0;
 }
 
 .btn-renewal-action {
     padding: 0.5rem 1rem;
-    background: rgba(255, 255, 255, 0.1);
-    border: 2px solid rgba(212, 175, 55, 0.3);
-    color: var(--white);
+    background: var(--white);
+    border: 2px solid #e5e7eb;
+    color: var(--navy);
     border-radius: 6px;
     font-weight: 600;
     cursor: pointer;
@@ -626,8 +627,9 @@ import Footer from '../components/Footer.astro';
 }
 
 .btn-renewal-action:hover {
-    background: rgba(212, 175, 55, 0.2);
+    background: var(--gold);
     border-color: var(--gold);
+    color: var(--navy);
 }
 
 /* Training Resources */
@@ -638,25 +640,28 @@ import Footer from '../components/Footer.astro';
 }
 
 .training-resource-item {
-    background: rgba(255, 255, 255, 0.1);
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
     border-radius: 12px;
     padding: 1.5rem;
     display: flex;
     align-items: center;
     gap: 1.5rem;
     transition: all 0.3s;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .training-resource-item:hover {
-    background: rgba(255, 255, 255, 0.15);
+    background: #f9fafb;
     transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
 
 .training-icon {
     width: 48px;
     height: 48px;
     border-radius: 10px;
-    background: rgba(212, 175, 55, 0.2);
+    background: rgba(212, 175, 55, 0.15);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -676,12 +681,12 @@ import Footer from '../components/Footer.astro';
 .training-title {
     font-size: 1.1rem;
     font-weight: 700;
-    color: var(--white);
+    color: var(--navy);
     margin: 0 0 0.25rem 0;
 }
 
 .training-description {
-    color: rgba(255, 255, 255, 0.7);
+    color: #6b7280;
     font-size: 0.9rem;
     margin: 0;
 }

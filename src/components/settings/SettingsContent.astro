@@ -1,0 +1,928 @@
+<!-- Settings Content with Sidebar Navigation -->
+<section class="settings-section">
+    <div class="container">
+        <div class="settings-layout">
+
+            <!-- Sidebar Navigation -->
+            <aside class="settings-sidebar">
+                <nav class="settings-nav">
+                    <a href="#profile" class="settings-nav-item active" data-section="profile">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                        <span>Profile Settings</span>
+                    </a>
+                    <a href="#security" class="settings-nav-item" data-section="security">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                        </svg>
+                        <span>Account Security</span>
+                    </a>
+                    <a href="#notifications" class="settings-nav-item" data-section="notifications">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+                            <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+                        </svg>
+                        <span>Notifications</span>
+                    </a>
+                    <a href="#privacy" class="settings-nav-item" data-section="privacy">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                        <span>Privacy & Clearance</span>
+                    </a>
+                    <a href="#billing" class="settings-nav-item" data-section="billing">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+                            <line x1="1" y1="10" x2="23" y2="10"/>
+                        </svg>
+                        <span>Billing & Subscription</span>
+                    </a>
+                    <a href="#preferences" class="settings-nav-item" data-section="preferences">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="M12 1v6m0 6v6M4.22 4.22l4.24 4.25m7.07 7.07l4.24 4.25M1 12h6m6 0h6M4.22 19.78l4.24-4.24m7.07-7.07l4.24-4.24"/>
+                        </svg>
+                        <span>Preferences</span>
+                    </a>
+                </nav>
+            </aside>
+
+            <!-- Main Content Area -->
+            <main class="settings-main">
+
+                <!-- Profile Settings Section -->
+                <div id="profile" class="settings-content-section active">
+                    <h2 class="section-heading">Profile Settings</h2>
+
+                    <!-- Personal Information -->
+                    <div class="settings-card">
+                        <h3 class="card-title">Personal Information</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="fullName">Full Name</label>
+                                <input type="text" id="fullName" value="John Doe" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" value="john.doe@example.com" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" value="+1 (555) 123-4567" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label for="location">Location</label>
+                                <input type="text" id="location" value="Washington, DC" class="form-input">
+                            </div>
+                        </div>
+                        <button class="btn-save">Save Changes</button>
+                    </div>
+
+                    <!-- Professional Details -->
+                    <div class="settings-card">
+                        <h3 class="card-title">Professional Details</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="jobTitle">Current Job Title</label>
+                                <input type="text" id="jobTitle" value="Senior Cybersecurity Engineer" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label for="experience">Years of Experience</label>
+                                <input type="number" id="experience" value="8" class="form-input">
+                            </div>
+                            <div class="form-group full-width">
+                                <label for="employer">Current Employer</label>
+                                <input type="text" id="employer" value="Lockheed Martin" class="form-input">
+                            </div>
+                            <div class="form-group full-width">
+                                <label for="summary">Professional Summary</label>
+                                <textarea id="summary" rows="4" class="form-input">Experienced cybersecurity professional with TS/SCI clearance specializing in network security and threat analysis...</textarea>
+                            </div>
+                        </div>
+                        <button class="btn-save">Save Changes</button>
+                    </div>
+
+                    <!-- Clearance Information -->
+                    <div class="settings-card">
+                        <h3 class="card-title">Clearance Information</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="clearanceLevel">Clearance Level</label>
+                                <select id="clearanceLevel" class="form-input">
+                                    <option value="ts-sci" selected>TS/SCI</option>
+                                    <option value="ts">Top Secret</option>
+                                    <option value="secret">Secret</option>
+                                    <option value="public-trust">Public Trust</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="clearanceStatus">Status</label>
+                                <select id="clearanceStatus" class="form-input">
+                                    <option value="active" selected>Active</option>
+                                    <option value="in-process">In Process</option>
+                                    <option value="expired">Expired</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="expirationDate">Expiration Date</label>
+                                <input type="date" id="expirationDate" value="2028-11-15" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label for="polygraph">Polygraph Type</label>
+                                <select id="polygraph" class="form-input">
+                                    <option value="full-scope" selected>Full Scope</option>
+                                    <option value="ci">CI Polygraph</option>
+                                    <option value="none">None</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button class="btn-save">Save Changes</button>
+                    </div>
+                </div>
+
+                <!-- Security Section -->
+                <div id="security" class="settings-content-section">
+                    <h2 class="section-heading">Account Security</h2>
+
+                    <!-- Password Management -->
+                    <div class="settings-card">
+                        <h3 class="card-title">Change Password</h3>
+                        <div class="form-grid">
+                            <div class="form-group full-width">
+                                <label for="currentPassword">Current Password</label>
+                                <input type="password" id="currentPassword" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label for="newPassword">New Password</label>
+                                <input type="password" id="newPassword" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label for="confirmPassword">Confirm Password</label>
+                                <input type="password" id="confirmPassword" class="form-input">
+                            </div>
+                        </div>
+                        <button class="btn-save">Update Password</button>
+                    </div>
+
+                    <!-- Two-Factor Authentication -->
+                    <div class="settings-card">
+                        <h3 class="card-title">Two-Factor Authentication</h3>
+                        <div class="toggle-setting">
+                            <div class="toggle-info">
+                                <strong>Enable 2FA</strong>
+                                <p>Add an extra layer of security to your account</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="alert-info">
+                            Two-factor authentication is currently enabled. Recovery codes: 6 remaining
+                        </div>
+                    </div>
+
+                    <!-- Active Sessions -->
+                    <div class="settings-card">
+                        <h3 class="card-title">Active Sessions</h3>
+                        <div class="session-list">
+                            <div class="session-item">
+                                <div class="session-info">
+                                    <strong>Current Session</strong>
+                                    <p>Chrome on MacOS • Washington, DC</p>
+                                    <span class="session-time">Active now</span>
+                                </div>
+                                <span class="session-badge current">Current</span>
+                            </div>
+                            <div class="session-item">
+                                <div class="session-info">
+                                    <strong>iPhone 14 Pro</strong>
+                                    <p>Mobile Safari • Arlington, VA</p>
+                                    <span class="session-time">2 hours ago</span>
+                                </div>
+                                <button class="btn-revoke">Revoke</button>
+                            </div>
+                        </div>
+                        <button class="btn-danger">Logout All Devices</button>
+                    </div>
+                </div>
+
+                <!-- Notifications Section -->
+                <div id="notifications" class="settings-content-section">
+                    <h2 class="section-heading">Notification Preferences</h2>
+
+                    <!-- Email Notifications -->
+                    <div class="settings-card">
+                        <h3 class="card-title">Email Notifications</h3>
+                        <div class="toggle-list">
+                            <div class="toggle-setting">
+                                <div class="toggle-info">
+                                    <strong>Job Alerts</strong>
+                                    <p>Receive notifications for new job opportunities</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            <div class="toggle-setting">
+                                <div class="toggle-info">
+                                    <strong>Messages</strong>
+                                    <p>Get notified when you receive new messages</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            <div class="toggle-setting">
+                                <div class="toggle-info">
+                                    <strong>Interview Invitations</strong>
+                                    <p>Alerts for interview requests and updates</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            <div class="toggle-setting">
+                                <div class="toggle-info">
+                                    <strong>Certification Reminders</strong>
+                                    <p>Reminders when certifications are expiring</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Notification Frequency -->
+                    <div class="settings-card">
+                        <h3 class="card-title">Email Frequency</h3>
+                        <div class="form-group">
+                            <label for="emailFrequency">How often would you like to receive emails?</label>
+                            <select id="emailFrequency" class="form-input">
+                                <option value="immediate" selected>Immediately</option>
+                                <option value="daily">Daily Digest</option>
+                                <option value="weekly">Weekly Summary</option>
+                            </select>
+                        </div>
+                        <button class="btn-save">Save Preferences</button>
+                    </div>
+                </div>
+
+                <!-- Privacy & Clearance Section -->
+                <div id="privacy" class="settings-content-section">
+                    <h2 class="section-heading">Privacy & Clearance Settings</h2>
+
+                    <!-- Profile Visibility -->
+                    <div class="settings-card">
+                        <h3 class="card-title">Profile Visibility</h3>
+                        <div class="form-group">
+                            <label for="profileVisibility">Who can see your profile?</label>
+                            <select id="profileVisibility" class="form-input">
+                                <option value="public">Everyone</option>
+                                <option value="verified" selected>Verified Recruiters Only</option>
+                                <option value="private">Private</option>
+                            </select>
+                        </div>
+                        <div class="toggle-setting">
+                            <div class="toggle-info">
+                                <strong>Show Clearance Level</strong>
+                                <p>Display your clearance level on your profile</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <button class="btn-save">Save Settings</button>
+                    </div>
+
+                    <!-- Data & Privacy -->
+                    <div class="settings-card">
+                        <h3 class="card-title">Data & Privacy</h3>
+                        <div class="privacy-actions">
+                            <button class="btn-secondary">Download Your Data</button>
+                            <button class="btn-danger">Delete Account</button>
+                        </div>
+                        <div class="alert-warning">
+                            Deleting your account is permanent and cannot be undone. All your data will be removed.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Billing Section -->
+                <div id="billing" class="settings-content-section">
+                    <h2 class="section-heading">Billing & Subscription</h2>
+
+                    <!-- Current Plan -->
+                    <div class="settings-card">
+                        <h3 class="card-title">Current Plan</h3>
+                        <div class="plan-info">
+                            <div class="plan-header">
+                                <div>
+                                    <h4 class="plan-name">Pro Plan</h4>
+                                    <p class="plan-price">$29/month</p>
+                                </div>
+                                <span class="plan-badge">Active</span>
+                            </div>
+                            <ul class="plan-features">
+                                <li>Unlimited job applications</li>
+                                <li>Priority support</li>
+                                <li>Advanced analytics</li>
+                                <li>Resume optimization tools</li>
+                            </ul>
+                            <div class="plan-actions">
+                                <button class="btn-secondary">Upgrade Plan</button>
+                                <button class="btn-text">Cancel Subscription</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment Method -->
+                    <div class="settings-card">
+                        <h3 class="card-title">Payment Method</h3>
+                        <div class="payment-info">
+                            <div class="payment-card">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+                                    <line x1="1" y1="10" x2="23" y2="10"/>
+                                </svg>
+                                <div>
+                                    <strong>Visa ending in 4242</strong>
+                                    <p>Expires 12/2026</p>
+                                </div>
+                            </div>
+                            <button class="btn-secondary">Update Payment Method</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Preferences Section -->
+                <div id="preferences" class="settings-content-section">
+                    <h2 class="section-heading">Preferences</h2>
+
+                    <!-- Display Settings -->
+                    <div class="settings-card">
+                        <h3 class="card-title">Display Settings</h3>
+                        <div class="form-group">
+                            <label for="theme">Theme</label>
+                            <select id="theme" class="form-input">
+                                <option value="light" selected>Light</option>
+                                <option value="dark">Dark</option>
+                                <option value="auto">Auto (System)</option>
+                            </select>
+                        </div>
+                        <button class="btn-save">Save Preferences</button>
+                    </div>
+
+                    <!-- Job Preferences -->
+                    <div class="settings-card">
+                        <h3 class="card-title">Job Preferences</h3>
+                        <div class="form-grid">
+                            <div class="form-group full-width">
+                                <label for="preferredLocations">Preferred Locations</label>
+                                <input type="text" id="preferredLocations" value="Washington DC, Virginia, Maryland" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label for="salaryMin">Minimum Salary</label>
+                                <input type="number" id="salaryMin" value="120000" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label for="salaryMax">Maximum Salary</label>
+                                <input type="number" id="salaryMax" value="180000" class="form-input">
+                            </div>
+                        </div>
+                        <div class="toggle-setting">
+                            <div class="toggle-info">
+                                <strong>Remote Work</strong>
+                                <p>Include remote work opportunities</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <button class="btn-save">Save Preferences</button>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+</section>
+
+<style>
+.settings-section {
+    padding: 3rem 0;
+    background: #f8f9fb;
+    min-height: calc(100vh - 400px);
+}
+
+.settings-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 3rem;
+}
+
+/* Sidebar Navigation */
+.settings-sidebar {
+    position: sticky;
+    top: 2rem;
+    height: fit-content;
+}
+
+.settings-nav {
+    background: var(--white);
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 1rem 0;
+}
+
+.settings-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    color: #6b7280;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+    border-left: 3px solid transparent;
+}
+
+.settings-nav-item:hover {
+    background: #f8f9fb;
+    color: var(--navy);
+}
+
+.settings-nav-item.active {
+    background: rgba(212, 175, 55, 0.1);
+    color: var(--navy);
+    border-left-color: var(--gold);
+}
+
+.settings-nav-item svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+/* Main Content */
+.settings-main {
+    max-width: 900px;
+}
+
+.settings-content-section {
+    display: none;
+}
+
+.settings-content-section.active {
+    display: block;
+}
+
+.section-heading {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 2rem;
+}
+
+.settings-card {
+    background: var(--white);
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 1.5rem;
+}
+
+/* Form Elements */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: var(--navy);
+    font-size: 0.9rem;
+}
+
+.form-input {
+    padding: 0.75rem 1rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s;
+    font-family: inherit;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+}
+
+textarea.form-input {
+    resize: vertical;
+}
+
+/* Buttons */
+.btn-save,
+.btn-secondary,
+.btn-danger,
+.btn-revoke,
+.btn-text {
+    padding: 0.75rem 2rem;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: none;
+}
+
+.btn-save {
+    background: linear-gradient(135deg, var(--gold), #f4c542);
+    color: var(--navy);
+}
+
+.btn-save:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+}
+
+.btn-secondary {
+    background: var(--white);
+    color: var(--navy);
+    border: 2px solid var(--navy);
+}
+
+.btn-secondary:hover {
+    background: var(--navy);
+    color: var(--white);
+}
+
+.btn-danger {
+    background: #dc2626;
+    color: var(--white);
+}
+
+.btn-danger:hover {
+    background: #b91c1c;
+}
+
+.btn-revoke {
+    background: transparent;
+    color: #dc2626;
+    border: 1px solid #dc2626;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+}
+
+.btn-text {
+    background: transparent;
+    color: #6b7280;
+    text-decoration: underline;
+}
+
+/* Toggle Switch */
+.toggle-setting {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.toggle-setting:last-child {
+    border-bottom: none;
+}
+
+.toggle-info strong {
+    display: block;
+    color: var(--navy);
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+}
+
+.toggle-info p {
+    color: #6b7280;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 28px;
+    flex-shrink: 0;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #cbd5e1;
+    transition: 0.4s;
+    border-radius: 28px;
+}
+
+.toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+.toggle-switch input:checked + .toggle-slider {
+    background: var(--gold);
+}
+
+.toggle-switch input:checked + .toggle-slider:before {
+    transform: translateX(22px);
+}
+
+.toggle-list {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Alerts */
+.alert-info,
+.alert-warning {
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.alert-info {
+    background: #dbeafe;
+    color: #1e40af;
+    border: 1px solid #93c5fd;
+}
+
+.alert-warning {
+    background: #fef3c7;
+    color: #92400e;
+    border: 1px solid #fcd34d;
+}
+
+/* Sessions */
+.session-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.session-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    background: #f8f9fb;
+    border-radius: 8px;
+}
+
+.session-info strong {
+    display: block;
+    color: var(--navy);
+    margin-bottom: 0.25rem;
+}
+
+.session-info p {
+    color: #6b7280;
+    font-size: 0.9rem;
+    margin: 0 0 0.25rem 0;
+}
+
+.session-time {
+    color: #9ca3af;
+    font-size: 0.85rem;
+}
+
+.session-badge {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.session-badge.current {
+    background: #dcfce7;
+    color: #059669;
+}
+
+/* Plan Info */
+.plan-info {
+    border: 2px solid var(--gold);
+    border-radius: 12px;
+    padding: 2rem;
+}
+
+.plan-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+}
+
+.plan-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 0 0 0.5rem 0;
+}
+
+.plan-price {
+    font-size: 1.25rem;
+    color: #6b7280;
+    margin: 0;
+}
+
+.plan-badge {
+    padding: 0.5rem 1rem;
+    background: #dcfce7;
+    color: #059669;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.plan-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+}
+
+.plan-features li {
+    padding: 0.5rem 0;
+    color: #374151;
+    position: relative;
+    padding-left: 1.75rem;
+}
+
+.plan-features li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+}
+
+.plan-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Payment Info */
+.payment-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.payment-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.payment-card svg {
+    width: 40px;
+    height: 40px;
+    color: var(--navy);
+}
+
+.payment-card strong {
+    display: block;
+    color: var(--navy);
+    margin-bottom: 0.25rem;
+}
+
+.payment-card p {
+    color: #6b7280;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* Privacy Actions */
+.privacy-actions {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Mobile Responsive */
+@media (max-width: 1023px) {
+    .settings-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .settings-sidebar {
+        position: static;
+    }
+
+    .settings-nav {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .settings-nav-item {
+        flex-direction: column;
+        text-align: center;
+        padding: 1rem 0.5rem;
+        font-size: 0.85rem;
+    }
+
+    .settings-nav-item span {
+        display: none;
+    }
+}
+
+@media (max-width: 767px) {
+    .settings-section {
+        padding: 2rem 0;
+    }
+
+    .settings-card {
+        padding: 1.5rem;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .settings-nav {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .toggle-setting {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .session-item,
+    .payment-info,
+    .plan-actions,
+    .privacy-actions {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .btn-save,
+    .btn-secondary,
+    .btn-danger {
+        width: 100%;
+    }
+}
+</style>

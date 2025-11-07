@@ -1,0 +1,371 @@
+<!-- Skills & Certifications Impact -->
+<section class="section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Skills & Certifications Impact</h2>
+            <p class="section-description">See how your certifications stack up against market demand</p>
+        </div>
+
+        <div class="skills-grid">
+
+            <!-- Your Skills Match -->
+            <div class="skills-card">
+                <div class="skills-header">
+                    <h3 class="skills-title">Your Skill Match Score</h3>
+                    <span class="match-score">87%</span>
+                </div>
+                <div class="progress-ring">
+                    <svg viewBox="0 0 200 200">
+                        <circle cx="100" cy="100" r="90" class="progress-ring-bg"/>
+                        <circle cx="100" cy="100" r="90" class="progress-ring-fill" style="stroke-dashoffset: 63;"/>
+                    </svg>
+                    <div class="progress-center">
+                        <span class="progress-value">87%</span>
+                        <span class="progress-label">Match</span>
+                    </div>
+                </div>
+                <p class="skills-description">Your skills align well with current market demands in the defense sector. Focus on cloud certifications to reach 95%.</p>
+            </div>
+
+            <!-- Top Certifications -->
+            <div class="skills-card">
+                <h3 class="skills-title">Most In-Demand Certifications</h3>
+                <div class="cert-list">
+                    <div class="cert-item">
+                        <div class="cert-rank">1</div>
+                        <div class="cert-info">
+                            <span class="cert-name">CISSP</span>
+                            <span class="cert-demand">3,240 job postings</span>
+                        </div>
+                        <div class="cert-impact high">High Impact</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-rank">2</div>
+                        <div class="cert-info">
+                            <span class="cert-name">Security+ (CompTIA)</span>
+                            <span class="cert-demand">2,890 job postings</span>
+                        </div>
+                        <div class="cert-impact high">High Impact</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-rank">3</div>
+                        <div class="cert-info">
+                            <span class="cert-name">AWS Solutions Architect</span>
+                            <span class="cert-demand">2,450 job postings</span>
+                        </div>
+                        <div class="cert-impact medium">Medium Impact</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-rank">4</div>
+                        <div class="cert-info">
+                            <span class="cert-name">CEH</span>
+                            <span class="cert-demand">1,980 job postings</span>
+                        </div>
+                        <div class="cert-impact medium">Medium Impact</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-rank">5</div>
+                        <div class="cert-info">
+                            <span class="cert-name">CCNA</span>
+                            <span class="cert-demand">1,750 job postings</span>
+                        </div>
+                        <div class="cert-impact medium">Medium Impact</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Recommended Certifications -->
+        <div class="recommendations-card">
+            <h3 class="recommendations-title">Recommended Next Steps</h3>
+            <div class="recommendations-grid">
+                <div class="recommendation-item">
+                    <svg class="rec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                    <div class="rec-content">
+                        <h4 class="rec-title">Earn AWS Certification</h4>
+                        <p class="rec-description">Cloud skills are in high demand. Adding AWS would boost your profile visibility by 24%.</p>
+                    </div>
+                </div>
+                <div class="recommendation-item">
+                    <svg class="rec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                    <div class="rec-content">
+                        <h4 class="rec-title">Update Security+ Certification</h4>
+                        <p class="rec-description">Your Security+ expires in 3 months. Renewing early shows commitment to professional development.</p>
+                    </div>
+                </div>
+                <div class="recommendation-item">
+                    <svg class="rec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                    <div class="rec-content">
+                        <h4 class="rec-title">Add DevSecOps Skills</h4>
+                        <p class="rec-description">DevSecOps roles have grown 45% this year with average salaries 18% higher than standard security roles.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<style>
+.skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.skills-card {
+    background: var(--white);
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 2rem;
+}
+
+.skills-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.skills-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 1.5rem;
+}
+
+.match-score {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--gold);
+}
+
+/* Progress Ring */
+.progress-ring {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 2rem auto;
+}
+
+.progress-ring svg {
+    transform: rotate(-90deg);
+}
+
+.progress-ring-bg {
+    fill: none;
+    stroke: #e5e7eb;
+    stroke-width: 12;
+}
+
+.progress-ring-fill {
+    fill: none;
+    stroke: var(--gold);
+    stroke-width: 12;
+    stroke-linecap: round;
+    stroke-dasharray: 565;
+    transition: stroke-dashoffset 1s ease;
+}
+
+.progress-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.progress-value {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--navy);
+}
+
+.progress-label {
+    color: #6b7280;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.skills-description {
+    color: #6b7280;
+    line-height: 1.6;
+    text-align: center;
+    margin: 0;
+}
+
+/* Certifications List */
+.cert-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.cert-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: #f8f9fb;
+    border-radius: 8px;
+    transition: all 0.3s;
+}
+
+.cert-item:hover {
+    background: #f3f4f6;
+    transform: translateX(5px);
+}
+
+.cert-rank {
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, var(--gold), #f4c542);
+    color: var(--navy);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+
+.cert-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.cert-name {
+    font-weight: 700;
+    color: var(--navy);
+}
+
+.cert-demand {
+    font-size: 0.85rem;
+    color: #6b7280;
+}
+
+.cert-impact {
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.cert-impact.high {
+    background: #dcfce7;
+    color: #059669;
+}
+
+.cert-impact.medium {
+    background: #fef3c7;
+    color: #d97706;
+}
+
+/* Recommendations */
+.recommendations-card {
+    margin-top: 2rem;
+    background: var(--white);
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 2rem;
+}
+
+.recommendations-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 2rem;
+}
+
+.recommendations-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.recommendation-item {
+    display: flex;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: #f8f9fb;
+    border-radius: 8px;
+    border-left: 4px solid var(--gold);
+}
+
+.rec-icon {
+    width: 24px;
+    height: 24px;
+    color: var(--gold);
+    flex-shrink: 0;
+}
+
+.rec-content {
+    flex: 1;
+}
+
+.rec-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 0.5rem;
+}
+
+.rec-description {
+    color: #6b7280;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+@media (max-width: 1023px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .recommendations-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 767px) {
+    .skills-card {
+        padding: 1.5rem;
+    }
+
+    .progress-ring {
+        width: 160px;
+        height: 160px;
+    }
+
+    .progress-value {
+        font-size: 2rem;
+    }
+
+    .cert-item {
+        flex-wrap: wrap;
+    }
+
+    .cert-impact {
+        width: 100%;
+        text-align: center;
+    }
+
+    .recommendation-item {
+        padding: 1rem;
+    }
+}
+</style>

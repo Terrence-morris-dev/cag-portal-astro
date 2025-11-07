@@ -1,0 +1,195 @@
+<!-- Consulting Header -->
+<section class="consulting-header consulting-bg">
+    <div class="container">
+        <h1 class="consulting-header-title">Expert Career Consulting Services</h1>
+        <p class="consulting-header-subtitle">Personalized guidance from industry experts who understand the cleared professional landscape</p>
+
+        <button class="btn-schedule-consultation">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                <line x1="16" y1="2" x2="16" y2="6"/>
+                <line x1="8" y1="2" x2="8" y2="6"/>
+                <line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+            Schedule Free Consultation
+        </button>
+
+        <div class="consulting-stats">
+            <div class="stat-item">
+                <span class="stat-value">500+</span>
+                <span class="stat-label">Clients Placed</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+                <span class="stat-value">95%</span>
+                <span class="stat-label">Success Rate</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+                <span class="stat-value">$25K</span>
+                <span class="stat-label">Avg. Salary Increase</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.consulting-header {
+    background: var(--navy);
+    padding: 5rem 0 4rem;
+    text-align: center;
+    border-bottom: 3px solid var(--gold);
+}
+
+.consulting-bg {
+    position: relative;
+    background-image: url('/images/satellites-communication.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: scroll;
+}
+
+.consulting-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(20, 28, 43, 0.88);
+    z-index: 1;
+}
+
+.consulting-bg .container {
+    position: relative;
+    z-index: 2;
+}
+
+.consulting-header-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 1rem;
+}
+
+.consulting-header-subtitle {
+    font-size: 1.3rem;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 800px;
+    margin: 0 auto 2.5rem;
+}
+
+.btn-schedule-consultation {
+    padding: 1.25rem 3rem;
+    background: linear-gradient(135deg, var(--gold) 0%, #f4c542 100%);
+    color: var(--navy);
+    border: none;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: all 0.3s;
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
+    margin-bottom: 3rem;
+}
+
+.btn-schedule-consultation:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 25px rgba(212, 175, 55, 0.5);
+}
+
+.btn-schedule-consultation svg {
+    width: 24px;
+    height: 24px;
+}
+
+.consulting-stats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.stat-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+}
+
+.stat-label {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.stat-divider {
+    width: 1px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 1023px) {
+    .consulting-header-title {
+        font-size: 2.5rem;
+    }
+
+    .consulting-stats {
+        gap: 2rem;
+    }
+
+    .stat-value {
+        font-size: 2rem;
+    }
+
+    .stat-label {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .consulting-header {
+        padding: 4rem 0 3rem;
+    }
+
+    .consulting-header-title {
+        font-size: 2rem;
+    }
+
+    .consulting-header-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .btn-schedule-consultation {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .consulting-stats {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .stat-divider {
+        display: none;
+    }
+
+    .stat-value {
+        font-size: 2rem;
+    }
+}
+</style>

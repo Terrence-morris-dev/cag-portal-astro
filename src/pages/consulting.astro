@@ -1,0 +1,55 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import ConsultingHeader from '../components/consulting/ConsultingHeader.astro';
+import ConsultingServices from '../components/consulting/ConsultingServices.astro';
+import PricingPackages from '../components/consulting/PricingPackages.astro';
+import ConsultantsTestimonials from '../components/consulting/ConsultantsTestimonials.astro';
+import ProcessCTA from '../components/consulting/ProcessCTA.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Consulting - Cleared Advisory Group">
+  <Navbar />
+  <ConsultingHeader />
+  <ConsultingServices />
+  <PricingPackages />
+  <ConsultantsTestimonials />
+  <ProcessCTA />
+  <Footer />
+</Layout>
+
+<script>
+  // Schedule consultation button handlers
+  const scheduleButtons = document.querySelectorAll('.btn-schedule-consultation, .btn-cta-primary');
+
+  scheduleButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      alert('Consultation booking system coming soon! For now, please call 1-800-CAG-HELP or email consulting@clearedadvisorygroup.com');
+    });
+  });
+
+  // Package selection handlers
+  const packageButtons = document.querySelectorAll('.btn-select-package');
+
+  packageButtons.forEach(button => {
+    button.addEventListener('click', (e) => {
+      const packageCard = (e.target as HTMLElement).closest('.pricing-card');
+      const packageTitle = packageCard?.querySelector('.pricing-title')?.textContent;
+      alert(`You selected the ${packageTitle} package. Booking system coming soon!`);
+    });
+  });
+
+  // Call button handler
+  const callButton = document.querySelector('.btn-cta-secondary');
+
+  if (callButton) {
+    callButton.addEventListener('click', () => {
+      window.location.href = 'tel:1-800-224-4357';
+    });
+  }
+</script>
+
+<style>
+/* Additional page-specific styles if needed */
+</style>

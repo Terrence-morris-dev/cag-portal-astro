@@ -102,6 +102,23 @@
             color: var(--gold);
         }
 
+        .btn-login {
+            background: linear-gradient(135deg, var(--gold) 0%, #f4c542 100%);
+            color: var(--navy);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            padding: 0.75rem 1.75rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-login:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
+        }
+
         .navbar-actions {
             display: flex;
             gap: 1.5rem;
@@ -753,9 +770,10 @@
         }
 
         .footer-logo {
-            width: 45px;
-            height: 45px;
+            height: 60px;
+            width: auto;
             margin-bottom: 1rem;
+            filter: brightness(0) invert(1);
         }
 
         .footer-tagline {
@@ -1988,3 +2006,329 @@
                 border-radius: 8px;
             }
         }
+
+/* ========================================
+   MOBILE NAVIGATION & HAMBURGER MENU
+   ======================================== */
+
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+.hamburger-line {
+    width: 100%;
+    height: 3px;
+    background-color: var(--white);
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+.mobile-menu-toggle.active .hamburger-line:nth-child(1) {
+    transform: translateY(10.5px) rotate(45deg);
+}
+
+.mobile-menu-toggle.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-toggle.active .hamburger-line:nth-child(3) {
+    transform: translateY(-10.5px) rotate(-45deg);
+}
+
+/* ========================================
+   TABLET STYLES (768px - 1023px)
+   ======================================== */
+
+@media (max-width: 1023px) {
+    .container {
+        padding: 0 1.5rem;
+    }
+
+    .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .hero-image {
+        order: -1;
+        margin: 0 auto;
+    }
+
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ========================================
+   MOBILE STYLES (max-width: 767px)
+   ======================================== */
+
+@media (max-width: 767px) {
+    /* Mobile Menu Toggle Visible */
+    .mobile-menu-toggle {
+        display: flex;
+    }
+
+    /* Mobile Navigation */
+    .navbar-nav {
+        position: fixed;
+        top: 72px;
+        right: -100%;
+        width: 280px;
+        height: calc(100vh - 72px);
+        background: var(--navy);
+        flex-direction: column;
+        padding: 2rem 0;
+        transition: right 0.3s ease;
+        box-shadow: -4px 0 12px rgba(0, 0, 0, 0.3);
+        overflow-y: auto;
+        z-index: 1000;
+    }
+
+    .navbar-nav.active {
+        right: 0;
+    }
+
+    .navbar-nav li {
+        margin: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .navbar-nav li:last-child {
+        border-bottom: none;
+    }
+
+    .nav-link,
+    .btn-login {
+        display: block;
+        padding: 1rem 2rem;
+        width: 100%;
+        text-align: left;
+    }
+
+    .btn-login {
+        background: var(--gold);
+        color: var(--navy);
+        margin: 1rem;
+        width: calc(100% - 2rem);
+        text-align: center;
+    }
+
+    /* Typography */
+    h1 {
+        font-size: 2rem !important;
+    }
+
+    h2 {
+        font-size: 1.75rem !important;
+    }
+
+    h3 {
+        font-size: 1.5rem !important;
+    }
+
+    h4 {
+        font-size: 1.25rem !important;
+    }
+
+    /* Container */
+    .container {
+        padding: 0 1rem;
+    }
+
+    /* Sections */
+    .section {
+        padding: 3rem 0;
+    }
+
+    /* Hero */
+    .hero {
+        padding: 4rem 0;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+
+    /* Features, Services, Testimonials Grids */
+    .features-grid,
+    .services-grid,
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    /* Benefits Section */
+    .benefits-content {
+        grid-template-columns: 1fr;
+    }
+
+    .benefits-image {
+        order: -1;
+    }
+
+    /* How It Works */
+    .steps-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Footer */
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    /* Jobs Page */
+    .jobs-search-bar {
+        flex-direction: column;
+    }
+
+    .search-input-wrapper {
+        width: 100%;
+    }
+
+    .jobs-search-btn {
+        width: 100%;
+    }
+
+    .jobs-quick-stats {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .job-filters {
+        display: none;
+    }
+
+    .job-card-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Certifications Page */
+    .cert-overview-stats {
+        grid-template-columns: 1fr !important;
+        gap: 1rem;
+    }
+
+    .cert-overview-card {
+        padding: 1.5rem;
+    }
+
+    .active-certs-grid,
+    .cert-catalog-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .renewal-resources-wrapper {
+        grid-template-columns: 1fr !important;
+        gap: 2rem;
+    }
+
+    /* Dashboard */
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .quick-actions-grid,
+    .job-cards-grid,
+    .cert-tracker-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Buttons */
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        margin-bottom: 0.75rem;
+    }
+
+    /* Newsletter */
+    .newsletter-form {
+        flex-direction: column;
+    }
+
+    .newsletter-input,
+    .newsletter-button {
+        width: 100%;
+        border-radius: 8px;
+    }
+
+    .newsletter-button {
+        margin-top: 0.5rem;
+    }
+}
+
+/* ========================================
+   EXTRA SMALL MOBILE (max-width: 480px)
+   ======================================== */
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.75rem !important;
+    }
+
+    h2 {
+        font-size: 1.5rem !important;
+    }
+
+    .navbar-container {
+        padding: 0 1rem;
+    }
+
+    .hero-title {
+        font-size: 1.75rem;
+    }
+
+    .section {
+        padding: 2.5rem 0;
+    }
+
+    .cert-overview-card,
+    .active-cert-card,
+    .cert-catalog-card,
+    .training-resource-item {
+        padding: 1.25rem;
+    }
+
+    .footer-logo {
+        height: 45px;
+    }
+}

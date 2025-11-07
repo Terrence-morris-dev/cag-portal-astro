@@ -1,0 +1,1076 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import MessagingHeader from '../components/messaging/MessagingHeader.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Messaging - Cleared Advisory Group">
+  <Navbar />
+  <MessagingHeader />
+
+  <!-- Main Messaging App -->
+  <section class="messaging-app-section">
+    <div class="container-fluid">
+      <div class="messaging-app">
+
+        <!-- Left Sidebar -->
+        <div class="messaging-sidebar">
+          <div class="sidebar-search">
+            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.35-4.35"></path>
+            </svg>
+            <input type="text" placeholder="Search messages..." class="search-input">
+          </div>
+
+          <nav class="sidebar-nav">
+            <a href="#" class="nav-item active">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+              </svg>
+              <span>Inbox</span>
+              <span class="nav-badge">5</span>
+            </a>
+            <a href="#" class="nav-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="22" y1="2" x2="11" y2="13"/>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+              </svg>
+              <span>Sent</span>
+            </a>
+            <a href="#" class="nav-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+              </svg>
+              <span>Starred</span>
+            </a>
+            <a href="#" class="nav-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="21 8 21 21 3 21 3 8"/>
+                <rect x="1" y="3" width="22" height="5"/>
+              </svg>
+              <span>Archive</span>
+            </a>
+          </nav>
+
+          <button class="btn-compose-sidebar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="12" y1="5" x2="12" y2="19"/>
+              <line x1="5" y1="12" x2="19" y2="12"/>
+            </svg>
+            Compose
+          </button>
+        </div>
+
+        <!-- Conversations List -->
+        <div class="conversations-list">
+          <div class="conversations-header">
+            <h2>Messages</h2>
+            <button class="filter-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>
+              </svg>
+            </button>
+          </div>
+
+          <div class="conversations-scroll">
+
+            <!-- Conversation 1 (Active) -->
+            <div class="conversation-item active">
+              <div class="conversation-avatar">
+                <div class="avatar" style="background: linear-gradient(135deg, #3b82f6, #2563eb);">SM</div>
+                <span class="online-indicator"></span>
+              </div>
+              <div class="conversation-content">
+                <div class="conversation-header-row">
+                  <span class="conversation-name">Sarah Mitchell</span>
+                  <span class="conversation-time">2 min ago</span>
+                </div>
+                <div class="conversation-preview">
+                  <span class="conversation-role">Senior Recruiter - Booz Allen Hamilton</span>
+                  <p class="conversation-last-message">Thanks for applying! I'd like to schedule an interview...</p>
+                </div>
+              </div>
+              <div class="conversation-meta">
+                <span class="unread-badge">2</span>
+                <span class="clearance-badge">TS/SCI</span>
+              </div>
+            </div>
+
+            <!-- Conversation 2 -->
+            <div class="conversation-item">
+              <div class="conversation-avatar">
+                <div class="avatar" style="background: linear-gradient(135deg, #10b981, #059669);">MC</div>
+              </div>
+              <div class="conversation-content">
+                <div class="conversation-header-row">
+                  <span class="conversation-name">Michael Chen</span>
+                  <span class="conversation-time">1 hour ago</span>
+                </div>
+                <div class="conversation-preview">
+                  <span class="conversation-role">Hiring Manager - Northrop Grumman</span>
+                  <p class="conversation-last-message">Your security clearance has been verified successfully...</p>
+                </div>
+              </div>
+              <div class="conversation-meta">
+                <span class="clearance-badge">Secret</span>
+              </div>
+            </div>
+
+            <!-- Conversation 3 -->
+            <div class="conversation-item">
+              <div class="conversation-avatar">
+                <div class="avatar" style="background: linear-gradient(135deg, #f59e0b, #d97706);">JR</div>
+                <span class="online-indicator"></span>
+              </div>
+              <div class="conversation-content">
+                <div class="conversation-header-row">
+                  <span class="conversation-name">Jessica Roberts</span>
+                  <span class="conversation-time">Yesterday</span>
+                </div>
+                <div class="conversation-preview">
+                  <span class="conversation-role">Network Engineer - Raytheon</span>
+                  <p class="conversation-last-message">Do you have experience with Cisco ASA firewalls?</p>
+                </div>
+              </div>
+              <div class="conversation-meta">
+                <span class="unread-badge">1</span>
+                <span class="clearance-badge">TS/SCI</span>
+              </div>
+            </div>
+
+            <!-- Conversation 4 -->
+            <div class="conversation-item">
+              <div class="conversation-avatar">
+                <div class="avatar" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed);">DW</div>
+              </div>
+              <div class="conversation-content">
+                <div class="conversation-header-row">
+                  <span class="conversation-name">David Wilson</span>
+                  <span class="conversation-time">2 days ago</span>
+                </div>
+                <div class="conversation-preview">
+                  <span class="conversation-role">Systems Administrator - Lockheed Martin</span>
+                  <p class="conversation-last-message">Great meeting you at the conference last week!</p>
+                </div>
+              </div>
+              <div class="conversation-meta">
+                <span class="clearance-badge">Secret</span>
+              </div>
+            </div>
+
+            <!-- Conversation 5 -->
+            <div class="conversation-item">
+              <div class="conversation-avatar">
+                <div class="avatar" style="background: linear-gradient(135deg, #dc2626, #991b1b);">AL</div>
+              </div>
+              <div class="conversation-content">
+                <div class="conversation-header-row">
+                  <span class="conversation-name">Amanda Lee</span>
+                  <span class="conversation-time">3 days ago</span>
+                </div>
+                <div class="conversation-preview">
+                  <span class="conversation-role">Technical Recruiter - General Dynamics</span>
+                  <p class="conversation-last-message">I have an exciting opportunity for you...</p>
+                </div>
+              </div>
+              <div class="conversation-meta">
+                <span class="clearance-badge">Top Secret</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Active Conversation -->
+        <div class="active-conversation">
+
+          <!-- Conversation Header -->
+          <div class="conversation-top-header">
+            <div class="header-left">
+              <div class="header-avatar">
+                <div class="avatar" style="background: linear-gradient(135deg, #3b82f6, #2563eb);">SM</div>
+                <span class="online-indicator"></span>
+              </div>
+              <div class="header-info">
+                <h3 class="header-name">Sarah Mitchell</h3>
+                <p class="header-role">Senior Recruiter - Booz Allen Hamilton</p>
+                <span class="header-status">Online</span>
+              </div>
+            </div>
+            <div class="header-actions">
+              <button class="action-btn" title="Video Call">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="23 7 16 12 23 17 23 7"/>
+                  <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+                </svg>
+              </button>
+              <button class="action-btn" title="Voice Call">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+              </button>
+              <button class="action-btn" title="More">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="1"/>
+                  <circle cx="12" cy="5" r="1"/>
+                  <circle cx="12" cy="19" r="1"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Messages Area -->
+          <div class="messages-area" id="messagesArea">
+
+            <!-- Date Separator -->
+            <div class="date-separator">
+              <span>Today</span>
+            </div>
+
+            <!-- Received Message -->
+            <div class="message received">
+              <div class="message-avatar">
+                <div class="avatar-small" style="background: linear-gradient(135deg, #3b82f6, #2563eb);">SM</div>
+              </div>
+              <div class="message-content">
+                <div class="message-bubble">
+                  <p>Hi! Thanks for applying to our Network Security Engineer position. I reviewed your profile and I'm impressed with your TS/SCI clearance and Cisco certifications.</p>
+                </div>
+                <span class="message-time">10:23 AM</span>
+              </div>
+            </div>
+
+            <!-- Received Message 2 -->
+            <div class="message received">
+              <div class="message-avatar">
+                <div class="avatar-small" style="background: linear-gradient(135deg, #3b82f6, #2563eb);">SM</div>
+              </div>
+              <div class="message-content">
+                <div class="message-bubble">
+                  <p>Would you be available for a technical interview next week? We're looking to fill this position quickly.</p>
+                </div>
+                <span class="message-time">10:24 AM</span>
+              </div>
+            </div>
+
+            <!-- Sent Message -->
+            <div class="message sent">
+              <div class="message-content">
+                <div class="message-bubble">
+                  <p>Hi Sarah! Thank you for reaching out. Yes, I'd definitely be interested in discussing this opportunity. Next week works great for me.</p>
+                </div>
+                <div class="message-meta">
+                  <span class="message-time">10:28 AM</span>
+                  <svg class="read-receipt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="20 6 9 17 4 12"/>
+                    <polyline points="20 6 9 17 4 12" transform="translate(4, 0)"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sent Message 2 -->
+            <div class="message sent">
+              <div class="message-content">
+                <div class="message-bubble">
+                  <p>I'm available Monday through Wednesday afternoons. What time works best for your team?</p>
+                </div>
+                <div class="message-meta">
+                  <span class="message-time">10:29 AM</span>
+                  <svg class="read-receipt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="20 6 9 17 4 12"/>
+                    <polyline points="20 6 9 17 4 12" transform="translate(4, 0)"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- Typing Indicator -->
+            <div class="message received">
+              <div class="message-avatar">
+                <div class="avatar-small" style="background: linear-gradient(135deg, #3b82f6, #2563eb);">SM</div>
+              </div>
+              <div class="message-content">
+                <div class="typing-indicator">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Message Input -->
+          <div class="message-input-area">
+            <div class="encryption-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              </svg>
+              End-to-end encrypted
+            </div>
+            <div class="input-wrapper">
+              <button class="input-action-btn" title="Attach file">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/>
+                </svg>
+              </button>
+              <button class="input-action-btn" title="Add emoji">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+                  <line x1="9" y1="9" x2="9.01" y2="9"/>
+                  <line x1="15" y1="9" x2="15.01" y2="9"/>
+                </svg>
+              </button>
+              <input type="text" class="message-input" placeholder="Type a message..." />
+              <button class="btn-send">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="22" y1="2" x2="11" y2="13"/>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                </svg>
+                Send
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<script>
+  // Auto-scroll messages to bottom
+  const messagesArea = document.getElementById('messagesArea');
+  if (messagesArea) {
+    messagesArea.scrollTop = messagesArea.scrollHeight;
+  }
+
+  // Send message simulation
+  const messageInput = document.querySelector('.message-input') as HTMLInputElement;
+  const sendBtn = document.querySelector('.btn-send');
+
+  if (sendBtn && messageInput) {
+    sendBtn.addEventListener('click', () => {
+      if (messageInput.value.trim()) {
+        alert('Message sending functionality coming soon!');
+        messageInput.value = '';
+      }
+    });
+
+    messageInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter' && messageInput.value.trim()) {
+        sendBtn.click();
+      }
+    });
+  }
+</script>
+
+<style>
+/* Messaging App Section */
+.messaging-app-section {
+  padding: 0 0 3rem 0;
+  background: #f8f9fb;
+  min-height: calc(100vh - 80px);
+}
+
+.container-fluid {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.messaging-app {
+  display: grid;
+  grid-template-columns: 280px 400px 1fr;
+  height: 700px;
+  background: var(--white);
+  border: 1px solid #e5e7eb;
+}
+
+/* Sidebar */
+.messaging-sidebar {
+  background: #f8f9fb;
+  border-right: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+}
+
+.sidebar-search {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.sidebar-search .search-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  color: #9ca3af;
+}
+
+.sidebar-search .search-input {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 3rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  background: var(--white);
+}
+
+.sidebar-search .search-input:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+
+.sidebar-nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1rem;
+  border-radius: 8px;
+  color: #6b7280;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.nav-item:hover {
+  background: rgba(212, 175, 55, 0.1);
+  color: var(--navy);
+}
+
+.nav-item.active {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.nav-item svg {
+  width: 20px;
+  height: 20px;
+}
+
+.nav-badge {
+  margin-left: auto;
+  background: #dc2626;
+  color: var(--white);
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.btn-compose-sidebar {
+  padding: 0.875rem;
+  background: linear-gradient(135deg, var(--gold) 0%, #f4c542 100%);
+  color: var(--navy);
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.3s;
+  margin-top: 1rem;
+}
+
+.btn-compose-sidebar:hover {
+  transform: translateY(-2px);
+}
+
+.btn-compose-sidebar svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Conversations List */
+.conversations-list {
+  border-right: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+}
+
+.conversations-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.conversations-header h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 0;
+}
+
+.filter-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  background: var(--white);
+  color: #6b7280;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+}
+
+.filter-btn:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.filter-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.conversations-scroll {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.conversation-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  border-left: 3px solid transparent;
+}
+
+.conversation-item:hover {
+  background: #f8f9fb;
+}
+
+.conversation-item.active {
+  background: rgba(212, 175, 55, 0.05);
+  border-left-color: var(--gold);
+}
+
+.conversation-avatar {
+  position: relative;
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.online-indicator {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 12px;
+  height: 12px;
+  background: #10b981;
+  border: 2px solid var(--white);
+  border-radius: 50%;
+}
+
+.conversation-content {
+  min-width: 0;
+}
+
+.conversation-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.25rem;
+}
+
+.conversation-name {
+  font-weight: 700;
+  color: var(--navy);
+  font-size: 0.95rem;
+}
+
+.conversation-time {
+  font-size: 0.75rem;
+  color: #9ca3af;
+}
+
+.conversation-role {
+  font-size: 0.75rem;
+  color: #6b7280;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.conversation-last-message {
+  font-size: 0.85rem;
+  color: #9ca3af;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.conversation-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+
+.unread-badge {
+  background: #dc2626;
+  color: var(--white);
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  min-width: 20px;
+  text-align: center;
+}
+
+.clearance-badge {
+  padding: 0.25rem 0.5rem;
+  background: rgba(59, 130, 246, 0.1);
+  color: #2563eb;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* Active Conversation */
+.active-conversation {
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+}
+
+.conversation-top-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-left {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.header-avatar {
+  position: relative;
+}
+
+.header-avatar .avatar {
+  width: 56px;
+  height: 56px;
+}
+
+.header-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.header-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 0;
+}
+
+.header-role {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin: 0;
+}
+
+.header-status {
+  font-size: 0.8rem;
+  color: #10b981;
+}
+
+.header-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.action-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  background: var(--white);
+  color: #6b7280;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+}
+
+.action-btn:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.action-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Messages Area */
+.messages-area {
+  flex: 1;
+  overflow-y: auto;
+  padding: 2rem;
+  background: #f8f9fb;
+}
+
+.date-separator {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.date-separator span {
+  background: #e5e7eb;
+  padding: 0.5rem 1rem;
+  border-radius: 16px;
+  font-size: 0.85rem;
+  color: #6b7280;
+  font-weight: 600;
+}
+
+.message {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.message.sent {
+  justify-content: flex-end;
+}
+
+.message.sent .message-content {
+  align-items: flex-end;
+}
+
+.message-avatar {
+  flex-shrink: 0;
+}
+
+.avatar-small {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.message-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 60%;
+}
+
+.message-bubble {
+  padding: 1rem 1.25rem;
+  border-radius: 16px;
+  line-height: 1.6;
+}
+
+.message.received .message-bubble {
+  background: var(--white);
+  border: 1px solid #e5e7eb;
+  border-top-left-radius: 4px;
+  color: #1f2937;
+}
+
+.message.sent .message-bubble {
+  background: linear-gradient(135deg, var(--gold) 0%, #f4c542 100%);
+  border-top-right-radius: 4px;
+  color: var(--navy);
+}
+
+.message-bubble p {
+  margin: 0;
+}
+
+.message-time {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  padding: 0 0.5rem;
+}
+
+.message-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+
+.read-receipt {
+  width: 16px;
+  height: 16px;
+  color: #10b981;
+}
+
+/* Typing Indicator */
+.typing-indicator {
+  background: var(--white);
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 1rem 1.25rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.typing-indicator span {
+  width: 8px;
+  height: 8px;
+  background: #9ca3af;
+  border-radius: 50%;
+  animation: typing 1.4s infinite;
+}
+
+.typing-indicator span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-indicator span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes typing {
+  0%, 60%, 100% {
+    transform: translateY(0);
+    opacity: 0.7;
+  }
+  30% {
+    transform: translateY(-10px);
+    opacity: 1;
+  }
+}
+
+/* Message Input */
+.message-input-area {
+  border-top: 1px solid #e5e7eb;
+  background: var(--white);
+  padding: 1rem 1.5rem;
+}
+
+.encryption-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #6b7280;
+  font-size: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.encryption-badge svg {
+  width: 14px;
+  height: 14px;
+  color: #10b981;
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #f8f9fb;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+}
+
+.input-wrapper:focus-within {
+  border-color: var(--gold);
+}
+
+.input-action-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+  color: #6b7280;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  flex-shrink: 0;
+}
+
+.input-action-btn:hover {
+  background: rgba(212, 175, 55, 0.1);
+  color: var(--gold);
+}
+
+.input-action-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.message-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 0.95rem;
+  padding: 0.5rem;
+  outline: none;
+}
+
+.message-input::placeholder {
+  color: #9ca3af;
+}
+
+.btn-send {
+  padding: 0.625rem 1.25rem;
+  background: linear-gradient(135deg, var(--gold) 0%, #f4c542 100%);
+  color: var(--navy);
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s;
+  flex-shrink: 0;
+}
+
+.btn-send:hover {
+  transform: translateY(-1px);
+}
+
+.btn-send svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 1200px) {
+  .messaging-app {
+    grid-template-columns: 320px 1fr;
+  }
+
+  .messaging-sidebar {
+    display: none;
+  }
+}
+
+@media (max-width: 1023px) {
+  .messaging-app {
+    grid-template-columns: 1fr;
+    height: auto;
+    min-height: 800px;
+  }
+
+  .messaging-sidebar {
+    display: none;
+  }
+
+  .conversations-list {
+    display: none;
+  }
+
+  .active-conversation {
+    display: flex;
+  }
+
+  .message-content {
+    max-width: 85%;
+  }
+}
+
+@media (max-width: 767px) {
+  .messaging-app {
+    min-height: 700px;
+  }
+
+  .conversation-top-header {
+    padding: 1rem;
+  }
+
+  .header-avatar .avatar {
+    width: 44px;
+    height: 44px;
+  }
+
+  .header-name {
+    font-size: 1.1rem;
+  }
+
+  .header-role {
+    font-size: 0.8rem;
+  }
+
+  .header-actions {
+    gap: 0.25rem;
+  }
+
+  .action-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .messages-area {
+    padding: 1rem;
+  }
+
+  .message-content {
+    max-width: 90%;
+  }
+
+  .message-input-area {
+    padding: 1rem;
+  }
+
+  .btn-send span {
+    display: none;
+  }
+
+  .btn-send {
+    padding: 0.625rem;
+  }
+}
+</style>

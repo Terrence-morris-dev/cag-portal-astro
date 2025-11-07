@@ -1,0 +1,132 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import SettingsHeader from '../components/settings/SettingsHeader.astro';
+import SettingsContent from '../components/settings/SettingsContent.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Settings - Cleared Advisory Group">
+  <Navbar />
+  <SettingsHeader />
+  <SettingsContent />
+  <Footer />
+</Layout>
+
+<script>
+  // Settings navigation
+  const navItems = document.querySelectorAll('.settings-nav-item');
+  const contentSections = document.querySelectorAll('.settings-content-section');
+
+  navItems.forEach(item => {
+    item.addEventListener('click', (e) => {
+      e.preventDefault();
+
+      const sectionId = item.getAttribute('data-section');
+
+      // Update active nav item
+      navItems.forEach(nav => nav.classList.remove('active'));
+      item.classList.add('active');
+
+      // Update visible content section
+      contentSections.forEach(section => section.classList.remove('active'));
+      const targetSection = document.getElementById(sectionId);
+      if (targetSection) {
+        targetSection.classList.add('active');
+
+        // Smooth scroll to top of content
+        targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // Save buttons
+  const saveButtons = document.querySelectorAll('.btn-save');
+  saveButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      alert('Settings saved successfully!');
+    });
+  });
+
+  // Update password button
+  const updatePasswordBtn = document.querySelector('.btn-save');
+  if (updatePasswordBtn) {
+    updatePasswordBtn.addEventListener('click', () => {
+      const currentPassword = (document.getElementById('currentPassword') as HTMLInputElement)?.value;
+      const newPassword = (document.getElementById('newPassword') as HTMLInputElement)?.value;
+      const confirmPassword = (document.getElementById('confirmPassword') as HTMLInputElement)?.value;
+
+      if (newPassword !== confirmPassword) {
+        alert('New passwords do not match!');
+        return;
+      }
+
+      if (currentPassword && newPassword) {
+        alert('Password updated successfully!');
+      }
+    });
+  }
+
+  // Logout all devices
+  const logoutAllBtn = document.querySelector('.btn-danger');
+  if (logoutAllBtn && logoutAllBtn.textContent?.includes('Logout')) {
+    logoutAllBtn.addEventListener('click', () => {
+      if (confirm('Are you sure you want to logout all devices?')) {
+        alert('Logged out from all devices!');
+      }
+    });
+  }
+
+  // Delete account
+  const deleteAccountBtn = Array.from(document.querySelectorAll('.btn-danger')).find(
+    btn => btn.textContent?.includes('Delete Account')
+  );
+
+  if (deleteAccountBtn) {
+    deleteAccountBtn.addEventListener('click', () => {
+      if (confirm('Are you ABSOLUTELY SURE you want to delete your account? This action cannot be undone.')) {
+        alert('Account deletion process initiated. You will receive a confirmation email.');
+      }
+    });
+  }
+
+  // Revoke session buttons
+  const revokeButtons = document.querySelectorAll('.btn-revoke');
+  revokeButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      if (confirm('Revoke this session?')) {
+        const sessionItem = button.closest('.session-item');
+        if (sessionItem) {
+          sessionItem.style.opacity = '0.5';
+          button.textContent = 'Revoked';
+          button.disabled = true;
+        }
+      }
+    });
+  });
+
+  // Download data
+  const downloadDataBtn = Array.from(document.querySelectorAll('.btn-secondary')).find(
+    btn => btn.textContent?.includes('Download')
+  );
+
+  if (downloadDataBtn) {
+    downloadDataBtn.addEventListener('click', () => {
+      alert('Your data export has been requested. You will receive an email with a download link within 24 hours.');
+    });
+  }
+
+  // Toggle switches - just for visual feedback
+  const toggleSwitches = document.querySelectorAll('.toggle-switch input');
+  toggleSwitches.forEach(toggle => {
+    toggle.addEventListener('change', () => {
+      const setting = toggle.closest('.toggle-setting')?.querySelector('strong')?.textContent;
+      const status = toggle.checked ? 'enabled' : 'disabled';
+      console.log(`${setting} ${status}`);
+    });
+  });
+</script>
+
+<style>
+/* Additional page-specific styles if needed */
+</style>

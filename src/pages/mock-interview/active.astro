@@ -1,0 +1,605 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Mock Interview Active - Cleared Advisory Group">
+
+  <!-- Minimized Navbar -->
+  <nav class="interview-navbar">
+    <div class="container">
+      <a href="/" class="navbar-brand-mini">
+        <img src="/images/logo/cag-logo.png" alt="CAG" style="height: 35px; width: auto; filter: brightness(0) invert(1);" />
+      </a>
+      <button class="btn-exit-interview">Exit Interview</button>
+    </div>
+  </nav>
+
+  <!-- Progress Header -->
+  <div class="progress-header">
+    <div class="container">
+      <div class="progress-bar-wrapper">
+        <div class="progress-bar" id="progressBar" style="width: 40%;"></div>
+      </div>
+      <div class="progress-info">
+        <span class="progress-text">Question <span id="currentQuestion">4</span> of <span id="totalQuestions">10</span></span>
+        <span class="category-badge">Network Engineering</span>
+        <span class="timer" id="timer">⏱️ 1:23</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interview Content -->
+  <main class="interview-main">
+    <div class="container-interview">
+
+      <!-- Question Card -->
+      <div class="question-card">
+        <div class="question-header">
+          <span class="question-label">Question 4</span>
+          <div class="question-badges">
+            <span class="badge badge-difficulty">Easy</span>
+            <span class="badge badge-category">Network</span>
+          </div>
+        </div>
+
+        <div class="question-content">
+          <h2 class="question-text" id="questionText">
+            Explain the difference between a switch and a router, and when you would use each in a network infrastructure.
+          </h2>
+        </div>
+
+        <div class="question-hints">
+          <button class="hint-toggle" id="hintToggle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+              <line x1="12" y1="17" x2="12.01" y2="17"/>
+            </svg>
+            Need a hint?
+          </button>
+          <div class="hint-content hidden" id="hintContent">
+            <p>💡 <strong>Tip:</strong> Think about OSI layers, MAC addresses vs IP addresses, and common use cases in enterprise networks.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Answer Input Area -->
+      <div class="answer-section">
+        <div class="answer-header">
+          <label for="answerInput">Your Answer:</label>
+          <div class="answer-stats">
+            <span class="word-count">Word count: <strong id="wordCount">0</strong></span>
+            <span class="suggested-range">Suggested: 50-200 words</span>
+          </div>
+        </div>
+
+        <textarea
+          id="answerInput"
+          class="answer-textarea"
+          placeholder="Type your answer here... Be specific, use technical terminology, and provide examples where relevant."
+          rows="10"
+        ></textarea>
+
+        <div class="answer-tips">
+          <div class="tips-header">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+            </svg>
+            <span>Interview Tips</span>
+          </div>
+          <ul class="tips-list">
+            <li>✓ Be specific and detailed in your explanation</li>
+            <li>✓ Use proper technical terminology</li>
+            <li>✓ Explain with step-by-step process</li>
+            <li>✓ Provide real-world examples when possible</li>
+          </ul>
+        </div>
+
+        <div class="answer-actions">
+          <button class="btn-skip" id="btnSkip">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 4l10 8-10 8V4z"/>
+              <line x1="19" y1="5" x2="19" y2="19"/>
+            </svg>
+            Skip Question
+          </button>
+          <button class="btn-next" id="btnNext">
+            Submit & Next
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"/>
+              <polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+</Layout>
+
+<script>
+  // Word count update
+  const answerInput = document.getElementById('answerInput') as HTMLTextAreaElement;
+  const wordCountElement = document.getElementById('wordCount');
+
+  if (answerInput && wordCountElement) {
+    answerInput.addEventListener('input', () => {
+      const words = answerInput.value.trim().split(/\s+/).filter(word => word.length > 0);
+      wordCountElement.textContent = words.length.toString();
+    });
+  }
+
+  // Hint toggle
+  const hintToggle = document.getElementById('hintToggle');
+  const hintContent = document.getElementById('hintContent');
+
+  if (hintToggle && hintContent) {
+    hintToggle.addEventListener('click', () => {
+      hintContent.classList.toggle('hidden');
+    });
+  }
+
+  // Next button
+  const btnNext = document.getElementById('btnNext');
+  if (btnNext) {
+    btnNext.addEventListener('click', () => {
+      // Store answer and move to next question
+      // For now, just simulate moving to results
+      const currentQ = parseInt(document.getElementById('currentQuestion')?.textContent || '0');
+      const totalQ = parseInt(document.getElementById('totalQuestions')?.textContent || '0');
+
+      if (currentQ >= totalQ) {
+        // Go to results page
+        window.location.href = '/mock-interview/results';
+      } else {
+        // Move to next question (would normally update question data)
+        alert('Moving to next question... (Full functionality coming soon)');
+      }
+    });
+  }
+
+  // Skip button
+  const btnSkip = document.getElementById('btnSkip');
+  if (btnSkip) {
+    btnSkip.addEventListener('click', () => {
+      if (confirm('Are you sure you want to skip this question?')) {
+        // Move to next question without saving answer
+        btnNext?.click();
+      }
+    });
+  }
+
+  // Exit interview
+  const btnExit = document.querySelector('.btn-exit-interview');
+  if (btnExit) {
+    btnExit.addEventListener('click', () => {
+      if (confirm('Are you sure you want to exit? Your progress will be lost.')) {
+        window.location.href = '/interviews';
+      }
+    });
+  }
+
+  // Auto-save functionality (simulated)
+  let saveTimeout: NodeJS.Timeout;
+  if (answerInput) {
+    answerInput.addEventListener('input', () => {
+      clearTimeout(saveTimeout);
+      saveTimeout = setTimeout(() => {
+        // Auto-save answer to sessionStorage
+        console.log('Answer auto-saved');
+      }, 1000);
+    });
+  }
+
+  // Keyboard shortcuts
+  document.addEventListener('keydown', (e) => {
+    // Ctrl/Cmd + Enter to submit
+    if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+      e.preventDefault();
+      btnNext?.click();
+    }
+  });
+</script>
+
+<style>
+/* Interview Navbar */
+.interview-navbar {
+  background: var(--navy);
+  padding: 1rem 0;
+  border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.interview-navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.btn-exit-interview {
+  padding: 0.5rem 1.5rem;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: var(--white);
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-exit-interview:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+/* Progress Header */
+.progress-header {
+  background: var(--white);
+  padding: 1.5rem 0;
+  border-bottom: 1px solid #e5e7eb;
+  position: sticky;
+  top: 62px;
+  z-index: 99;
+}
+
+.progress-bar-wrapper {
+  width: 100%;
+  height: 8px;
+  background: #e5e7eb;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #10b981 0%, #059669 100%);
+  transition: width 0.5s ease;
+  border-radius: 4px;
+}
+
+.progress-info {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.progress-text {
+  font-weight: 600;
+  color: var(--navy);
+  font-size: 1rem;
+}
+
+.progress-text span {
+  color: var(--gold);
+}
+
+.category-badge {
+  padding: 0.4rem 1rem;
+  background: rgba(59, 130, 246, 0.1);
+  color: #2563eb;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.timer {
+  padding: 0.4rem 1rem;
+  background: rgba(245, 158, 11, 0.1);
+  color: #d97706;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+/* Main Interview Content */
+.interview-main {
+  padding: 3rem 0;
+  background: #f8f9fb;
+  min-height: calc(100vh - 200px);
+}
+
+.container-interview {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Question Card */
+.question-card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 3rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin-bottom: 2rem;
+}
+
+.question-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid #f3f4f6;
+}
+
+.question-label {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.question-badges {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.badge {
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.badge-difficulty {
+  background: rgba(16, 185, 129, 0.1);
+  color: #059669;
+}
+
+.badge-category {
+  background: rgba(59, 130, 246, 0.1);
+  color: #2563eb;
+}
+
+.question-content {
+  margin-bottom: 2rem;
+}
+
+.question-text {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--navy);
+  line-height: 1.5;
+}
+
+.question-hints {
+  margin-top: 2rem;
+}
+
+.hint-toggle {
+  background: transparent;
+  border: 2px dashed #d1d5db;
+  color: #6b7280;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s;
+}
+
+.hint-toggle:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.hint-toggle svg {
+  width: 20px;
+  height: 20px;
+}
+
+.hint-content {
+  margin-top: 1rem;
+  padding: 1.5rem;
+  background: rgba(245, 158, 11, 0.05);
+  border-left: 4px solid var(--gold);
+  border-radius: 8px;
+}
+
+.hint-content.hidden {
+  display: none;
+}
+
+.hint-content p {
+  margin: 0;
+  color: #78350f;
+  line-height: 1.6;
+}
+
+/* Answer Section */
+.answer-section {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 3rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.answer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.answer-header label {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.answer-stats {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.word-count {
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+.word-count strong {
+  color: var(--navy);
+}
+
+.suggested-range {
+  color: #9ca3af;
+  font-size: 0.85rem;
+}
+
+.answer-textarea {
+  width: 100%;
+  padding: 1.5rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-family: inherit;
+  line-height: 1.8;
+  resize: vertical;
+  min-height: 250px;
+  transition: all 0.3s;
+}
+
+.answer-textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+}
+
+.answer-textarea::placeholder {
+  color: #9ca3af;
+}
+
+.answer-tips {
+  margin: 1.5rem 0;
+  padding: 1.5rem;
+  background: #f8f9fb;
+  border-radius: 12px;
+}
+
+.tips-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 1rem;
+}
+
+.tips-header svg {
+  width: 20px;
+  height: 20px;
+  color: var(--gold);
+}
+
+.tips-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+.tips-list li {
+  color: #4b5563;
+  font-size: 0.95rem;
+}
+
+.answer-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.btn-skip {
+  flex: 1;
+  padding: 1rem 2rem;
+  background: var(--white);
+  border: 2px solid #e5e7eb;
+  color: #6b7280;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  transition: all 0.3s;
+}
+
+.btn-skip:hover {
+  border-color: var(--navy);
+  color: var(--navy);
+}
+
+.btn-skip svg {
+  width: 20px;
+  height: 20px;
+}
+
+.btn-next {
+  flex: 2;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, var(--gold) 0%, #f4c542 100%);
+  border: none;
+  color: var(--navy);
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  transition: all 0.3s;
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+}
+
+.btn-next:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+}
+
+.btn-next svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 767px) {
+  .question-card,
+  .answer-section {
+    padding: 2rem 1.5rem;
+  }
+
+  .question-text {
+    font-size: 1.5rem;
+  }
+
+  .tips-list {
+    grid-template-columns: 1fr;
+  }
+
+  .answer-actions {
+    flex-direction: column;
+  }
+
+  .progress-info {
+    font-size: 0.9rem;
+  }
+}
+</style>
