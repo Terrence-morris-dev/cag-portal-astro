@@ -296,13 +296,13 @@
 }
 </style>
 
-<script>
+<script is:inline>
   // Handle category button clicks - link to mock interview with pre-selected category
-  document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('DOMContentLoaded', function() {
     const categoryButtons = document.querySelectorAll('.btn-category');
 
-    categoryButtons.forEach(button => {
-      button.addEventListener('click', () => {
+    categoryButtons.forEach(function(button) {
+      button.addEventListener('click', function() {
         const category = button.getAttribute('data-category');
 
         // Set default configuration with selected category
