@@ -296,14 +296,19 @@
 }
 </style>
 
-<script is:inline>
+<script>
   // Handle category button clicks - link to mock interview with pre-selected category
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', () => {
     const categoryButtons = document.querySelectorAll('.btn-category');
 
-    categoryButtons.forEach(function(button) {
-      button.addEventListener('click', function() {
+    console.log(`Found ${categoryButtons.length} category buttons`);
+
+    categoryButtons.forEach((button) => {
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+
         const category = button.getAttribute('data-category');
+        console.log(`Category button clicked: ${category}`);
 
         // Set default configuration with selected category
         const config = {
@@ -315,8 +320,10 @@
 
         // Save to sessionStorage
         sessionStorage.setItem('mockInterviewConfig', JSON.stringify(config));
+        console.log('Config saved to sessionStorage:', config);
 
         // Navigate to mock interview setup page
+        console.log('Navigating to /mock-interview');
         window.location.href = '/mock-interview';
       });
     });
