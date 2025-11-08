@@ -196,12 +196,64 @@ import Footer from '../components/Footer.astro';
                   <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
                 </svg>
               </button>
-              <button class="action-btn" title="More">
+              <button class="action-btn" id="btnSettings" title="Settings">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <circle cx="12" cy="12" r="1"/>
                   <circle cx="12" cy="5" r="1"/>
                   <circle cx="12" cy="19" r="1"/>
                 </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Settings Dropdown Menu -->
+          <div class="settings-dropdown" id="settingsDropdown" style="display: none;">
+            <div class="dropdown-header">
+              <h4>Conversation Settings</h4>
+            </div>
+            <div class="dropdown-menu">
+              <button class="dropdown-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 15c-1.7 0-3-1.3-3-3s1.3-3 3-3 3 1.3 3 3-1.3 3-3 3z"/>
+                  <path d="M19.4 15c-.3-.6-.2-1.4.3-2 .5-.5.7-1.3.3-2l-1-1.7c-.4-.7-1.3-1-2-.6-.7.3-1.4.2-2-.3-.5-.5-.7-1.3-.3-2l.3-.6c.4-.7.2-1.6-.5-2l-1.7-1c-.7-.4-1.6-.2-2 .5-.3.6-1 1-1.7 1-.7 0-1.4-.4-1.7-1-.4-.7-1.3-.9-2-.5l-1.7 1c-.7.4-.9 1.3-.5 2 .3.6.2 1.4-.3 2-.5.5-1.3.7-2 .3-.7-.4-1.6-.2-2 .5l-1 1.7c-.4.7-.2 1.6.5 2 .6.3 1 1 1 1.7 0 .7-.4 1.4-1 1.7-.7.4-.9 1.3-.5 2l1 1.7c.4.7 1.3.9 2 .5.6-.3 1.4-.2 2 .3.5.5.7 1.3.3 2-.4.7-.2 1.6.5 2l1.7 1c.7.4 1.6.2 2-.5.3-.6 1-1 1.7-1 .7 0 1.4.4 1.7 1 .4.7 1.3.9 2 .5l1.7-1c.7-.4.9-1.3.5-2z"/>
+                </svg>
+                Notification Settings
+              </button>
+              <button class="dropdown-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="3"/>
+                  <path d="M12 1v6m0 6v6M5.64 5.64l4.24 4.24m4.24 4.24l4.24 4.24M1 12h6m6 0h6M5.64 18.36l4.24-4.24m4.24-4.24l4.24-4.24"/>
+                </svg>
+                Block User
+              </button>
+              <button class="dropdown-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="3 6 5 6 21 6"/>
+                  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+                </svg>
+                Delete Conversation
+              </button>
+              <button class="dropdown-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="21 8 21 21 3 21 3 8"/>
+                  <rect x="1" y="3" width="22" height="5"/>
+                </svg>
+                Archive Conversation
+              </button>
+              <button class="dropdown-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/>
+                </svg>
+                Export Chat History
+              </button>
+              <button class="dropdown-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                  <polyline points="14 2 14 8 20 8"/>
+                  <line x1="12" y1="18" x2="12" y2="12"/>
+                  <line x1="9" y1="15" x2="15" y2="15"/>
+                </svg>
+                Report Conversation
               </button>
             </div>
           </div>
@@ -471,6 +523,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const btnToggleVideo = document.getElementById('btnToggleVideo');
   const callStatus = document.getElementById('callStatus');
   const callTimerEl = document.getElementById('callTimer');
+  const btnSettings = document.getElementById('btnSettings');
+  const settingsDropdown = document.getElementById('settingsDropdown');
 
   // Populate compose modal with available users
   if (composeRecipient && typeof messaging !== 'undefined') {
@@ -659,6 +713,37 @@ document.addEventListener('DOMContentLoaded', function() {
   if (btnToggleVideo) {
     btnToggleVideo.addEventListener('click', function() {
       toggleVideo();
+    });
+  }
+
+  // Settings dropdown toggle
+  if (btnSettings && settingsDropdown) {
+    btnSettings.addEventListener('click', function(e) {
+      e.stopPropagation();
+      const isVisible = settingsDropdown.style.display === 'block';
+      settingsDropdown.style.display = isVisible ? 'none' : 'block';
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+      if (settingsDropdown && !settingsDropdown.contains(e.target) && e.target !== btnSettings) {
+        settingsDropdown.style.display = 'none';
+      }
+    });
+
+    // Handle dropdown item clicks
+    const dropdownItems = settingsDropdown.querySelectorAll('.dropdown-item');
+    dropdownItems.forEach(function(item) {
+      item.addEventListener('click', function() {
+        const text = this.textContent.trim();
+        console.log('Settings action:', text);
+
+        // Close dropdown after selection
+        settingsDropdown.style.display = 'none';
+
+        // Show alert for demo purposes
+        alert('Action: ' + text + '\n\nThis feature will be implemented soon!');
+      });
     });
   }
 
@@ -1187,6 +1272,72 @@ document.addEventListener('DOMContentLoaded', function() {
 .action-btn svg {
   width: 20px;
   height: 20px;
+}
+
+/* Settings Dropdown */
+.settings-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 0.5rem;
+  background: var(--white);
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  min-width: 280px;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.dropdown-header {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid #e5e7eb;
+  background: #f8f9fb;
+}
+
+.dropdown-header h4 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.dropdown-menu {
+  padding: 0.5rem 0;
+}
+
+.dropdown-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.25rem;
+  border: none;
+  background: transparent;
+  color: #374151;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: left;
+}
+
+.dropdown-item:hover {
+  background: #f8f9fb;
+  color: var(--gold);
+}
+
+.dropdown-item svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.dropdown-item:hover svg {
+  color: var(--gold);
+}
+
+.conversation-top-header {
+  position: relative;
 }
 
 /* Messages Area */
