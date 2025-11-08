@@ -1,0 +1,20 @@
+{
+  "totalQuestions": 334,
+  "categories": [
+    "helpdesk",
+    "isp",
+    "osp",
+    "fiber",
+    "network",
+    "systems"
+  ],
+  "lastUpdated": "2025-09-12T07:54:32.226Z",
+  "breakdown": {
+    "helpdesk": 84,
+    "isp": 50,
+    "osp": 50,
+    "fiber": 50,
+    "network": 50,
+    "systems": 50
+  }
+}
