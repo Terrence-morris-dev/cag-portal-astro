@@ -46,7 +46,7 @@
                     <li>✓ Timed or untimed</li>
                     <li>✓ Track your progress</li>
                 </ul>
-                <button class="btn-mode">Start Quick Practice</button>
+                <button class="btn-mode" id="btnQuickPractice">Start Quick Practice</button>
             </div>
 
             <!-- Study Mode -->
@@ -60,12 +60,12 @@
                 <h3 class="mode-title">Study Mode</h3>
                 <p class="mode-description">Browse all questions at your own pace. Filter by category and difficulty.</p>
                 <ul class="mode-features">
-                    <li>✓ Browse 500+ questions</li>
+                    <li>✓ Browse 334 questions</li>
                     <li>✓ Filter by category</li>
-                    <li>✓ Save favorites</li>
+                    <li>✓ View model answers</li>
                     <li>✓ Study at your pace</li>
                 </ul>
-                <button class="btn-mode">Browse Questions</button>
+                <button class="btn-mode" id="btnBrowseQuestions">Browse Questions</button>
             </div>
 
             <!-- Performance Tracking -->
@@ -85,11 +85,46 @@
                     <li>✓ Weak area identification</li>
                     <li>✓ Progress charts</li>
                 </ul>
-                <button class="btn-mode">View Performance</button>
+                <button class="btn-mode" id="btnViewPerformance">View Performance</button>
             </div>
         </div>
     </div>
 </section>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Quick Practice Button - 15 random questions, mixed difficulty, untimed
+    const btnQuickPractice = document.getElementById('btnQuickPractice');
+    if (btnQuickPractice) {
+      btnQuickPractice.addEventListener('click', function() {
+        const config = {
+          category: 'helpdesk', // Default to helpdesk, will randomize from all
+          difficulty: 'mixed',
+          questionCount: '15',
+          mode: 'untimed'
+        };
+        sessionStorage.setItem('mockInterviewConfig', JSON.stringify(config));
+        window.location.href = '/mock-interview/active';
+      });
+    }
+
+    // Browse Questions Button
+    const btnBrowseQuestions = document.getElementById('btnBrowseQuestions');
+    if (btnBrowseQuestions) {
+      btnBrowseQuestions.addEventListener('click', function() {
+        window.location.href = '/browse-questions';
+      });
+    }
+
+    // View Performance Button
+    const btnViewPerformance = document.getElementById('btnViewPerformance');
+    if (btnViewPerformance) {
+      btnViewPerformance.addEventListener('click', function() {
+        window.location.href = '/performance';
+      });
+    }
+  });
+</script>
 
 <style>
 .practice-modes-grid {

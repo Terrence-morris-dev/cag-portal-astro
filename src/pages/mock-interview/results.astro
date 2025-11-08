@@ -263,13 +263,28 @@ import Footer from '../../components/Footer.astro';
               </div>
             </div>
 
-            <button class="btn-model-answer">
+            <button class="btn-model-answer" onclick="toggleModelAnswer(0)">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
                 <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
               </svg>
-              View Model Answer
+              <span id="modelAnswerText0">View Model Answer</span>
             </button>
+
+            <div class="model-answer-section hidden" id="modelAnswer0">
+              <h4>Model Answer:</h4>
+              <div class="model-answer-content">
+                <p><strong>Layer Differentiation:</strong> A switch operates at the Data Link Layer (Layer 2) of the OSI model, using MAC addresses to forward ethernet frames within a local area network (LAN). It creates separate collision domains for each port but maintains a single broadcast domain. A router operates at the Network Layer (Layer 3), using IP addresses to make intelligent routing decisions between different networks or subnets.</p>
+
+                <p><strong>Address Resolution:</strong> Switches maintain MAC address tables (CAM tables) and use address learning to build a map of which devices connect to which ports. Routers maintain routing tables containing network prefixes and metrics, using protocols like OSPF, EIGRP, or BGP to determine optimal paths.</p>
+
+                <p><strong>Use Cases:</strong> Use switches to connect multiple devices within the same network segment (e.g., connecting computers, printers, and servers in an office). Use routers to connect different networks together (e.g., connecting your LAN to the internet, or connecting branch offices via WAN links).</p>
+
+                <p><strong>Performance Considerations:</strong> Switches offer wire-speed forwarding with minimal latency since they only examine Layer 2 headers. Routers introduce additional latency due to routing table lookups and may perform packet inspection, NAT, or firewall functions.</p>
+
+                <p><strong>Typical Deployment:</strong> In enterprise networks, switches create the access and distribution layers, while routers handle inter-network routing at the core and edge. Modern deployments often use Layer 3 switches that combine switching speed with routing capabilities for optimal performance.</p>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -356,13 +371,27 @@ import Footer from '../../components/Footer.astro';
   <Footer />
 </Layout>
 
-<script>
+<script is:inline>
   // Expand/collapse review cards
-  document.querySelectorAll('.review-card.collapsed').forEach(card => {
-    card.addEventListener('click', () => {
+  document.querySelectorAll('.review-card.collapsed').forEach(function(card) {
+    card.addEventListener('click', function() {
       card.classList.toggle('collapsed');
     });
   });
+
+  // Toggle model answer visibility
+  function toggleModelAnswer(index) {
+    var answerSection = document.getElementById('modelAnswer' + index);
+    var buttonText = document.getElementById('modelAnswerText' + index);
+
+    if (answerSection.classList.contains('hidden')) {
+      answerSection.classList.remove('hidden');
+      buttonText.textContent = 'Hide Model Answer';
+    } else {
+      answerSection.classList.add('hidden');
+      buttonText.textContent = 'View Model Answer';
+    }
+  }
 </script>
 
 <style>
@@ -794,6 +823,41 @@ import Footer from '../../components/Footer.astro';
 .btn-model-answer svg {
   width: 20px;
   height: 20px;
+}
+
+/* Model Answer Section */
+.model-answer-section {
+  margin-top: 2rem;
+  padding: 2rem;
+  background: #f8f9fb;
+  border-radius: 12px;
+  border-left: 4px solid var(--gold);
+}
+
+.model-answer-section.hidden {
+  display: none;
+}
+
+.model-answer-section h4 {
+  color: var(--gold);
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.model-answer-content p {
+  margin-bottom: 1.25rem;
+  line-height: 1.8;
+  color: #374151;
+}
+
+.model-answer-content p:last-child {
+  margin-bottom: 0;
+}
+
+.model-answer-content strong {
+  color: var(--navy);
+  font-weight: 700;
 }
 
 /* Actions */

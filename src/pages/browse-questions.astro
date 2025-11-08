@@ -1,0 +1,453 @@
+---
+import Layout from '../layouts/Layout.astro';
+import NavbarNew from '../components/NavbarNew.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Browse Questions - Cleared Advisory Group">
+  <NavbarNew />
+
+  <!-- Header -->
+  <section class="browse-header">
+    <div class="container">
+      <h1>Browse Interview Questions</h1>
+      <p>Explore all 334 professional interview questions with model answers</p>
+    </div>
+  </section>
+
+  <!-- Filters -->
+  <section class="filters-section">
+    <div class="container">
+      <div class="filters">
+        <div class="filter-group">
+          <label>Category:</label>
+          <select id="categoryFilter">
+            <option value="all">All Categories</option>
+            <option value="helpdesk">Helpdesk & IT Support (84)</option>
+            <option value="network">Network Engineering (50)</option>
+            <option value="systems">Systems Administration (50)</option>
+            <option value="fiber">Fiber Optics (50)</option>
+            <option value="isp">ISP & Connectivity (50)</option>
+            <option value="osp">OSP - Outside Plant (50)</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label>Difficulty:</label>
+          <select id="difficultyFilter">
+            <option value="all">All Levels</option>
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label>Search:</label>
+          <input type="text" id="searchInput" placeholder="Search questions...">
+        </div>
+
+        <button id="resetFilters" class="btn-reset">Reset Filters</button>
+      </div>
+
+      <div class="results-count">
+        Showing <span id="resultCount">0</span> questions
+      </div>
+    </div>
+  </section>
+
+  <!-- Questions List -->
+  <section class="questions-section">
+    <div class="container">
+      <div id="questionsList" class="questions-list">
+        <div class="loading">Loading questions...</div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<script is:inline>
+  let allQuestions = [];
+
+  async function loadQuestions() {
+    try {
+      const response = await fetch('/data/interview-questions.json');
+      const data = await response.json();
+
+      // Flatten all questions into single array
+      allQuestions = [];
+      Object.keys(data).forEach(category => {
+        data[category].forEach(q => {
+          allQuestions.push({
+            ...q,
+            category: category
+          });
+        });
+      });
+
+      displayQuestions(allQuestions);
+    } catch (error) {
+      console.error('Error loading questions:', error);
+      document.getElementById('questionsList').innerHTML =
+        '<div class="error">Failed to load questions. Please try again.</div>';
+    }
+  }
+
+  function displayQuestions(questions) {
+    const container = document.getElementById('questionsList');
+    const countEl = document.getElementById('resultCount');
+
+    countEl.textContent = questions.length;
+
+    if (questions.length === 0) {
+      container.innerHTML = '<div class="no-results">No questions found matching your filters.</div>';
+      return;
+    }
+
+    container.innerHTML = questions.map((q, index) => `
+      <div class="question-card">
+        <div class="question-header">
+          <span class="question-number">#${index + 1}</span>
+          <div class="question-badges">
+            <span class="badge badge-${q.difficulty || 'medium'}">${(q.difficulty || 'medium').toUpperCase()}</span>
+            <span class="badge badge-category">${q.category.toUpperCase()}</span>
+          </div>
+        </div>
+
+        <h3 class="question-text">${q.question}</h3>
+
+        <div class="question-actions">
+          <button class="btn-toggle-answer" onclick="toggleAnswer(${index})">
+            <span id="toggleText${index}">Show Answer</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+        </div>
+
+        <div class="answer-content hidden" id="answer${index}">
+          <div class="answer-label">Model Answer:</div>
+          <div class="answer-text">${formatAnswer(q.answer)}</div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function formatAnswer(answer) {
+    // Convert markdown-style formatting to HTML
+    return answer
+      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+      .replace(/\n/g, '<br>');
+  }
+
+  function filterQuestions() {
+    const category = document.getElementById('categoryFilter').value;
+    const difficulty = document.getElementById('difficultyFilter').value;
+    const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+
+    let filtered = allQuestions;
+
+    if (category !== 'all') {
+      filtered = filtered.filter(q => q.category === category);
+    }
+
+    if (difficulty !== 'all') {
+      filtered = filtered.filter(q => (q.difficulty || 'medium') === difficulty);
+    }
+
+    if (searchTerm) {
+      filtered = filtered.filter(q =>
+        q.question.toLowerCase().includes(searchTerm) ||
+        q.answer.toLowerCase().includes(searchTerm)
+      );
+    }
+
+    displayQuestions(filtered);
+  }
+
+  function toggleAnswer(index) {
+    const answerEl = document.getElementById('answer' + index);
+    const toggleText = document.getElementById('toggleText' + index);
+
+    if (answerEl.classList.contains('hidden')) {
+      answerEl.classList.remove('hidden');
+      toggleText.textContent = 'Hide Answer';
+    } else {
+      answerEl.classList.add('hidden');
+      toggleText.textContent = 'Show Answer';
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    loadQuestions();
+
+    // Add filter event listeners
+    document.getElementById('categoryFilter').addEventListener('change', filterQuestions);
+    document.getElementById('difficultyFilter').addEventListener('change', filterQuestions);
+    document.getElementById('searchInput').addEventListener('input', filterQuestions);
+
+    document.getElementById('resetFilters').addEventListener('click', function() {
+      document.getElementById('categoryFilter').value = 'all';
+      document.getElementById('difficultyFilter').value = 'all';
+      document.getElementById('searchInput').value = '';
+      filterQuestions();
+    });
+  });
+</script>
+
+<style>
+.browse-header {
+  background: linear-gradient(135deg, var(--navy) 0%, #1a2332 100%);
+  padding: 4rem 0 3rem;
+  text-align: center;
+  color: var(--white);
+}
+
+.browse-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.browse-header p {
+  font-size: 1.25rem;
+  opacity: 0.9;
+}
+
+.filters-section {
+  background: #f8f9fb;
+  padding: 2rem 0;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.filters {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  margin-bottom: 1rem;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+  min-width: 200px;
+}
+
+.filter-group label {
+  font-weight: 600;
+  color: var(--navy);
+  font-size: 0.9rem;
+}
+
+.filter-group select,
+.filter-group input {
+  padding: 0.75rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+
+.filter-group select:focus,
+.filter-group input:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+
+.btn-reset {
+  padding: 0.75rem 1.5rem;
+  background: var(--navy);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  align-self: flex-end;
+}
+
+.btn-reset:hover {
+  background: var(--gold);
+  color: var(--navy);
+}
+
+.results-count {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #6b7280;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+.results-count span {
+  color: var(--gold);
+  font-size: 1.5rem;
+}
+
+.questions-section {
+  padding: 3rem 0;
+}
+
+.questions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.question-card {
+  background: var(--white);
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s;
+}
+
+.question-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.question-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.question-number {
+  font-weight: 700;
+  color: var(--gold);
+  font-size: 1.1rem;
+}
+
+.question-badges {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.badge {
+  padding: 0.4rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.badge-easy {
+  background: rgba(16, 185, 129, 0.1);
+  color: #059669;
+}
+
+.badge-medium {
+  background: rgba(245, 158, 11, 0.1);
+  color: #d97706;
+}
+
+.badge-hard {
+  background: rgba(220, 38, 38, 0.1);
+  color: #dc2626;
+}
+
+.badge-category {
+  background: rgba(59, 130, 246, 0.1);
+  color: #2563eb;
+}
+
+.question-text {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--navy);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.question-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn-toggle-answer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--navy);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-toggle-answer:hover {
+  background: var(--gold);
+  color: var(--navy);
+}
+
+.btn-toggle-answer svg {
+  width: 16px;
+  height: 16px;
+}
+
+.answer-content {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid #e5e7eb;
+}
+
+.answer-content.hidden {
+  display: none;
+}
+
+.answer-label {
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+}
+
+.answer-text {
+  color: #374151;
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+.loading,
+.error,
+.no-results {
+  text-align: center;
+  padding: 3rem;
+  font-size: 1.1rem;
+  color: #6b7280;
+}
+
+.error {
+  color: #dc2626;
+}
+
+@media (max-width: 767px) {
+  .filters {
+    flex-direction: column;
+  }
+
+  .filter-group {
+    width: 100%;
+  }
+
+  .btn-reset {
+    width: 100%;
+  }
+
+  .question-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+}
+</style>
