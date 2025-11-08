@@ -444,6 +444,12 @@ let xOffset = 0;
 let yOffset = 0;
 
 document.addEventListener('DOMContentLoaded', function() {
+  // Sidebar Navigation Elements
+  const searchInput = document.getElementById('searchInput');
+  const navItems = document.querySelectorAll('.nav-item');
+  const conversationItems = document.querySelectorAll('.conversation-item');
+  const conversationsHeader = document.querySelector('.conversations-header h2');
+
   // Compose Modal Elements
   const composeModal = document.getElementById('composeModal');
   const btnCompose = document.querySelector('.btn-compose-sidebar');
@@ -477,6 +483,84 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   }
+
+  // Search functionality
+  if (searchInput) {
+    searchInput.addEventListener('input', function(e) {
+      const searchTerm = e.target.value.toLowerCase();
+
+      conversationItems.forEach(function(item) {
+        const name = item.querySelector('.conversation-name')?.textContent.toLowerCase() || '';
+        const role = item.querySelector('.conversation-role')?.textContent.toLowerCase() || '';
+        const message = item.querySelector('.conversation-last-message')?.textContent.toLowerCase() || '';
+
+        if (name.includes(searchTerm) || role.includes(searchTerm) || message.includes(searchTerm)) {
+          item.style.display = 'grid';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+  }
+
+  // Navigation items functionality
+  navItems.forEach(function(navItem) {
+    navItem.addEventListener('click', function(e) {
+      e.preventDefault();
+
+      // Remove active class from all nav items
+      navItems.forEach(function(item) {
+        item.classList.remove('active');
+      });
+
+      // Add active class to clicked item
+      this.classList.add('active');
+
+      // Get the nav type
+      const navText = this.querySelector('span').textContent;
+
+      // Update header
+      if (conversationsHeader) {
+        conversationsHeader.textContent = navText;
+      }
+
+      // Filter conversations based on nav selection
+      if (navText === 'Inbox') {
+        // Show all conversations
+        conversationItems.forEach(function(item) {
+          item.style.display = 'grid';
+        });
+      } else if (navText === 'Sent') {
+        // For demo: show only conversations where you sent messages
+        conversationItems.forEach(function(item, index) {
+          // Show items 2 and 4 as "sent" for demo
+          if (index === 1 || index === 3) {
+            item.style.display = 'grid';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      } else if (navText === 'Starred') {
+        // For demo: show items 0 and 2 as starred
+        conversationItems.forEach(function(item, index) {
+          if (index === 0 || index === 2) {
+            item.style.display = 'grid';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      } else if (navText === 'Archive') {
+        // For demo: show item 4 as archived
+        conversationItems.forEach(function(item, index) {
+          if (index === 4) {
+            item.style.display = 'grid';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      }
+    });
+  });
 
   // Open Compose Modal
   if (btnCompose) {
