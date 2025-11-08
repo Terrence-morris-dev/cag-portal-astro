@@ -154,6 +154,40 @@ import Footer from '../components/Footer.astro';
     </div>
   </section>
 
+  <!-- Compose New Message Modal -->
+  <div id="composeModal" class="compose-modal hidden">
+    <div class="compose-modal-content">
+      <div class="compose-header">
+        <h3>New Message</h3>
+        <button class="compose-close" id="btnCloseCompose">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="compose-body">
+        <div class="compose-field">
+          <label>To:</label>
+          <select id="composeRecipient" class="compose-select">
+            <option value="">Select a contact...</option>
+          </select>
+        </div>
+
+        <div class="compose-field">
+          <label>Message:</label>
+          <textarea id="composeMessage" class="compose-textarea" placeholder="Type your message..."></textarea>
+        </div>
+      </div>
+
+      <div class="compose-footer">
+        <button class="btn-cancel" id="btnCancelCompose">Cancel</button>
+        <button class="btn-send-compose" id="btnSendCompose">Send Message</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Video Call Modal (Picture-in-Picture) -->
   <div id="videoCallModal" class="video-call-modal hidden">
     <div class="video-call-window" id="videoCallWindow">
@@ -238,7 +272,7 @@ import Footer from '../components/Footer.astro';
 <script src="/js/messaging-poc.js" is:inline></script>
 
 <script is:inline>
-// Video Call POC
+// Compose Modal & Video Call POC
 let callTimer;
 let callSeconds = 0;
 let isMinimized = false;
@@ -252,6 +286,16 @@ let xOffset = 0;
 let yOffset = 0;
 
 document.addEventListener('DOMContentLoaded', function() {
+  // Compose Modal Elements
+  const composeModal = document.getElementById('composeModal');
+  const btnCompose = document.querySelector('.btn-compose-sidebar');
+  const btnCloseCompose = document.getElementById('btnCloseCompose');
+  const btnCancelCompose = document.getElementById('btnCancelCompose');
+  const btnSendCompose = document.getElementById('btnSendCompose');
+  const composeRecipient = document.getElementById('composeRecipient');
+  const composeMessage = document.getElementById('composeMessage');
+
+  // Video Call Elements
   const videoModal = document.getElementById('videoCallModal');
   const videoWindow = document.getElementById('videoCallWindow');
   const btnVideoCall = document.getElementById('btnVideoCall');
@@ -263,6 +307,69 @@ document.addEventListener('DOMContentLoaded', function() {
   const btnToggleVideo = document.getElementById('btnToggleVideo');
   const callStatus = document.getElementById('callStatus');
   const callTimerEl = document.getElementById('callTimer');
+
+  // Populate compose modal with available users
+  if (composeRecipient && typeof messaging !== 'undefined') {
+    Object.values(messaging.users).forEach(function(user) {
+      if (user.id !== messaging.currentUserId) {
+        const option = document.createElement('option');
+        option.value = user.id;
+        option.textContent = user.name + ' - ' + user.role;
+        composeRecipient.appendChild(option);
+      }
+    });
+  }
+
+  // Open Compose Modal
+  if (btnCompose) {
+    btnCompose.addEventListener('click', function() {
+      composeModal.classList.remove('hidden');
+      composeMessage.value = '';
+      composeRecipient.value = '';
+    });
+  }
+
+  // Close Compose Modal
+  if (btnCloseCompose) {
+    btnCloseCompose.addEventListener('click', function() {
+      composeModal.classList.add('hidden');
+    });
+  }
+
+  if (btnCancelCompose) {
+    btnCancelCompose.addEventListener('click', function() {
+      composeModal.classList.add('hidden');
+    });
+  }
+
+  // Send from Compose Modal
+  if (btnSendCompose) {
+    btnSendCompose.addEventListener('click', function() {
+      const recipientId = composeRecipient.value;
+      const message = composeMessage.value.trim();
+
+      if (!recipientId) {
+        alert('Please select a recipient');
+        return;
+      }
+
+      if (!message) {
+        alert('Please enter a message');
+        return;
+      }
+
+      if (typeof messaging !== 'undefined') {
+        // Create or select conversation
+        messaging.createConversation(recipientId);
+
+        // Send message after short delay to let conversation switch
+        setTimeout(function() {
+          messaging.sendMessage(message);
+          composeModal.classList.add('hidden');
+        }, 100);
+      }
+    });
+  }
 
   // Start Video Call
   if (btnVideoCall) {
@@ -1162,6 +1269,162 @@ document.addEventListener('DOMContentLoaded', function() {
   .btn-send {
     padding: 0.625rem;
   }
+}
+
+/* Compose Modal Styles */
+.compose-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.compose-modal.hidden {
+  display: none;
+}
+
+.compose-modal-content {
+  background: var(--white);
+  border-radius: 16px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.compose-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.compose-header h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.compose-close {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: #f3f4f6;
+  color: #6b7280;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+}
+
+.compose-close:hover {
+  background: #e5e7eb;
+  color: var(--navy);
+}
+
+.compose-close svg {
+  width: 20px;
+  height: 20px;
+}
+
+.compose-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.compose-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.compose-field label {
+  font-weight: 600;
+  color: var(--navy);
+  font-size: 0.95rem;
+}
+
+.compose-select,
+.compose-textarea {
+  padding: 0.75rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: all 0.3s;
+}
+
+.compose-select:focus,
+.compose-textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+
+.compose-textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.compose-footer {
+  padding: 1.5rem;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.btn-cancel,
+.btn-send-compose {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: none;
+}
+
+.btn-cancel {
+  background: #f3f4f6;
+  color: #6b7280;
+}
+
+.btn-cancel:hover {
+  background: #e5e7eb;
+  color: var(--navy);
+}
+
+.btn-send-compose {
+  background: var(--gold);
+  color: var(--navy);
+}
+
+.btn-send-compose:hover {
+  background: #d4a62c;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
 }
 
 /* Video Call Modal Styles */
