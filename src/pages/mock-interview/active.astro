@@ -118,19 +118,187 @@ import Layout from '../../layouts/Layout.astro';
 
 </Layout>
 
-<!-- Load Interview Questions System -->
-<script src="/js/mock-interview.js" is:inline></script>
-
 <script>
-  // Word count update
+  // Mock Interview Question Bank
+  const questionBank = {
+    helpdesk: [
+      { q: "What steps would you take to troubleshoot a user who can't connect to the internet?", hint: "Think about checking physical connections, IP configuration, DNS, and gateway settings.", difficulty: "Easy", category: "Helpdesk" },
+      { q: "How would you explain the difference between RAM and a hard drive to a non-technical user?", hint: "Use an analogy like a desk (RAM) vs. a filing cabinet (hard drive).", difficulty: "Easy", category: "Helpdesk" },
+      { q: "A user reports their computer is running very slowly. Walk me through your troubleshooting process.", hint: "Consider startup programs, disk space, malware, background processes, and hardware resources.", difficulty: "Medium", category: "Helpdesk" },
+      { q: "What is Active Directory and why is it important in an enterprise environment?", hint: "Think about centralized user management, authentication, and group policies.", difficulty: "Medium", category: "Helpdesk" },
+      { q: "Explain how you would handle a situation where multiple users are reporting the same issue.", hint: "Consider gathering information, identifying patterns, and prioritizing based on impact.", difficulty: "Medium", category: "Helpdesk" },
+      { q: "What security best practices would you recommend for password management?", hint: "Include length, complexity, rotation, multi-factor authentication, and password managers.", difficulty: "Easy", category: "Helpdesk" },
+      { q: "How do you prioritize IT support tickets when multiple urgent requests come in?", hint: "Consider impact, number of affected users, business criticality, and SLA requirements.", difficulty: "Hard", category: "Helpdesk" },
+      { q: "Describe the process of imaging and deploying a new computer for a user.", hint: "Include hardware setup, OS installation/imaging, software deployment, user profile setup, and testing.", difficulty: "Medium", category: "Helpdesk" },
+      { q: "What would you do if a user accidentally deleted an important file?", hint: "Consider Recycle Bin, shadow copies, backups, and file recovery tools.", difficulty: "Easy", category: "Helpdesk" },
+      { q: "Explain the difference between a virus, worm, trojan, and ransomware.", hint: "Focus on how each type spreads and what damage it causes.", difficulty: "Hard", category: "Helpdesk" }
+    ],
+    network: [
+      { q: "Explain the difference between a switch and a router, and when you would use each.", hint: "Think about OSI layers, MAC addresses vs IP addresses, and network segmentation.", difficulty: "Easy", category: "Network" },
+      { q: "What is a VLAN and why would you implement one?", hint: "Consider network segmentation, security, broadcast domains, and logical grouping.", difficulty: "Medium", category: "Network" },
+      { q: "Describe the TCP three-way handshake process.", hint: "Remember SYN, SYN-ACK, ACK sequence and what each step accomplishes.", difficulty: "Medium", category: "Network" },
+      { q: "What's the difference between TCP and UDP? When would you use each?", hint: "Consider reliability, speed, connection state, and use cases like streaming vs file transfer.", difficulty: "Easy", category: "Network" },
+      { q: "Explain how DHCP works and the DORA process.", hint: "DORA stands for Discover, Offer, Request, Acknowledge.", difficulty: "Medium", category: "Network" },
+      { q: "What is the purpose of a subnet mask and how does it work?", hint: "Explain network and host portions, CIDR notation, and how routers use it.", difficulty: "Medium", category: "Network" },
+      { q: "How would you troubleshoot a network connectivity issue between two sites?", hint: "Use tools like ping, traceroute, check firewalls, routing tables, and physical connections.", difficulty: "Hard", category: "Network" },
+      { q: "Explain the difference between IPv4 and IPv6.", hint: "Cover address space, format, features like autoconfiguration, and migration challenges.", difficulty: "Medium", category: "Network" },
+      { q: "What is NAT and why is it used?", hint: "Think about private vs public IPs, address conservation, and security benefits.", difficulty: "Easy", category: "Network" },
+      { q: "Describe how DNS works from when you type a URL to when the page loads.", hint: "Include recursive queries, root servers, authoritative servers, caching, and the final HTTP request.", difficulty: "Hard", category: "Network" }
+    ],
+    systems: [
+      { q: "Explain the boot process of a Windows Server from power-on to login.", hint: "Include BIOS/UEFI, bootloader, kernel loading, services starting, and user login.", difficulty: "Medium", category: "Systems" },
+      { q: "What is the difference between a domain controller and a member server?", hint: "Think about Active Directory roles, authentication, and server purposes.", difficulty: "Easy", category: "Systems" },
+      { q: "How do Group Policies work in Active Directory?", hint: "Explain GPO structure, inheritance, processing order (LSDOU), and common uses.", difficulty: "Medium", category: "Systems" },
+      { q: "Describe your backup and disaster recovery strategy for critical servers.", hint: "Include backup types (full, incremental, differential), retention, testing, and RTO/RPO.", difficulty: "Hard", category: "Systems" },
+      { q: "What is PowerShell and when would you use it over GUI management?", hint: "Consider automation, scripting, remote management, and bulk operations.", difficulty: "Easy", category: "Systems" },
+      { q: "Explain how you would monitor server performance and what metrics matter most.", hint: "Include CPU, memory, disk I/O, network utilization, and monitoring tools.", difficulty: "Medium", category: "Systems" },
+      { q: "What are the main differences between Windows Server Standard and Datacenter editions?", hint: "Focus on virtualization rights, container support, and licensing models.", difficulty: "Easy", category: "Systems" },
+      { q: "How would you secure a Windows Server environment?", hint: "Cover patches, firewalls, least privilege, auditing, encryption, and security baselines.", difficulty: "Hard", category: "Systems" },
+      { q: "Explain RAID levels 0, 1, 5, and 10. When would you use each?", hint: "Consider performance, redundancy, capacity, and recovery characteristics.", difficulty: "Medium", category: "Systems" },
+      { q: "What is the purpose of DNS and DHCP in an enterprise environment?", hint: "Explain name resolution, dynamic IP assignment, and their interdependence.", difficulty: "Easy", category: "Systems" }
+    ],
+    fiber: [
+      { q: "Explain the difference between single-mode and multi-mode fiber.", hint: "Consider wavelength, distance, bandwidth, cost, and LED vs laser light sources.", difficulty: "Easy", category: "Fiber" },
+      { q: "What is the splice loss budget and why is it important?", hint: "Think about signal attenuation, maximum allowable loss, and link performance.", difficulty: "Medium", category: "Fiber" },
+      { q: "Describe the fusion splicing process step by step.", hint: "Include fiber prep, cleaving, alignment, arc fusion, and testing.", difficulty: "Medium", category: "Fiber" },
+      { q: "What are the different types of fiber connectors and when would you use each?", hint: "Cover SC, LC, ST, FC connectors and their applications (data center, telco, etc.).", difficulty: "Easy", category: "Fiber" },
+      { q: "How do you troubleshoot high fiber optic cable loss?", hint: "Use OTDR, visual fault locators, inspect connectors, check splices, and measure with a light source.", difficulty: "Hard", category: "Fiber" },
+      { q: "Explain what an OTDR is and how to interpret its trace.", hint: "Include reflective events, non-reflective events, fiber length, and loss measurements.", difficulty: "Hard", category: "Fiber" },
+      { q: "What safety precautions must you take when working with fiber optics?", hint: "Consider laser safety, fiber shards, chemical hazards from cleaners, and proper disposal.", difficulty: "Easy", category: "Fiber" },
+      { q: "Describe the difference between mechanical and fusion splicing.", hint: "Compare precision, loss, permanence, cost, and appropriate use cases.", difficulty: "Medium", category: "Fiber" },
+      { q: "What causes dispersion in fiber optic cables and how does it affect performance?", hint: "Explain chromatic and modal dispersion, their effects on bandwidth and distance.", difficulty: "Hard", category: "Fiber" },
+      { q: "How do you properly clean fiber optic connectors?", hint: "Include inspection, cleaning methods (dry/wet), approved materials, and verification.", difficulty: "Easy", category: "Fiber" }
+    ],
+    isp: [
+      { q: "How would you troubleshoot a customer's slow internet connection?", hint: "Check signal levels, speed tests, modem/router, wiring, bandwidth usage, and ISP-side issues.", difficulty: "Easy", category: "ISP" },
+      { q: "Explain the difference between download and upload speeds and why upload is typically slower.", hint: "Consider asymmetric services, cable/DSL technology, and typical user behavior.", difficulty: "Easy", category: "ISP" },
+      { q: "What is a cable modem and how does it work?", hint: "Explain DOCSIS, RF signals, downstream/upstream channels, and conversion to Ethernet.", difficulty: "Medium", category: "ISP" },
+      { q: "Describe the last-mile connection technologies (DSL, Cable, Fiber).", hint: "Compare speeds, distance limitations, shared vs dedicated, and infrastructure differences.", difficulty: "Medium", category: "ISP" },
+      { q: "What signal levels should you see on a cable modem and what do they mean?", hint: "Include downstream power, upstream power, SNR values, and acceptable ranges.", difficulty: "Hard", category: "ISP" },
+      { q: "How do you explain to a non-technical customer why their WiFi is slow?", hint: "Cover interference, distance, obstacles, device limitations, and router placement in simple terms.", difficulty: "Easy", category: "ISP" },
+      { q: "What is QoS and why is it important for ISPs?", hint: "Explain traffic prioritization, latency-sensitive applications, and congestion management.", difficulty: "Medium", category: "ISP" },
+      { q: "Describe how you would provision a new internet service for a customer.", hint: "Include order entry, modem provisioning, activation, testing, and customer education.", difficulty: "Medium", category: "ISP" },
+      { q: "What causes packet loss and how would you diagnose it?", hint: "Use ping tests, traceroute, check for congestion, hardware issues, and bad connections.", difficulty: "Hard", category: "ISP" },
+      { q: "Explain the difference between dynamic and static IP addresses.", hint: "Consider use cases, DHCP, stability, server hosting, and cost implications.", difficulty: "Easy", category: "ISP" }
+    ],
+    osp: [
+      { q: "What safety equipment is required when working on a utility pole?", hint: "Include fall protection, hard hat, gloves, safety glasses, and proper footwear.", difficulty: "Easy", category: "OSP" },
+      { q: "Describe the proper procedure for installing aerial fiber optic cable.", hint: "Cover planning, lashing, tensioning, ground clearances, and span calculations.", difficulty: "Medium", category: "OSP" },
+      { q: "What is the difference between direct burial and aerial fiber installation?", hint: "Compare installation methods, costs, maintenance, environmental factors, and permits.", difficulty: "Easy", category: "OSP" },
+      { q: "Explain how to locate and mark underground utilities before excavation.", hint: "Discuss calling 811, reading locates, hand digging near marks, and safety buffers.", difficulty: "Medium", category: "OSP" },
+      { q: "What are the main components of a fiber splice closure?", hint: "Include trays, slack storage, grounding, sealing, and environmental protection.", difficulty: "Medium", category: "OSP" },
+      { q: "How do you calculate cable sag and tension for aerial installations?", hint: "Consider span length, cable weight, temperature, ice loading, and wind.", difficulty: "Hard", category: "OSP" },
+      { q: "What environmental factors affect outdoor fiber optic installations?", hint: "Include temperature extremes, moisture, UV exposure, animals, and expansion/contraction.", difficulty: "Medium", category: "OSP" },
+      { q: "Describe the process of boring under a road for fiber installation.", hint: "Cover permits, locates, boring equipment, pit setup, and product installation.", difficulty: "Hard", category: "OSP" },
+      { q: "What is the proper burial depth for direct burial fiber cable?", hint: "Discuss minimum depths, frost lines, local codes, and marker placement.", difficulty: "Easy", category: "OSP" },
+      { q: "How would you troubleshoot a fiber break in an underground cable?", hint: "Use OTDR, locate vaults, visual inspection, access points, and proper excavation.", difficulty: "Hard", category: "OSP" }
+    ]
+  };
+
+  // Interview State Management
+  let currentQuestionIndex = 0;
+  let questions = [];
+  let answers = [];
+  let config = {};
+
+  // Initialize interview
+  document.addEventListener('DOMContentLoaded', () => {
+    // Load configuration
+    const configStr = sessionStorage.getItem('mockInterviewConfig');
+    if (configStr) {
+      config = JSON.parse(configStr);
+      console.log('Loaded config:', config);
+
+      // Get questions for selected category
+      const allQuestions = questionBank[config.category] || questionBank.helpdesk;
+      const questionCount = parseInt(config.questionCount) || 10;
+
+      // Select random questions based on difficulty if specified
+      questions = allQuestions.sort(() => 0.5 - Math.random()).slice(0, questionCount);
+
+      // Initialize answers array
+      answers = new Array(questions.length).fill(null);
+
+      // Load first question
+      loadQuestion(0);
+    } else {
+      // No config, redirect to setup
+      window.location.href = '/mock-interview';
+    }
+  });
+
+  function loadQuestion(index) {
+    if (index >= questions.length) {
+      // Interview complete
+      finishInterview();
+      return;
+    }
+
+    currentQuestionIndex = index;
+    const question = questions[index];
+
+    // Update progress
+    const progress = ((index + 1) / questions.length) * 100;
+    document.getElementById('progressBar').style.width = progress + '%';
+    document.getElementById('currentQuestion').textContent = (index + 1).toString();
+    document.getElementById('totalQuestions').textContent = questions.length.toString();
+
+    // Update question display
+    document.querySelector('.question-label').textContent = `Question ${index + 1}`;
+    document.getElementById('questionText').textContent = question.q;
+    document.querySelector('.badge-difficulty').textContent = question.difficulty;
+    document.querySelector('.badge-category').textContent = question.category;
+    document.querySelector('.category-badge').textContent = question.category;
+
+    // Update hint
+    const hintPara = document.querySelector('.hint-content p');
+    if (hintPara) {
+      hintPara.innerHTML = `💡 <strong>Tip:</strong> ${question.hint}`;
+    }
+
+    // Load saved answer if exists
+    const answerInput = document.getElementById('answerInput') as HTMLTextAreaElement;
+    if (answerInput) {
+      answerInput.value = answers[index] || '';
+      updateWordCount();
+    }
+
+    // Reset hint visibility
+    document.getElementById('hintContent')?.classList.add('hidden');
+  }
+
+  function saveCurrentAnswer() {
+    const answerInput = document.getElementById('answerInput') as HTMLTextAreaElement;
+    if (answerInput) {
+      answers[currentQuestionIndex] = answerInput.value;
+    }
+  }
+
+  function updateWordCount() {
+    const answerInput = document.getElementById('answerInput') as HTMLTextAreaElement;
+    const wordCountElement = document.getElementById('wordCount');
+    if (answerInput && wordCountElement) {
+      const words = answerInput.value.trim().split(/\s+/).filter(word => word.length > 0);
+      wordCountElement.textContent = words.length.toString();
+    }
+  }
+
+  function finishInterview() {
+    // Save all answers to sessionStorage
+    sessionStorage.setItem('interviewAnswers', JSON.stringify(answers));
+    sessionStorage.setItem('interviewQuestions', JSON.stringify(questions));
+
+    // Navigate to results
+    window.location.href = '/mock-interview/results';
+  }
+
+  // Event Listeners
   const answerInput = document.getElementById('answerInput') as HTMLTextAreaElement;
   const wordCountElement = document.getElementById('wordCount');
 
+  // Word count update
   if (answerInput && wordCountElement) {
-    answerInput.addEventListener('input', () => {
-      const words = answerInput.value.trim().split(/\s+/).filter(word => word.length > 0);
-      wordCountElement.textContent = words.length.toString();
-    });
+    answerInput.addEventListener('input', updateWordCount);
   }
 
   // Hint toggle
@@ -147,18 +315,8 @@ import Layout from '../../layouts/Layout.astro';
   const btnNext = document.getElementById('btnNext');
   if (btnNext) {
     btnNext.addEventListener('click', () => {
-      // Store answer and move to next question
-      // For now, just simulate moving to results
-      const currentQ = parseInt(document.getElementById('currentQuestion')?.textContent || '0');
-      const totalQ = parseInt(document.getElementById('totalQuestions')?.textContent || '0');
-
-      if (currentQ >= totalQ) {
-        // Go to results page
-        window.location.href = '/mock-interview/results';
-      } else {
-        // Move to next question (would normally update question data)
-        alert('Moving to next question... (Full functionality coming soon)');
-      }
+      saveCurrentAnswer();
+      loadQuestion(currentQuestionIndex + 1);
     });
   }
 
@@ -167,8 +325,7 @@ import Layout from '../../layouts/Layout.astro';
   if (btnSkip) {
     btnSkip.addEventListener('click', () => {
       if (confirm('Are you sure you want to skip this question?')) {
-        // Move to next question without saving answer
-        btnNext?.click();
+        loadQuestion(currentQuestionIndex + 1);
       }
     });
   }
@@ -178,18 +335,21 @@ import Layout from '../../layouts/Layout.astro';
   if (btnExit) {
     btnExit.addEventListener('click', () => {
       if (confirm('Are you sure you want to exit? Your progress will be lost.')) {
+        sessionStorage.removeItem('mockInterviewConfig');
+        sessionStorage.removeItem('interviewAnswers');
+        sessionStorage.removeItem('interviewQuestions');
         window.location.href = '/interviews';
       }
     });
   }
 
-  // Auto-save functionality (simulated)
+  // Auto-save functionality
   let saveTimeout: NodeJS.Timeout;
   if (answerInput) {
     answerInput.addEventListener('input', () => {
       clearTimeout(saveTimeout);
       saveTimeout = setTimeout(() => {
-        // Auto-save answer to sessionStorage
+        saveCurrentAnswer();
         console.log('Answer auto-saved');
       }, 1000);
     });
