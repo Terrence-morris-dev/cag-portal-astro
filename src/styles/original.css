@@ -276,6 +276,32 @@
             grid-template-columns: repeat(4, 1fr);
             gap: 2rem;
             margin-top: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Mobile-only background image for stats section */
+        @media (max-width: 767px) {
+            .stats-bar::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-image: url('/images/benefits/soldier-professional.png');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                opacity: 0.15;
+                z-index: 0;
+                pointer-events: none;
+            }
+
+            .stat-item {
+                position: relative;
+                z-index: 1;
+            }
         }
 
         .stat-item {
