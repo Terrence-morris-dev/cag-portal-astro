@@ -75,109 +75,7 @@ import Footer from '../components/Footer.astro';
           </div>
 
           <div class="conversations-list">
-            <!-- Conversation 1 (Active) -->
-            <div class="conversation-item active">
-              <div class="conversation-avatar">
-                <div class="avatar" style="background: linear-gradient(135deg, #3b82f6, #2563eb);">SM</div>
-                <span class="online-indicator"></span>
-              </div>
-              <div class="conversation-content">
-                <div class="conversation-header-row">
-                  <span class="conversation-name">Sarah Mitchell</span>
-                  <span class="conversation-time">2 min ago</span>
-                </div>
-                <div class="conversation-preview">
-                  <span class="conversation-role">Senior Recruiter - Booz Allen Hamilton</span>
-                  <p class="conversation-last-message">Thanks for applying! I'd like to schedule an interview...</p>
-                </div>
-              </div>
-              <div class="conversation-meta">
-                <span class="unread-badge">2</span>
-                <span class="clearance-badge">TS/SCI</span>
-              </div>
-            </div>
-
-            <!-- Conversation 2 -->
-            <div class="conversation-item">
-              <div class="conversation-avatar">
-                <div class="avatar" style="background: linear-gradient(135deg, #10b981, #059669);">MC</div>
-              </div>
-              <div class="conversation-content">
-                <div class="conversation-header-row">
-                  <span class="conversation-name">Michael Chen</span>
-                  <span class="conversation-time">1 hour ago</span>
-                </div>
-                <div class="conversation-preview">
-                  <span class="conversation-role">Hiring Manager - Northrop Grumman</span>
-                  <p class="conversation-last-message">Your security clearance has been verified successfully...</p>
-                </div>
-              </div>
-              <div class="conversation-meta">
-                <span class="clearance-badge">Secret</span>
-              </div>
-            </div>
-
-            <!-- Conversation 3 -->
-            <div class="conversation-item">
-              <div class="conversation-avatar">
-                <div class="avatar" style="background: linear-gradient(135deg, #f59e0b, #d97706);">JR</div>
-                <span class="online-indicator"></span>
-              </div>
-              <div class="conversation-content">
-                <div class="conversation-header-row">
-                  <span class="conversation-name">Jessica Roberts</span>
-                  <span class="conversation-time">Yesterday</span>
-                </div>
-                <div class="conversation-preview">
-                  <span class="conversation-role">Network Engineer - Raytheon</span>
-                  <p class="conversation-last-message">Do you have experience with Cisco ASA firewalls?</p>
-                </div>
-              </div>
-              <div class="conversation-meta">
-                <span class="unread-badge">1</span>
-                <span class="clearance-badge">TS/SCI</span>
-              </div>
-            </div>
-
-            <!-- Conversation 4 -->
-            <div class="conversation-item">
-              <div class="conversation-avatar">
-                <div class="avatar" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed);">DW</div>
-              </div>
-              <div class="conversation-content">
-                <div class="conversation-header-row">
-                  <span class="conversation-name">David Wilson</span>
-                  <span class="conversation-time">2 days ago</span>
-                </div>
-                <div class="conversation-preview">
-                  <span class="conversation-role">Systems Administrator - Lockheed Martin</span>
-                  <p class="conversation-last-message">Great meeting you at the conference last week!</p>
-                </div>
-              </div>
-              <div class="conversation-meta">
-                <span class="clearance-badge">Secret</span>
-              </div>
-            </div>
-
-            <!-- Conversation 5 -->
-            <div class="conversation-item">
-              <div class="conversation-avatar">
-                <div class="avatar" style="background: linear-gradient(135deg, #dc2626, #991b1b);">AL</div>
-              </div>
-              <div class="conversation-content">
-                <div class="conversation-header-row">
-                  <span class="conversation-name">Amanda Lee</span>
-                  <span class="conversation-time">3 days ago</span>
-                </div>
-                <div class="conversation-preview">
-                  <span class="conversation-role">Technical Recruiter - General Dynamics</span>
-                  <p class="conversation-last-message">I have an exciting opportunity for you...</p>
-                </div>
-              </div>
-              <div class="conversation-meta">
-                <span class="clearance-badge">Top Secret</span>
-              </div>
-            </div>
+            <!-- Conversations will be dynamically rendered by messaging-poc.js -->
           </div>
         </div>
 
@@ -186,16 +84,8 @@ import Footer from '../components/Footer.astro';
 
           <!-- Conversation Header -->
           <div class="conversation-top-header">
-            <div class="header-left">
-              <div class="header-avatar">
-                <div class="avatar" style="background: linear-gradient(135deg, #3b82f6, #2563eb);">SM</div>
-                <span class="online-indicator"></span>
-              </div>
-              <div class="header-info">
-                <h3 class="header-name">Sarah Mitchell</h3>
-                <p class="header-role">Senior Recruiter - Booz Allen Hamilton</p>
-                <span class="header-status">Online</span>
-              </div>
+            <div class="conversation-header-info">
+              <!-- Will be dynamically rendered by messaging-poc.js -->
             </div>
             <div class="header-actions">
               <button class="action-btn" id="btnVideoCall" title="Video Call">
@@ -221,82 +111,7 @@ import Footer from '../components/Footer.astro';
 
           <!-- Messages Area -->
           <div class="messages-area">
-            <!-- Date Separator -->
-            <div class="date-separator">
-              <span>Today</span>
-            </div>
-
-            <!-- Received Message -->
-            <div class="message received">
-              <div class="message-avatar">
-                <div class="avatar-small" style="background: linear-gradient(135deg, #3b82f6, #2563eb);">SM</div>
-              </div>
-              <div class="message-content">
-                <div class="message-bubble">
-                  <p>Hi! Thanks for applying to our Network Security Engineer position. I reviewed your profile and I'm impressed with your TS/SCI clearance and Cisco certifications.</p>
-                </div>
-                <span class="message-time">10:23 AM</span>
-              </div>
-            </div>
-
-            <!-- Received Message 2 -->
-            <div class="message received">
-              <div class="message-avatar">
-                <div class="avatar-small" style="background: linear-gradient(135deg, #3b82f6, #2563eb);">SM</div>
-              </div>
-              <div class="message-content">
-                <div class="message-bubble">
-                  <p>Would you be available for a technical interview next week? We're looking to fill this position quickly.</p>
-                </div>
-                <span class="message-time">10:24 AM</span>
-              </div>
-            </div>
-
-            <!-- Sent Message -->
-            <div class="message sent">
-              <div class="message-content">
-                <div class="message-bubble">
-                  <p>Hi Sarah! Thank you for reaching out. Yes, I'd definitely be interested in discussing this opportunity. Next week works great for me.</p>
-                </div>
-                <div class="message-meta">
-                  <span class="message-time">10:28 AM</span>
-                  <svg class="read-receipt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polyline points="20 6 9 17 4 12"/>
-                    <polyline points="20 6 9 17 4 12" transform="translate(4, 0)"/>
-                  </svg>
-                </div>
-              </div>
-            </div>
-
-            <!-- Sent Message 2 -->
-            <div class="message sent">
-              <div class="message-content">
-                <div class="message-bubble">
-                  <p>I'm available Monday through Wednesday afternoons. What time works best for your team?</p>
-                </div>
-                <div class="message-meta">
-                  <span class="message-time">10:29 AM</span>
-                  <svg class="read-receipt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polyline points="20 6 9 17 4 12"/>
-                    <polyline points="20 6 9 17 4 12" transform="translate(4, 0)"/>
-                  </svg>
-                </div>
-              </div>
-            </div>
-
-            <!-- Typing Indicator -->
-            <div class="message received">
-              <div class="message-avatar">
-                <div class="avatar-small" style="background: linear-gradient(135deg, #3b82f6, #2563eb);">SM</div>
-              </div>
-              <div class="message-content">
-                <div class="typing-indicator">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </div>
-              </div>
-            </div>
+            <!-- Messages will be dynamically rendered by messaging-poc.js -->
           </div>
 
           <!-- Message Input -->
@@ -419,8 +234,8 @@ import Footer from '../components/Footer.astro';
 
 </Layout>
 
-<!-- POC Script temporarily disabled to show original UI -->
-<!-- <script src="/js/messaging-poc.js" is:inline></script> -->
+<!-- Messaging POC Script -->
+<script src="/js/messaging-poc.js" is:inline></script>
 
 <script is:inline>
 // Video Call POC
@@ -948,6 +763,13 @@ document.addEventListener('DOMContentLoaded', function() {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.conversation-header-info {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .header-left {
