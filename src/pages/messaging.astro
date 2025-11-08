@@ -1547,23 +1547,24 @@ document.addEventListener('DOMContentLoaded', function() {
 /* Call Controls */
 .call-controls {
   background: rgba(0, 0, 0, 0.9);
-  padding: 1.5rem;
+  padding: 1.5rem 2rem 2.5rem 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1.5rem;
+  gap: 2.5rem;
 }
 
 .call-btn {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   background: rgba(255, 255, 255, 0.1);
   border: none;
   border-radius: 50%;
-  width: 60px;
-  height: 60px;
+  width: 64px;
+  height: 64px;
   color: var(--white);
   cursor: pointer;
   transition: all 0.3s;
@@ -1572,14 +1573,15 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 .call-btn svg {
-  width: 24px;
-  height: 24px;
+  width: 26px;
+  height: 26px;
 }
 
 .call-btn span {
   position: absolute;
-  bottom: -24px;
-  font-size: 0.75rem;
+  bottom: -26px;
+  font-size: 0.8rem;
+  font-weight: 500;
   white-space: nowrap;
 }
 
@@ -1600,13 +1602,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
 .call-btn-end {
   background: #dc2626;
-  width: 64px;
-  height: 64px;
+  width: 68px;
+  height: 68px;
 }
 
 .call-btn-end:hover {
   background: #b91c1c;
   transform: translateY(-2px);
+}
+
+.call-btn-end svg {
+  width: 28px;
+  height: 28px;
 }
 
 /* Animations */
@@ -1651,17 +1658,28 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   .call-controls {
-    gap: 1rem;
+    gap: 1.5rem;
+    padding: 1rem 1.5rem 2rem 1.5rem;
   }
 
   .call-btn {
-    width: 50px;
-    height: 50px;
+    width: 56px;
+    height: 56px;
   }
 
   .call-btn svg {
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
+  }
+
+  .call-btn span {
+    font-size: 0.7rem;
+    bottom: -22px;
+  }
+
+  .call-btn-end {
+    width: 60px;
+    height: 60px;
   }
 }
 </style>
