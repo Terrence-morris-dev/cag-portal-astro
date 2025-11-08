@@ -29,7 +29,7 @@
                             <span class="badge badge-hard">28 Hard</span>
                         </div>
                     </div>
-                    <button class="btn-category">Start Practice →</button>
+                    <button class="btn-category" data-category="helpdesk">Start Practice →</button>
                 </div>
             </div>
 
@@ -55,7 +55,7 @@
                             <span class="badge badge-hard">16 Hard</span>
                         </div>
                     </div>
-                    <button class="btn-category">Start Practice →</button>
+                    <button class="btn-category" data-category="network">Start Practice →</button>
                 </div>
             </div>
 
@@ -80,7 +80,7 @@
                             <span class="badge badge-hard">16 Hard</span>
                         </div>
                     </div>
-                    <button class="btn-category">Start Practice →</button>
+                    <button class="btn-category" data-category="systems">Start Practice →</button>
                 </div>
             </div>
 
@@ -107,7 +107,7 @@
                             <span class="badge badge-hard">16 Hard</span>
                         </div>
                     </div>
-                    <button class="btn-category">Start Practice →</button>
+                    <button class="btn-category" data-category="fiber">Start Practice →</button>
                 </div>
             </div>
 
@@ -131,7 +131,7 @@
                             <span class="badge badge-hard">16 Hard</span>
                         </div>
                     </div>
-                    <button class="btn-category">Start Practice →</button>
+                    <button class="btn-category" data-category="isp">Start Practice →</button>
                 </div>
             </div>
 
@@ -154,7 +154,7 @@
                             <span class="badge badge-hard">16 Hard</span>
                         </div>
                     </div>
-                    <button class="btn-category">Start Practice →</button>
+                    <button class="btn-category" data-category="osp">Start Practice →</button>
                 </div>
             </div>
         </div>
@@ -295,3 +295,30 @@
     }
 }
 </style>
+
+<script>
+  // Handle category button clicks - link to mock interview with pre-selected category
+  document.addEventListener('DOMContentLoaded', () => {
+    const categoryButtons = document.querySelectorAll('.btn-category');
+
+    categoryButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const category = button.getAttribute('data-category');
+
+        // Set default configuration with selected category
+        const config = {
+          category: category,
+          difficulty: 'mixed',
+          questionCount: '10',
+          mode: 'untimed'
+        };
+
+        // Save to sessionStorage
+        sessionStorage.setItem('mockInterviewConfig', JSON.stringify(config));
+
+        // Navigate to mock interview setup page
+        window.location.href = '/mock-interview';
+      });
+    });
+  });
+</script>

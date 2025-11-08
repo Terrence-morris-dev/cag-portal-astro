@@ -296,6 +296,48 @@ import Footer from '../../components/Footer.astro';
 </Layout>
 
 <script>
+  // Load pre-selected configuration from sessionStorage if available
+  document.addEventListener('DOMContentLoaded', () => {
+    const configStr = sessionStorage.getItem('mockInterviewConfig');
+    if (configStr) {
+      try {
+        const config = JSON.parse(configStr);
+
+        // Pre-select category
+        if (config.category) {
+          const categoryInput = document.querySelector(`input[name="category"][value="${config.category}"]`) as HTMLInputElement;
+          if (categoryInput) {
+            categoryInput.checked = true;
+            // Update summary
+            const categoryName = categoryInput.nextElementSibling?.querySelector('.category-name')?.textContent || '';
+            const summaryCategory = document.getElementById('summaryCategory');
+            if (summaryCategory) summaryCategory.textContent = categoryName;
+          }
+        }
+
+        // Pre-select difficulty
+        if (config.difficulty) {
+          const difficultyInput = document.querySelector(`input[name="difficulty"][value="${config.difficulty}"]`) as HTMLInputElement;
+          if (difficultyInput) difficultyInput.checked = true;
+        }
+
+        // Pre-select question count
+        if (config.questionCount) {
+          const countInput = document.querySelector(`input[name="questionCount"][value="${config.questionCount}"]`) as HTMLInputElement;
+          if (countInput) countInput.checked = true;
+        }
+
+        // Pre-select mode
+        if (config.mode) {
+          const modeInput = document.querySelector(`input[name="mode"][value="${config.mode}"]`) as HTMLInputElement;
+          if (modeInput) modeInput.checked = true;
+        }
+      } catch (e) {
+        console.error('Error loading saved config:', e);
+      }
+    }
+  });
+
   // Update summary sidebar when selections change
   const form = document.getElementById('mockInterviewForm');
 
