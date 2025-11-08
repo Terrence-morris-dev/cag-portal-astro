@@ -339,7 +339,6 @@ import Footer from '../components/Footer.astro';
     </div>
   </section>
 
-  <Footer />
 </Layout>
 
 <!-- POC Script temporarily disabled to show original UI -->
@@ -348,9 +347,10 @@ import Footer from '../components/Footer.astro';
 <style>
 /* Messaging App Section */
 .messaging-app-section {
-  padding: 0 0 3rem 0;
+  padding: 0;
   background: #f8f9fb;
   min-height: calc(100vh - 80px);
+  height: calc(100vh - 80px);
 }
 
 .container-fluid {
@@ -362,9 +362,10 @@ import Footer from '../components/Footer.astro';
 .messaging-app {
   display: grid;
   grid-template-columns: 280px 400px 1fr;
-  height: 700px;
+  height: 100%;
   background: var(--white);
   border: 1px solid #e5e7eb;
+  border-radius: 0;
 }
 
 /* Sidebar */
