@@ -9,6 +9,16 @@ class MockInterview {
   }
 
   async init() {
+    // Check for saved progress first
+    const hasProgress = this.loadProgress();
+
+    if (hasProgress) {
+      // Progress was loaded, skip loading new questions
+      this.setupUI();
+      this.displayCurrentQuestion();
+      return;
+    }
+
     // Load configuration from sessionStorage
     const configStr = sessionStorage.getItem('mockInterviewConfig');
     if (!configStr) {
@@ -193,13 +203,78 @@ class MockInterview {
   }
 
   exitInterview() {
-    if (confirm('Are you sure you want to exit? Your progress will be lost.')) {
-      sessionStorage.removeItem('mockInterviewConfig');
-      window.location.href = '/mock-interview';
+    // Show custom modal with save option
+    const currentQuestion = this.currentIndex + 1;
+    const totalQuestions = this.questions.length;
+    const questionsLeft = totalQuestions - this.currentIndex;
+
+    const message = `Are you sure you want to exit?\n\nYou're on question ${currentQuestion} of ${totalQuestions}.\nYou have ${questionsLeft} question${questionsLeft !== 1 ? 's' : ''} left.\n\nDo you want to save your progress and resume later?`;
+
+    const userChoice = confirm(message);
+
+    if (userChoice) {
+      // User clicked OK - Save progress
+      this.saveProgress();
+      alert('Your progress has been saved! You can resume this interview later from the interviews page.');
+      window.location.href = '/interviews';
+    } else {
+      // User clicked Cancel - Ask if they want to exit without saving
+      const exitConfirm = confirm('Exit without saving? Your answers will be lost.');
+      if (exitConfirm) {
+        sessionStorage.removeItem('mockInterviewConfig');
+        sessionStorage.removeItem('mockInterviewProgress');
+        window.location.href = '/mock-interview';
+      }
+      // If they cancel again, stay on the page
     }
   }
 
+  saveProgress() {
+    const progress = {
+      config: this.config,
+      currentIndex: this.currentIndex,
+      answers: this.answers,
+      questions: this.questions,
+      startTime: this.startTime,
+      savedAt: new Date().toISOString()
+    };
+
+    sessionStorage.setItem('mockInterviewProgress', JSON.stringify(progress));
+  }
+
+  loadProgress() {
+    const progressStr = sessionStorage.getItem('mockInterviewProgress');
+    if (progressStr) {
+      try {
+        const progress = JSON.parse(progressStr);
+
+        // Ask if they want to resume
+        const questionsLeft = progress.questions.length - progress.currentIndex;
+        const resume = confirm(`You have a saved interview in progress!\n\nCategory: ${progress.config.category}\nQuestions left: ${questionsLeft}\n\nDo you want to resume where you left off?`);
+
+        if (resume) {
+          this.questions = progress.questions;
+          this.currentIndex = progress.currentIndex;
+          this.answers = progress.answers;
+          this.startTime = progress.startTime;
+          this.config = progress.config;
+          return true;
+        } else {
+          // Clear saved progress if they don't want to resume
+          sessionStorage.removeItem('mockInterviewProgress');
+        }
+      } catch (e) {
+        console.error('Error loading progress:', e);
+        sessionStorage.removeItem('mockInterviewProgress');
+      }
+    }
+    return false;
+  }
+
   finishInterview() {
+    // Clear saved progress since they're finishing
+    sessionStorage.removeItem('mockInterviewProgress');
+
     // Save results
     sessionStorage.setItem('mockInterviewResults', JSON.stringify({
       config: this.config,
