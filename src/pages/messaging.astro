@@ -3,28 +3,35 @@ import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/NavbarNew.astro';
 import MessagingHeader from '../components/messaging/MessagingHeader.astro';
 import Footer from '../components/Footer.astro';
+
+// Only show phone mockup and toggle in development mode
+const isDev = import.meta.env.DEV;
 ---
 
 <Layout title="Messaging - Cleared Advisory Group">
 
-  <!-- VIEW TOGGLE SWITCH - DELETE LATER -->
-  <div class="view-toggle-container">
-    <button id="viewToggle" class="view-toggle-btn">
-      <span class="toggle-icon">📱</span>
-      <span class="toggle-text">Switch to Desktop View</span>
-    </button>
-  </div>
-
-  <!-- PHONE MOCKUP FRAME - DELETE LATER -->
-  <div class="phone-mockup-wrapper" id="phoneMockup">
-    <div class="phone-frame">
-      <div class="phone-notch"></div>
-      <div class="phone-screen">
-        <!-- Content will be injected here -->
+  {isDev && (
+    <>
+      <!-- VIEW TOGGLE SWITCH - DEV ONLY -->
+      <div class="view-toggle-container">
+        <button id="viewToggle" class="view-toggle-btn">
+          <span class="toggle-icon">📱</span>
+          <span class="toggle-text">Switch to Desktop View</span>
+        </button>
       </div>
-      <div class="phone-home-indicator"></div>
-    </div>
-  </div>
+
+      <!-- PHONE MOCKUP FRAME - DEV ONLY -->
+      <div class="phone-mockup-wrapper" id="phoneMockup">
+        <div class="phone-frame">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <!-- Content will be injected here -->
+          </div>
+          <div class="phone-home-indicator"></div>
+        </div>
+      </div>
+    </>
+  )}
 
   <div class="desktop-only">
     <Navbar />
@@ -537,36 +544,40 @@ let yOffset = 0;
 
 document.addEventListener('DOMContentLoaded', function() {
 
-  // VIEW TOGGLE & PHONE MOCKUP - DELETE LATER
+  // VIEW TOGGLE & PHONE MOCKUP - DEV ONLY
   const viewToggle = document.getElementById('viewToggle');
-  const toggleText = viewToggle.querySelector('.toggle-text');
-  const toggleIcon = viewToggle.querySelector('.toggle-icon');
   const phoneMockup = document.getElementById('phoneMockup');
   const phoneScreen = document.querySelector('.phone-screen');
   const messagingContent = document.getElementById('messagingContent');
-  let isMobileView = true;
 
-  // Start in mobile view with phone mockup
-  document.body.classList.add('phone-mockup-mode');
-  phoneScreen.appendChild(messagingContent);
+  // Only run phone mockup code if elements exist (dev mode)
+  if (viewToggle && phoneMockup && phoneScreen) {
+    const toggleText = viewToggle.querySelector('.toggle-text');
+    const toggleIcon = viewToggle.querySelector('.toggle-icon');
+    let isMobileView = true;
 
-  viewToggle.addEventListener('click', function() {
-    isMobileView = !isMobileView;
-    document.body.classList.toggle('force-desktop-view');
-    document.body.classList.toggle('phone-mockup-mode');
+    // Start in mobile view with phone mockup
+    document.body.classList.add('phone-mockup-mode');
+    phoneScreen.appendChild(messagingContent);
 
-    if (isMobileView) {
-      // Switch to mobile view with phone mockup
-      toggleText.textContent = 'Switch to Desktop View';
-      toggleIcon.textContent = '📱';
-      phoneScreen.appendChild(messagingContent);
-    } else {
-      // Switch to desktop view
-      toggleText.textContent = 'Switch to Mobile View';
-      toggleIcon.textContent = '💻';
-      document.body.appendChild(messagingContent);
-    }
-  });
+    viewToggle.addEventListener('click', function() {
+      isMobileView = !isMobileView;
+      document.body.classList.toggle('force-desktop-view');
+      document.body.classList.toggle('phone-mockup-mode');
+
+      if (isMobileView) {
+        // Switch to mobile view with phone mockup
+        toggleText.textContent = 'Switch to Desktop View';
+        toggleIcon.textContent = '📱';
+        phoneScreen.appendChild(messagingContent);
+      } else {
+        // Switch to desktop view
+        toggleText.textContent = 'Switch to Mobile View';
+        toggleIcon.textContent = '💻';
+        document.body.appendChild(messagingContent);
+      }
+    });
+  }
 
   // Back button - navigate to home/dashboard
   const btnBack = document.getElementById('btnBack');
