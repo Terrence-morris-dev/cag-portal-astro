@@ -2375,10 +2375,10 @@
 }
 
 /* ========================================
-   EXTRA SMALL MOBILE (max-width: 480px)
+   MOBILE DEVICES (max-width: 768px)
    ======================================== */
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
     h1 {
         font-size: 1.75rem !important;
     }
