@@ -2576,7 +2576,7 @@
     .action-btn {
         padding: 0.625rem;
         background: rgba(30, 41, 59, 0.6);
-        border: 1px solid rgba(212, 175, 55, 0.3);
+        border: 2px solid var(--gold);
         color: var(--gold);
         cursor: pointer;
         border-radius: 0.5rem;
@@ -2588,9 +2588,10 @@
 
     .action-btn:hover,
     .action-btn:active {
-        background: rgba(51, 65, 85, 0.8);
+        background: rgba(212, 175, 55, 0.15);
         border-color: var(--gold);
         color: var(--gold);
+        transform: scale(1.05);
     }
 
     .action-btn svg {
@@ -2608,13 +2609,13 @@
         display: flex !important;
     }
 
-    /* Messages area - scrollable */
+    /* Messages area - scrollable - Dark Mode */
     .messages-area {
         flex: 1;
         overflow-y: auto;
         overflow-x: hidden;
         padding: 1rem;
-        background: #0f172a;
+        background: #1e293b;
         -webkit-overflow-scrolling: touch;
     }
 
@@ -2657,6 +2658,8 @@
 
     /* Input area - fixed at bottom */
     .message-input-area {
+        display: flex !important;
+        flex-direction: column;
         position: sticky;
         bottom: 0;
         background: var(--navy);
@@ -2783,6 +2786,61 @@
 
     .typing-indicator span:nth-child(2) {
         animation-delay: 0.2s;
+    }
+
+    /* Settings Dropdown - Mobile Optimized */
+    .settings-dropdown {
+        position: fixed !important;
+        top: auto !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        margin: 0 !important;
+        border-radius: 1.5rem 1.5rem 0 0 !important;
+        max-height: 70vh;
+        overflow-y: auto;
+        background: var(--navy) !important;
+        border: 2px solid rgba(212, 175, 55, 0.3) !important;
+        border-bottom: none !important;
+    }
+
+    .settings-dropdown.show {
+        display: block;
+        animation: slideUp 0.3s ease-out;
+    }
+
+    .dropdown-header {
+        background: rgba(30, 41, 59, 0.8) !important;
+        border-bottom: 1px solid rgba(212, 175, 55, 0.2) !important;
+        padding: 1.25rem !important;
+    }
+
+    .dropdown-header h4 {
+        color: var(--white) !important;
+        font-size: 1.125rem !important;
+    }
+
+    .dropdown-item {
+        color: var(--white) !important;
+        padding: 1rem 1.25rem !important;
+        font-size: 1rem !important;
+    }
+
+    .dropdown-item:hover,
+    .dropdown-item:active {
+        background: rgba(212, 175, 55, 0.15) !important;
+        color: var(--gold) !important;
+    }
+
+    @keyframes slideUp {
+        from {
+            transform: translateY(100%);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
     }
 
     .typing-indicator span:nth-child(3) {
