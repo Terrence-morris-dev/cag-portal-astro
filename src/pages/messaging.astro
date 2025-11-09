@@ -2123,6 +2123,86 @@ body.force-desktop-view .desktop-only-btn {
     height: 44px;
   }
 
+  /* DARK MODE & GOLD BUTTONS - MOBILE */
+  .desktop-only {
+    display: none !important;
+  }
+
+  .messaging-app-section {
+    padding: 0 !important;
+    margin: 0 !important;
+    height: 100vh !important;
+    overflow: hidden !important;
+  }
+
+  .messaging-app {
+    height: 100vh !important;
+    display: flex !important;
+    flex-direction: column !important;
+    background: #1e293b !important;
+  }
+
+  .messaging-sidebar,
+  .conversations-panel {
+    display: none !important;
+  }
+
+  .active-conversation {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100vh !important;
+    background: #1e293b !important;
+    border: none !important;
+  }
+
+  .conversation-top-header {
+    background: var(--navy) !important;
+    border-bottom: 2px solid rgba(212, 175, 55, 0.3) !important;
+    padding: 0.625rem 0.75rem !important;
+  }
+
+  .messages-area {
+    background: #1e293b !important;
+    flex: 1 !important;
+    overflow-y: auto !important;
+  }
+
+  .action-btn {
+    background: rgba(30, 41, 59, 0.6) !important;
+    border: 2px solid var(--gold) !important;
+    color: var(--gold) !important;
+  }
+
+  .desktop-only-btn {
+    display: none !important;
+  }
+
+  .mobile-menu-btn {
+    display: flex !important;
+  }
+
+  .header-role-bottom {
+    display: block !important;
+    text-align: center;
+    color: var(--gold);
+    font-size: 0.6875rem;
+    padding: 0.25rem 0 0.375rem 0;
+  }
+
+  .header-info {
+    display: none !important;
+  }
+
+  .message-input-area {
+    background: var(--navy) !important;
+    border-top: 2px solid rgba(212, 175, 55, 0.2) !important;
+  }
+
+  .btn-send {
+    background: linear-gradient(135deg, var(--gold) 0%, #f4c542 100%) !important;
+    color: var(--navy) !important;
+  }
+
   .header-name {
     font-size: 1.1rem;
   }
