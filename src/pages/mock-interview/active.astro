@@ -42,6 +42,30 @@ import Layout from '../../layouts/Layout.astro';
           </div>
         </div>
 
+        <!-- Interview Tips (Inside Question Card) -->
+        <div class="answer-tips" id="answerTips">
+          <div class="tips-header">
+            <div class="tips-header-left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+              </svg>
+              <span>Interview Tips</span>
+            </div>
+            <button class="tips-close-btn" id="btnCloseTips" title="Close tips">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="6" x2="6" y2="18"/>
+                <line x1="6" y1="6" x2="18" y2="18"/>
+              </svg>
+            </button>
+          </div>
+          <ul class="tips-list">
+            <li>✓ Be specific and detailed in your explanation</li>
+            <li>✓ Use proper technical terminology</li>
+            <li>✓ Explain with step-by-step process</li>
+            <li>✓ Provide real-world examples when possible</li>
+          </ul>
+        </div>
+
         <div class="question-content">
           <h2 class="question-text" id="questionText">
             Explain the difference between a switch and a router, and when you would use each in a network infrastructure.
@@ -79,29 +103,6 @@ import Layout from '../../layouts/Layout.astro';
           placeholder="Type your answer here... Be specific, use technical terminology, and provide examples where relevant."
           rows="10"
         ></textarea>
-
-        <div class="answer-tips" id="answerTips">
-          <div class="tips-header">
-            <div class="tips-header-left">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-              </svg>
-              <span>Interview Tips</span>
-            </div>
-            <button class="tips-close-btn" id="btnCloseTips" title="Close tips">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <line x1="18" y1="6" x2="6" y2="18"/>
-                <line x1="6" y1="6" x2="18" y2="18"/>
-              </svg>
-            </button>
-          </div>
-          <ul class="tips-list">
-            <li>✓ Be specific and detailed in your explanation</li>
-            <li>✓ Use proper technical terminology</li>
-            <li>✓ Explain with step-by-step process</li>
-            <li>✓ Provide real-world examples when possible</li>
-          </ul>
-        </div>
 
         <div class="answer-actions-fixed">
           <button class="btn-skip" id="btnSkip">
@@ -326,6 +327,9 @@ import Layout from '../../layouts/Layout.astro';
     sessionStorage.setItem('interviewAnswers', JSON.stringify(answers));
     sessionStorage.setItem('interviewQuestions', JSON.stringify(questions));
 
+    // Clear tips dismissed state for next interview
+    sessionStorage.removeItem('interviewTipsDismissed');
+
     // Navigate to results
     window.location.href = '/mock-interview/results';
   }
@@ -368,12 +372,23 @@ import Layout from '../../layouts/Layout.astro';
     });
   }
 
-  // Close tips button
+  // Close tips button - persist for entire session
   const btnCloseTips = document.getElementById('btnCloseTips');
   const answerTips = document.getElementById('answerTips');
+
+  // Check if tips were dismissed in this session
+  if (answerTips) {
+    const tipsDismissed = sessionStorage.getItem('interviewTipsDismissed');
+    if (tipsDismissed === 'true') {
+      answerTips.style.display = 'none';
+    }
+  }
+
   if (btnCloseTips && answerTips) {
     btnCloseTips.addEventListener('click', () => {
       answerTips.style.display = 'none';
+      // Save dismissed state for entire session
+      sessionStorage.setItem('interviewTipsDismissed', 'true');
     });
   }
 
@@ -385,6 +400,7 @@ import Layout from '../../layouts/Layout.astro';
         sessionStorage.removeItem('mockInterviewConfig');
         sessionStorage.removeItem('interviewAnswers');
         sessionStorage.removeItem('interviewQuestions');
+        sessionStorage.removeItem('interviewTipsDismissed');
         window.location.href = '/interviews';
       }
     });
@@ -693,10 +709,23 @@ import Layout from '../../layouts/Layout.astro';
 }
 
 .answer-tips {
-  margin: 1.5rem 0;
+  margin: 0 0 1.5rem 0;
   padding: 1.5rem;
-  background: #f8f9fb;
+  background: #fef3c7;
+  border: 2px solid #fbbf24;
   border-radius: 12px;
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .tips-header {
