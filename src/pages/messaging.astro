@@ -198,18 +198,25 @@ import Footer from '../components/Footer.astro';
                   <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
                 </svg>
               </button>
-              <button class="action-btn" id="btnArchive" title="Archive">
+              <button class="action-btn desktop-only-btn" id="btnArchive" title="Archive">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <polyline points="21 8 21 21 3 21 3 8"/>
                   <rect x="1" y="3" width="22" height="5"/>
                   <line x1="10" y1="12" x2="14" y2="12"/>
                 </svg>
               </button>
-              <button class="action-btn" id="btnSettings" title="Settings">
+              <button class="action-btn desktop-only-btn" id="btnSettings" title="Settings">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <circle cx="12" cy="12" r="1"/>
                   <circle cx="12" cy="5" r="1"/>
                   <circle cx="12" cy="19" r="1"/>
+                </svg>
+              </button>
+              <button class="action-btn mobile-menu-btn" id="btnMobileMenu" title="Menu">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="3" y1="12" x2="21" y2="12"/>
+                  <line x1="3" y1="6" x2="21" y2="6"/>
+                  <line x1="3" y1="18" x2="21" y2="18"/>
                 </svg>
               </button>
             </div>
@@ -725,16 +732,29 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Settings dropdown toggle
-  if (btnSettings && settingsDropdown) {
-    btnSettings.addEventListener('click', function(e) {
-      e.stopPropagation();
-      settingsDropdown.classList.toggle('show');
-    });
+  // Settings dropdown toggle (desktop and mobile)
+  const btnMobileMenu = document.getElementById('btnMobileMenu');
 
+  // Function to toggle dropdown
+  const toggleDropdown = function(e) {
+    e.stopPropagation();
+    settingsDropdown.classList.toggle('show');
+  };
+
+  // Add click handlers for both buttons
+  if (btnSettings && settingsDropdown) {
+    btnSettings.addEventListener('click', toggleDropdown);
+  }
+
+  if (btnMobileMenu && settingsDropdown) {
+    btnMobileMenu.addEventListener('click', toggleDropdown);
+  }
+
+  if (settingsDropdown) {
     // Close dropdown when clicking outside
     document.addEventListener('click', function(e) {
-      if (settingsDropdown && !settingsDropdown.contains(e.target) && !btnSettings.contains(e.target)) {
+      if (settingsDropdown && !settingsDropdown.contains(e.target) &&
+          !btnSettings?.contains(e.target) && !btnMobileMenu?.contains(e.target)) {
         settingsDropdown.classList.remove('show');
       }
     });
@@ -1346,6 +1366,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
 .dropdown-item:hover svg {
   color: var(--gold);
+}
+
+/* Mobile Menu Button - Hidden by default, shown on mobile */
+.mobile-menu-btn {
+  display: none;
 }
 
 .conversation-top-header {
