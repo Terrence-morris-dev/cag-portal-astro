@@ -80,12 +80,20 @@ import Layout from '../../layouts/Layout.astro';
           rows="10"
         ></textarea>
 
-        <div class="answer-tips">
+        <div class="answer-tips" id="answerTips">
           <div class="tips-header">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-            </svg>
-            <span>Interview Tips</span>
+            <div class="tips-header-left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+              </svg>
+              <span>Interview Tips</span>
+            </div>
+            <button class="tips-close-btn" id="btnCloseTips" title="Close tips">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="6" x2="6" y2="18"/>
+                <line x1="6" y1="6" x2="18" y2="18"/>
+              </svg>
+            </button>
           </div>
           <ul class="tips-list">
             <li>✓ Be specific and detailed in your explanation</li>
@@ -95,7 +103,7 @@ import Layout from '../../layouts/Layout.astro';
           </ul>
         </div>
 
-        <div class="answer-actions">
+        <div class="answer-actions-fixed">
           <button class="btn-skip" id="btnSkip">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M5 4l10 8-10 8V4z"/>
@@ -200,6 +208,27 @@ import Layout from '../../layouts/Layout.astro';
   let questions = [];
   let answers = [];
   let config = {};
+  let timerInterval;
+  let totalSeconds = 0;
+
+  // Timer Functions
+  function startTimer() {
+    const timerElement = document.getElementById('timer');
+    if (!timerElement) return;
+
+    timerInterval = setInterval(() => {
+      totalSeconds++;
+      const minutes = Math.floor(totalSeconds / 60);
+      const seconds = totalSeconds % 60;
+      timerElement.textContent = `⏱️ ${minutes}:${seconds.toString().padStart(2, '0')}`;
+    }, 1000);
+  }
+
+  function stopTimer() {
+    if (timerInterval) {
+      clearInterval(timerInterval);
+    }
+  }
 
   // Initialize interview
   document.addEventListener('DOMContentLoaded', () => {
@@ -218,6 +247,9 @@ import Layout from '../../layouts/Layout.astro';
 
       // Initialize answers array
       answers = new Array(questions.length).fill(null);
+
+      // Start the timer
+      startTimer();
 
       // Load first question
       loadQuestion(0);
@@ -284,6 +316,12 @@ import Layout from '../../layouts/Layout.astro';
   }
 
   function finishInterview() {
+    // Stop the timer
+    stopTimer();
+
+    // Save interview time
+    sessionStorage.setItem('interviewTime', totalSeconds.toString());
+
     // Save all answers to sessionStorage
     sessionStorage.setItem('interviewAnswers', JSON.stringify(answers));
     sessionStorage.setItem('interviewQuestions', JSON.stringify(questions));
@@ -327,6 +365,15 @@ import Layout from '../../layouts/Layout.astro';
       if (confirm('Are you sure you want to skip this question?')) {
         loadQuestion(currentQuestionIndex + 1);
       }
+    });
+  }
+
+  // Close tips button
+  const btnCloseTips = document.getElementById('btnCloseTips');
+  const answerTips = document.getElementById('answerTips');
+  if (btnCloseTips && answerTips) {
+    btnCloseTips.addEventListener('click', () => {
+      answerTips.style.display = 'none';
     });
   }
 
@@ -655,16 +702,45 @@ import Layout from '../../layouts/Layout.astro';
 .tips-header {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  justify-content: space-between;
   font-weight: 700;
   color: var(--navy);
   margin-bottom: 1rem;
 }
 
-.tips-header svg {
+.tips-header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.tips-header-left svg {
   width: 20px;
   height: 20px;
   color: var(--gold);
+}
+
+.tips-close-btn {
+  background: transparent;
+  border: none;
+  color: #9ca3af;
+  cursor: pointer;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  transition: all 0.3s;
+}
+
+.tips-close-btn:hover {
+  background: #f3f4f6;
+  color: #6b7280;
+}
+
+.tips-close-btn svg {
+  width: 20px;
+  height: 20px;
 }
 
 .tips-list {
@@ -685,6 +761,20 @@ import Layout from '../../layouts/Layout.astro';
   display: flex;
   gap: 1rem;
   margin-top: 2rem;
+}
+
+.answer-actions-fixed {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  position: sticky;
+  bottom: 0;
+  background: var(--white);
+  padding: 1.5rem;
+  border-top: 2px solid #f3f4f6;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.05);
+  border-radius: 16px 16px 0 0;
+  z-index: 10;
 }
 
 .btn-skip {
@@ -757,12 +847,163 @@ import Layout from '../../layouts/Layout.astro';
     grid-template-columns: 1fr;
   }
 
-  .answer-actions {
+  .answer-actions,
+  .answer-actions-fixed {
     flex-direction: column;
   }
 
   .progress-info {
     font-size: 0.9rem;
+  }
+
+  /* Improved Mobile Layout */
+  .interview-main {
+    padding: 1rem 0;
+    min-height: auto;
+  }
+
+  .container-interview {
+    padding: 0 1rem;
+  }
+
+  .progress-header {
+    padding: 1rem 0;
+    top: 56px;
+  }
+
+  .progress-info {
+    gap: 0.75rem;
+  }
+
+  .category-badge,
+  .timer {
+    padding: 0.3rem 0.75rem;
+    font-size: 0.75rem;
+  }
+
+  .question-card {
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 12px;
+  }
+
+  .question-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .question-badges {
+    gap: 0.5rem;
+  }
+
+  .question-content {
+    margin-bottom: 1rem;
+  }
+
+  .question-text {
+    font-size: 1.125rem;
+    line-height: 1.6;
+  }
+
+  .answer-section {
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+
+  .answer-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .answer-stats {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.8125rem;
+  }
+
+  .answer-textarea {
+    min-height: 150px;
+    font-size: 0.9375rem;
+    padding: 1rem;
+  }
+
+  .answer-tips {
+    margin: 1rem 0;
+    padding: 1rem;
+  }
+
+  .tips-header {
+    font-size: 0.9375rem;
+  }
+
+  .tips-list li {
+    font-size: 0.8125rem;
+    padding: 0.25rem 0;
+  }
+
+  .answer-actions-fixed {
+    padding: 1rem;
+    gap: 0.75rem;
+    margin-top: 0;
+  }
+
+  .btn-skip,
+  .btn-next {
+    padding: 0.875rem 1.5rem;
+    font-size: 0.9375rem;
+    border-radius: 10px;
+  }
+
+  .btn-skip svg,
+  .btn-next svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .hint-toggle {
+    padding: 0.625rem 1rem;
+    font-size: 0.8125rem;
+  }
+
+  .hint-content {
+    padding: 0.875rem;
+    font-size: 0.8125rem;
+  }
+
+  /* Compact mode for very small screens */
+  @media (max-width: 375px) {
+    .container-interview {
+      padding: 0 0.75rem;
+    }
+
+    .question-card,
+    .answer-section {
+      padding: 1rem;
+    }
+
+    .question-text {
+      font-size: 1rem;
+    }
+
+    .answer-textarea {
+      min-height: 120px;
+      font-size: 0.875rem;
+    }
+
+    .answer-actions-fixed {
+      padding: 0.75rem;
+    }
+
+    .btn-skip,
+    .btn-next {
+      padding: 0.75rem 1.25rem;
+      font-size: 0.875rem;
+    }
   }
 }
 </style>
